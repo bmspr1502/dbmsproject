@@ -63,31 +63,58 @@
     
     <div class="container-fluid p-0" id="enrolledcourses">
        <h3> Enrolled courses</h3>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 course"  >
-                    <h5><center>DBMS COURSE</center></h5>
-                    <form >
-                        <button id="btn">Viewcourse</button>
-                    </form>
-                                </div>
-                                <div class="col-md-3 course"  >
-                                    <h5><center>DSA COURSE</center></h5>
-                                    <form >
-                                        <button id="btn">Viewcourse</button>
-                                    </form>
-                                                </div>
-                                                <div class="col-md-3 course"  >
-                                                    <h5><center>OS COURSE</center></h5>
-                                                    <form >
-                                                        <button id="btn">Viewcourse</button>
-                                                    </form>
-                                                                </div>
-                                
-
+       <h3> Enrolled courses</h3>
+	   <?php 
+$sql="select course_details.name from course_details 
+  INNER JOIN student_courses ON student_courses.courseid=course_details.courseid 
+  where student_courses.rollno='{$_SESSION['sroll_no']}' " ;
+   $query_run=mysqli_query($con,$sql);
+   $storeArray = Array();
+   while ($row =$query_run->fetch_assoc()) {
+    $storeArray[] =  $row['name'];  
+}
+$total=count($storeArray);
+ $i=0;
+ while($i < $total)
+ {  echo'<div class="container" id="box">';
+	echo   '<div class="card text-white bg-warning mb-3" style="max-width: 18rem;margin:20px;" id="cardcourse">';
+	echo     '<div class="card-header">';
+    echo       ' <h5 class="card-title">'; echo $storeArray[$i]; echo'</h5>
             </div>
-            
-        </div>
+  <div class="card-body">
+    
+    
+  </div>
+  </div>
+  </div>';
+  $i++;
+ }
+ ?>   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
 
     </div>
     </div>
@@ -99,4 +126,5 @@
 </body>
 
 </html>
+
 
