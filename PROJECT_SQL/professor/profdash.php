@@ -42,7 +42,7 @@ if(!isset($_SESSION['pid']))
                <a href="view_all_course.php">
                 <li>VIEW All COURSES</li></a>
                 
-                <a href="student_notifications.php">
+                <a href="professor_notifications.php">
                 <li>SEND NOTIFICATIONS</li>
                 </a>
                 <a href="student_notifications.php">
