@@ -1,5 +1,5 @@
 <?php
-require 'C:\xampp\htdocs\PROJECT_SQL\dbconfig\config.php';
+require '../dbconfig/config.php';
 require "acommon_dash.php";
 ?>
 <!DOCTYPE html>
@@ -9,9 +9,9 @@ require "acommon_dash.php";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Bootstrap CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="C:\xampp\htdocs\PROJECT_SQL\bootstrap\css\stddashstyle.css" rel="stylesheet" >
-	<link href="fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+	<link href="../bootstrap/css/stddashstyle.css" rel="stylesheet" >
+	<link href="../fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
 <title>ADD NEW COURSE</title>
 </head>
 <body>

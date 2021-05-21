@@ -16,9 +16,9 @@ if(!isset($_SESSION['aid']))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Bootstrap CSS -->
-    <link href="/PROJECT_SQL/bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="/PROJECT_SQL/bootstrap/css/stddashstyle.css" rel="stylesheet" >
-<link href="/PROJECT_SQL/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+	<link href="../bootstrap/css/stddashstyle.css" rel="stylesheet" >
+	<link href="../fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
 </head>
 <body>
 <div id="topheader">
