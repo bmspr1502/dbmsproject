@@ -1,6 +1,6 @@
 
 <?php 
-require 'C:\xampp\htdocs\dbmsproject\PROJECT_SQL\dbconfig\config.php';
+require  '../dbconfig/config.php';
 session_start();
 if(!isset($_SESSION['aid']))
 {

@@ -1,5 +1,5 @@
 <?php
-require 'C:\xampp\htdocs\PROJECT_SQL\dbconfig\config.php';
+require '../dbconfig/config.php';
 if(isset($_POST['delete']))
 {
 	
