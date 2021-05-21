@@ -8,9 +8,10 @@ require "acommon_dash.php";
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-	<link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-	<link href="../bootstrap/css/stddashstyle.css" rel="stylesheet" >
-	<link href="../fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="../bootstrap/css/stddashstyle.css" rel="stylesheet" >
+	<link href="fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
 <title>ADD NEW COURSE</title>
 </head>
 <body>
@@ -29,7 +30,8 @@ require "acommon_dash.php";
 <input type="text" placeholder="Enter Professor ID" class="form-control" name="spassword"></div>
 
 <button class="btn btn-primary" id="sendbtn" type="submit" name="create">CREATE NEW STUDENT</button>
-</form></div>
+</form>
+</div>
 <?php
 if(isset($_POST['create']))
 {   

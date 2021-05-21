@@ -1,6 +1,6 @@
 
 <?php 
-require 'C:\xampp\htdocs\PROJECT_SQL\dbconfig\config.php';
+require 'C:\xampp\htdocs\dbmsproject\PROJECT_SQL\dbconfig\config.php';
 session_start();
 if(!isset($_SESSION['aid']))
 {
@@ -17,8 +17,8 @@ if(!isset($_SESSION['aid']))
     
     <!-- Bootstrap CSS -->
     <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-	<link href="../bootstrap/css/stddashstyle.css" rel="stylesheet" >
-	<link href="../fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+    <link href="../bootstrap/css/stddashstyle.css" rel="stylesheet" >
+<link href="../fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
 </head>
 <body>
 <div id="topheader">
