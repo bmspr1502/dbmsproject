@@ -34,7 +34,7 @@
         <a class="navbar-brand" href="#">
           <img src="images/ceglogo.png" style="height:100px ">
         </a>
-        <button type="button" data-toggle="collapse" data-target=".navbar-collapse"  class="navbar-toggler">
+        <button type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"  class="navbar-toggler">
             <span class="navbar-toggler-icon">
                 </span>
             </button>
@@ -129,7 +129,7 @@ if(isset($_POST['slogin']))
 	}
 	
 	else{
-		echo '<script type="text/javascript"> alert(" Student Error!")</script>';
+		echo '<script type="text/javascript"> alert(" '. mysqli_error($con) .' Student Error!")</script>';
 }
 }
 	

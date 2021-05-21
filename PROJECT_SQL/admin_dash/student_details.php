@@ -1,6 +1,6 @@
 <?php
 require 'C:\xampp\htdocs\PROJECT_SQL\dbconfig\config.php';
-require "acommon_dash.php"
+require "acommon_dash.php";
 ?>
 <!DOCTYPE html>
 <html>

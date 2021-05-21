@@ -1,7 +1,7 @@
 
 
 <?php 
-require 'C:\xampp\htdocs\PROJECT_SQL\dbconfig\config.php';
+require 'dbconfig/config.php';
 session_start();
 
 if(!isset($_SESSION['sroll_no']))
@@ -19,7 +19,7 @@ if(!isset($_SESSION['sroll_no']))
     
     <!-- Bootstrap CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="bootstrap\css\stddashstyle.css" rel="stylesheet" >
+    <link href="bootstrap/css/stddashstyle.css" rel="stylesheet" >
 	<link href="/PROJECT_SQL/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
 
 </head>
@@ -74,14 +74,14 @@ if(!isset($_SESSION['sroll_no']))
 	          $query_run=mysqli_query($con,$sql);
 			  if($query_run->num_rows >0)
 			  { 
-	        while($row=$query_run->fetch_assoc())
-			{
+                    while($row=$query_run->fetch_assoc())
+                    {
 
-			 echo    "Name  -{$row['name']}</br>";
-			 echo    "DOB -{$row['DOB']}</br>";
-			  echo    "Address-{$row['Address']}</br>";
-			}
-			
+                    echo    "Name  -{$row['name']}</br>";
+                    echo    "DOB -{$row['DOB']}</br>";
+                    echo    "Address-{$row['Address']}</br>";
+                    }
+                    
 			
 			  }
 			?>
