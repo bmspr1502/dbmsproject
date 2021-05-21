@@ -1,8 +1,8 @@
 <?php
 session_start();
-if(!isset($_SESSION['sroll_no']))
+if(!isset($_SESSION['pid']))
 {
-	header("location:index.php");
+	header("location:../index.php");
 }
 ?>
 <!DOCTYPE html>
@@ -13,9 +13,9 @@ if(!isset($_SESSION['sroll_no']))
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <!-- Bootstrap CSS -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="C:\xampp\htdocs\PROJECT_SQL\bootstrap\css\stddashstyle.css" rel="stylesheet" >
-	<link href="fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" >
+    <link href="../bootstrap/css/stddashstyle.css" rel="stylesheet" >
+	<link href="../fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
 
 </head>
 <body>
@@ -28,7 +28,7 @@ if(!isset($_SESSION['sroll_no']))
 <div class="container-fluid" id="sidebar" >
     <div class="row" >
         
-        <h1>HELLO USER</h1>
+        <h1>HELLO PROFESSOR</h1>
         
             <ul>
                 
