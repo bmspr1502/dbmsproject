@@ -141,10 +141,12 @@ if(isset($_POST['plogin']))
 	$p_no=$_POST['pid'];
 	$ppassword=$_POST['ppassword'];
 	$query="select * from prof_details WHERE profno='$p_no' AND password='$ppassword'";
-	$query_run=mysqli_query($con,$query);
+	$query_run=$con->query($query);
 	if(mysqli_num_rows($query_run)>0)
 	{
+    $row = $query_run->fetch_assoc();
 		$_SESSION['pid']= $p_no;
+    $_SESSION['pname'] = $row['name'];
 		header('location:professor/profdash.php');
 	
 	}
