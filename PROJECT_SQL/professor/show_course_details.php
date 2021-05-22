@@ -48,18 +48,21 @@ if($result = $con->query($sql)){
       <th scope="col">#</th>
       <th scope="col">Roll No.</th>
       <th scope="col">Student Name</th>
+      <th scope="col">Remove Student</th>
     </tr>
 </thead>
 <tbody>
         <?php
         $i = 1;
         while($stu_row = $stu_res->fetch_assoc()){
-            echo "<tr>
-            <th scope='row'>". $i . "</th>
-            <td>". $stu_row['rollno'] ."</td>
-            <td>". $stu_row['name'] ."</td>
+          ?>
+            <tr>
+            <th scope='row'><?php echo $i ?></th>
+            <td><?php echo $stu_row['rollno']?></td>
+            <td><?php echo $stu_row['name'] ?></td>
+            <td><button class='btn btn-danger' ><i class="fa fa-trash-alt"></i></button>
           </tr>";
-
+<?php
           $i++;
         }
         ?>
