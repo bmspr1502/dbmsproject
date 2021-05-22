@@ -37,6 +37,8 @@
         }
         $(document).ready(function(){
             load_all_courses();
+
+            
         });
     </script>
 </body>

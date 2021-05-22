@@ -30,6 +30,7 @@ require "pcommondash.php";
     $(document).ready(function(){
         show_course_details();
     })
+    
 </script>
 </body>
 </html>
