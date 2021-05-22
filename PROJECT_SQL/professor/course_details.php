@@ -20,6 +20,12 @@ require "pcommondash.php";
             $("#box").html(data);
         })
     }
+    
+    function show_course_materials(){
+        $.post('show_course_materials.php', function(data){
+            $("#box").html(data);
+        })
+    }
 
     $(document).ready(function(){
         show_course_details();
