@@ -82,7 +82,7 @@ $total=count($storeArray);
 	echo   '<div class="card text-white bg-warning mb-3" style="max-width: 18rem;margin:20px;" id="cardcourse">';
 	echo     '<div class="card-header">';
     echo      ' <center><i class="fa fa-book-reader fa-2x"></center></i>';  
-    echo       ' <h5 class="card-title">'; echo $storeArray[$i]; echo'</h5>
+    echo       ' <h3 class="card-title" style="text-align:center;">'; echo $storeArray[$i]; echo'</h3>
             </div>
   <div class="card-body">
   <center><a href="#">View Details</a></center>

@@ -13,7 +13,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" >
     <link rel="stylesheet" href="bootstrap/css/sytle.css">
 
-    <title>Hello, world!</title>
+    <title>Login</title>
   </head>
   <body>
     
@@ -34,7 +34,7 @@
         <a class="navbar-brand" href="#">
           <img src="images/ceglogo.png" style="height:100px ">
         </a>
-        <button type="button" data-toggle="collapse" data-target=".navbar-collapse"  class="navbar-toggler">
+        <button type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"  class="navbar-toggler">
             <span class="navbar-toggler-icon">
                 </span>
             </button>
@@ -129,7 +129,7 @@ if(isset($_POST['slogin']))
 	}
 	
 	else{
-		echo '<script type="text/javascript"> alert(" Student Error!")</script>';
+		echo '<script type="text/javascript"> alert(" '. mysqli_error($con) .' Student Error!")</script>';
 }
 }
 	
@@ -141,10 +141,12 @@ if(isset($_POST['plogin']))
 	$p_no=$_POST['pid'];
 	$ppassword=$_POST['ppassword'];
 	$query="select * from prof_details WHERE profno='$p_no' AND password='$ppassword'";
-	$query_run=mysqli_query($con,$query);
+	$query_run=$con->query($query);
 	if(mysqli_num_rows($query_run)>0)
 	{
+    $row = $query_run->fetch_assoc();
 		$_SESSION['pid']= $p_no;
+    $_SESSION['pname'] = $row['name'];
 		header('location:professor/profdash.php');
 	
 	}

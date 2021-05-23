@@ -3,6 +3,6 @@
 session_start();
 unset($_SESSION['aid']);
 session_destroy();
-header("location:/PROJECT_SQL/index.php");
+header("location:../index.php");
 
 ?>
