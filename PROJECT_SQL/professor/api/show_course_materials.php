@@ -21,7 +21,8 @@ if($result = $con->query($sql)){
     </div>
     <?php
     while($row = $result->fetch_assoc()){
-        echo '<div class="card col-xl-3 col-lg-4 col-md-6 col-12" >';
+        echo '<div class="card col-xl-3 col-lg-4 col-md-6 col-12 p-0" >
+                <div clas="card-header">' . $row['time'] .'</div>';
      if($row['type']=='link'){
 ?>
 
@@ -49,9 +50,12 @@ if($result = $con->query($sql)){
 <?php
     }  
     ?>
+        
+    </div>
+    <div class='card-footer'>
         <button class='btn btn-info' onclick='load_update_data(<?php echo $row["dataid"];?>)' data-bs-toggle="modal" data-bs-target="#updateExistingModal"><i class="fa fa-edit"></i></button>
         <button class='btn btn-danger' onclick='delete_material(<?php echo $row["dataid"];?>)'><i class="fa fa-trash-alt"></i></button>
-    </div>
+</div>
 </div>
     <?php 
 
@@ -188,6 +192,15 @@ if($result = $con->query($sql)){
                 alert(data);
             });
         });
+
+        $("#addNewDataModal").on('hide.bs.modal', function(){
+            show_course_materials();
+        });
+
+        $("#updateExistingModal").on('hide.bs.modal', function(){
+            show_course_materials();
+        });
+
     });
 
     $('#addsubmit').click(function(){
