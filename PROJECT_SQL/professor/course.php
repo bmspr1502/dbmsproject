@@ -23,13 +23,13 @@
 </div>
     <script>
         function load_all_courses(){
-            $.get('load_all_courses.php', function(data){
+            $.get('api/load_all_courses.php', function(data){
                 $('#courserow').html(data);
             })
         }
 
         function load_course_details(cid){
-            $.post('set_course.php', {
+            $.post('api/set_course.php', {
                 course_id: cid
             },function(data){
                 $('#box').html(data);

@@ -1,5 +1,5 @@
 <?php
-include '../dbconfig/config.php';
+include '../../dbconfig/config.php';
 
 if(isset($_POST['dataid'])){
     $qry = 'DELETE FROM course_data WHERE dataid = '. $_POST['dataid'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../dbconfig/config.php';
+include '../../dbconfig/config.php';
 
 if(isset($_POST['dataid'])){
     $dataid = $_POST['dataid'];

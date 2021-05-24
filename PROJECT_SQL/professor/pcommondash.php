@@ -40,11 +40,14 @@ if(!isset($_SESSION['pid']))
                 <a href="course.php">
                 <li>VIEW All COURSES</li>
                 </a>
-                <a href="professor_notifications.php">
-                <li>SEND NOTIFICATIONS</li>
+                <a href="course_details.php#navStudentDetails" onclick='show_course_details()'>
+                <li>VIEW STUDENT DETAILS</li>
                 </a>
-				<a href="professor_notifications.php">
+				<a href="course_details.php#navCourseMaterials" onclick='show_course_materials()'>
                 <li>UPLOAD STUDY MATERIALS</li>
+                </a>
+                <a href="course_details.php#navCourseNotifications" onclick='show_course_notifications()'>
+                <li>SEND NOTIFICATIONS</li>
                 </a>
                 <a href="professor_update_details.php">
                 <li>UPDATE DETAILS</li>

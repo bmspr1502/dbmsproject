@@ -1,5 +1,5 @@
 <?php
-require "pcommondash.php"
+require "pcommondash.php";
 ?>
 <!DOCTYPE html>
 <html>

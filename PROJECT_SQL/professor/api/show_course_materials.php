@@ -1,24 +1,7 @@
 <?php
 session_start();
-include '../dbconfig/config.php';
-?>
+include '../../dbconfig/config.php';
 
-<ul class="nav nav-pills nav-fill mt-3 mb-3">
-  <li class="nav-item">
-    <a class="nav-link " href="#" onclick='show_course_details()'>Show Student Details</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#" onclick='show_course_materials()'>Course Materials</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Course Notifications</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
-
-<?php
 $sql=  "SELECT * from `course_data`
         WHERE courseid = '". $_SESSION['p_course'] ."';";
 
@@ -26,7 +9,7 @@ if($result = $con->query($sql)){
     ?>
     <div class="row">
     <div class="card col-xl-3 col-lg-4 col-md-6 col-12" >
-        <img class='card-img-top img-fluid' src='https://lh3.googleusercontent.com/proxy/mNVDPAoZiu2_yJujR4Dz6_0Zbdw4SgS18CBVU7lDuzGEbCUJGQtq27CqF61ZANOfxbjoz_SzP7JEpfYoHOg8qVcHnyun090'>
+        <img class='card-img-top img-fluid' src='api/add-icon.png'>
         <div class='card-body'>
         <h4 class='card-title'>Add Course material</h4>
         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addNewDataModal">
@@ -188,7 +171,7 @@ if($result = $con->query($sql)){
                 var formValues= $(this).serialize();
                 console.log(formValues);
 
-                $.post("add_course_data.php", formValues, function(data){
+                $.post("api/add_course_data.php", formValues, function(data){
                     // Display the returned data in browser
                     alert(data);
                 });
@@ -200,7 +183,7 @@ if($result = $con->query($sql)){
             var formValues= $(this).serialize();
             console.log(formValues);
 
-            $.post("update_course_data.php", formValues, function(data){
+            $.post("api/update_course_data.php", formValues, function(data){
                 // Display the returned data in browser
                 alert(data);
             });
@@ -212,7 +195,7 @@ if($result = $con->query($sql)){
     })
 
     function load_update_data(dataid){
-        $.post('load_update_data.php', {
+        $.post('api/load_update_data.php', {
             dataid: dataid
         }, function(data){
             let result = JSON.parse(data);
@@ -230,7 +213,7 @@ if($result = $con->query($sql)){
 
     function delete_material(dataid){
         if(confirm('Are you sure you want to delete this course material?')){
-            $.post('delete_course_material.php', {
+            $.post('api/delete_course_material.php', {
                 dataid: dataid
             }, function(data){
                 if(data!='DELETED')

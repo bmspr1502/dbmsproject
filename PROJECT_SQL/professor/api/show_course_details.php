@@ -1,24 +1,7 @@
 <?php
 session_start();
-include '../dbconfig/config.php';
-?>
+include '../../dbconfig/config.php';
 
-<ul class="nav nav-pills nav-fill mt-3 mb-3">
-  <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="#" onclick='show_course_details()'>Show Student Details</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#" onclick='show_course_materials()'>Course Materials</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="#">Course Notifications</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-  </li>
-</ul>
-
-<?php
 $sql=  "SELECT course_details.courseid, course_details.name as 'course_name', 
         prof_details.profno, prof_details.name as 'prof_name' 
         from course_details inner join prof_details 

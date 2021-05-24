@@ -1,7 +1,7 @@
 <?php 
     session_start();
     //print_r($_SESSION);
-    include '../dbconfig/config.php';
+    include '../../dbconfig/config.php';
   $sql="SELECT course_details.courseid, course_details.name as 'course_name', 
         prof_details.profno, prof_details.name as 'prof_name' 
         from course_details inner join prof_details 

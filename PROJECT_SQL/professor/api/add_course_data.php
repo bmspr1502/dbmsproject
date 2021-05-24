@@ -1,5 +1,5 @@
 <?php
-include '../dbconfig/config.php';
+include '../../dbconfig/config.php';
 
 if(isset($_POST['courseid'])){
     $courseid = $con->real_escape_string($_POST['courseid']);
