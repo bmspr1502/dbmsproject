@@ -2,11 +2,8 @@
     session_start();
     //print_r($_SESSION);
     include '../../dbconfig/config.php';
-  $sql="SELECT course_details.courseid, course_details.name as 'course_name', 
-        prof_details.profno, prof_details.name as 'prof_name' 
-        from course_details inner join prof_details 
-        on course_details.profno = prof_details.profno 
-        where course_details.profno = ". $_SESSION['pid'];
+  $sql="SELECT * FROM all_courses
+        where profno = ". $_SESSION['pid'];
    if($query_run=$con->query($sql)){
     while ($row =$query_run->fetch_assoc()) {
         ?>

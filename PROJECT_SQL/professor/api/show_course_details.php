@@ -2,11 +2,8 @@
 session_start();
 include '../../dbconfig/config.php';
 
-$sql=  "SELECT course_details.courseid, course_details.name as 'course_name', 
-        prof_details.profno, prof_details.name as 'prof_name' 
-        from course_details inner join prof_details 
-        on course_details.profno = prof_details.profno 
-        where course_details.courseid = '". $_SESSION['p_course'] . "';";
+$sql=  "SELECT * from all_courses
+        where courseid = '". $_SESSION['p_course'] . "';";
 
 if($result = $con->query($sql)){
     $row = $result->fetch_assoc();

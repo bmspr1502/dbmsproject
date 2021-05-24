@@ -14,13 +14,13 @@ require "pcommondash.php";
     
         <ul class="nav nav-pills nav-fill mt-3 mb-3">
         <li class="nav-item">
-            <button class="nav-link" id='navStudentDetails'  >Show Student Details</button>
+            <button class="nav-link" data-toggle='pill' id='navStudentDetails'  >Show Student Details</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" id='navCourseMaterials' >Course Materials</button>
+            <button class="nav-link" data-toggle='pill' id='navCourseMaterials' >Course Materials</button>
         </li>
         <li class="nav-item">
-            <button class="nav-link" id='navCourseNotifications' >Course Notifications</button>
+            <button class="nav-link" data-toggle='pill' id='navCourseNotifications' >Course Notifications</button>
         </li>
         </ul>
     </div>

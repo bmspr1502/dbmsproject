@@ -93,7 +93,7 @@ if(!isset($_SESSION['sroll_no']))
 	    <div class="container" id="box">
         <div class="row">
 	   <?php 
-$sql="select course_details.name from course_details 
+$sql="SELECT course_details.name from course_details 
   INNER JOIN student_courses ON student_courses.courseid=course_details.courseid 
   where student_courses.rollno='{$_SESSION['sroll_no']}'" ;
    $query_run=mysqli_query($con,$sql);

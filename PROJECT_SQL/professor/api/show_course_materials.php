@@ -22,13 +22,13 @@ if($result = $con->query($sql)){
     <?php
     while($row = $result->fetch_assoc()){
         echo '<div class="card col-xl-3 col-lg-4 col-md-6 col-12" >';
-     if($row['type']=='pdf'){
+     if($row['type']=='link'){
 ?>
 
     <img class="card-img-top img-fluid" src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8c3R1ZHl8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80" alt="Card image">
     <div class="card-body">
         <h4 class="card-title"><?php echo $row['title'] ?></h4>
-        <p class="card-text"><?php echo $row['description'] ?></p>
+        <p class="card-text"><?php echo stripslashes($row['description']) ?></p>
         <a href="<?php echo $row['link'] ?>" target='_blank' class="btn btn-primary">Click here to view</a>
 <?php
     }else if($row['type']=='video'){
@@ -77,7 +77,7 @@ if($result = $con->query($sql)){
         <div class="form-group">
             <label for="addmaterialType" class="form-label">Type of Material:</label>
             <select class="form-select" id='addmaterialType' aria-label="Default select example" name='type'>
-                <option selected value='pdf'>PDF</option>
+                <option selected value='link'>Link</option>
                 <option value="video">YouTube Video</option>
                 <option value="code">Embedding HTML code</option>
             </select>
@@ -128,7 +128,7 @@ if($result = $con->query($sql)){
         <div class="form-group">
             <label for="updateMaterialType" class="form-label">Type of Material:</label>
             <select class="form-select" id='updateMaterialType' aria-label="Default select example" name='type'>
-                <option selected value='pdf'>PDF</option>
+                <option selected value='link'>Link</option>
                 <option value="video">YouTube Video</option>
                 <option value="code">Embedding HTML code</option>
             </select>
