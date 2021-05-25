@@ -30,7 +30,7 @@ if(!isset($_SESSION['pid']))
 <div class="container-fluid" id="sidebar" >
     <div class="row" >
         
-        <h1>HELLO PROFESSOR <?php  echo $_SESSION['pname']?></h1>
+        <h1>Hello Professor <?php  echo $_SESSION['pname']?></h1>
         
             <ul>
                 
