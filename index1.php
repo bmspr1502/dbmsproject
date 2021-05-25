@@ -477,7 +477,7 @@ if(isset($_POST['SLOGIN']))
 	if(mysqli_num_rows($query_run)>0)
 	{
 		$_SESSION['SROLLNUMBER']= $srollno;
-		echo"<script>window.location.href='stddash.php'</script>";
+		echo"<script>window.location.href='PROJECT_SQL/stddash.php'</script>";
 	
 	}
 	
@@ -498,7 +498,7 @@ if(isset($_POST['PLOGIN']))
 	if(mysqli_num_rows($query_run)>0)
 	{
 		$_SESSION['PPROFESSORID']= $p_no;
-		echo"<script>window.location.href='professor/profdash.php'</script>";	
+		echo"<script>window.location.href='PROJECT_SQL/professor/profdash.php'</script>";	
 	}
 	
 	else{
@@ -518,7 +518,7 @@ if(isset($_POST['ALOGIN']))
 	if(mysqli_num_rows($query_run)>0)
 	{
 		$_SESSION['AID']= $a_no;
-		echo"<script>window.location.href='admin_dash/admindash.php'</script>";
+		echo"<script>window.location.href='PROJECT_SQL/admin_dash/admindash.php'</script>";
 	}
 	
 	else{
