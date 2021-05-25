@@ -503,6 +503,7 @@ if(isset($_POST['PLOGIN']))
 	
 	else{
 		echo '<script type="text/javascript"> alert(" professor Error!")</script>';
+    echo con->error;
 }
 }
 	
