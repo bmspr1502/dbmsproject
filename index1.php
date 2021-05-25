@@ -518,7 +518,7 @@ if(isset($_POST['ALOGIN']))
 	if(mysqli_num_rows($query_run)>0)
 	{
 		$_SESSION['AID']= $a_no;
-		echo"<script>window.location.href='PROJECT_SQL/admin_dash/admindash.php'</script>";
+		header('location:PROJECT_SQL/admin_dash/admindash.php');
 	}
 	
 	else{
