@@ -17,7 +17,8 @@
 <body>
  <div class="container-fluid p-0" id="enrolledcourses">
         <h3 style="margin:20px">All Courses:</h3>
-        
+     <div class="container" id="box">
+    <div class="row">
                 
 <?php 
 
@@ -30,8 +31,7 @@
 $total=count($storeArray);
  $i=0;
  while($i < $total)
- {  echo'<div class="container" id="box">';
-    echo '<div class="row">';
+ {  
 	echo '<div class="col-md-3">';
 	echo   '<div class="card text-white bg-warning mb-3" style="max-width: 18rem;margin:20px;" id="cardcourse">';
 	echo     '<div class="card-header">';
@@ -42,13 +42,11 @@ $total=count($storeArray);
   <center><a href="#">View Details</a></center>
    </div> 
    </div>
-  </div>
-  </div>
   </div>';
   $i++;
  }
  ?>                           
-
+</div></div>
             </div>
             
         </div>
@@ -56,4 +54,3 @@ $total=count($storeArray);
     </div>
 </body>
 </html>
-

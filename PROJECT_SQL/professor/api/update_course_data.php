@@ -4,9 +4,9 @@ include '../../dbconfig/config.php';
 if(isset($_POST['courseid'])){
     $dataid = $_POST['dataid'];
     $type = $con->real_escape_string($_POST['type']);
-    $link = $con->real_escape_string(stripslashes($_POST['link']));
+    $link = stripslashes($_POST['link']);
     $title = $con->real_escape_string($_POST['title']);
-    $description = $con->real_escape_string(stripslashes($_POST['description']));
+    $description = stripslashes($_POST['description']);
 
     $qry = $con->prepare("UPDATE course_data 
                           SET type = ?, link = ?, title = ?, description = ?

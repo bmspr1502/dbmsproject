@@ -25,7 +25,6 @@ if(!isset($_SESSION['pid']))
 <div id="topheader">
     <div class="container-fluid">
        <h2>CEG COURSE MANAGEMENT</h2> 
-       
     </div>
 </div>
 <div class="container-fluid" id="sidebar" >
