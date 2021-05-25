@@ -1,3 +1,7 @@
+<?php
+ session_start();
+require 'PROJECT_SQL/dbconfig/config.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -279,7 +283,7 @@ img.avatar {
 				<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">LOGIN</button>
 					<div id="id01" class="modal">
   
-						<form class="modal-content animate" action="" method="post">
+						<form class="modal-content animate" action="index1.php" method="post">
 							<div class="imgcontainer">
                                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                                    <img src="stud.png" alt="Avatar" class="avatar">
@@ -287,12 +291,12 @@ img.avatar {
 
 							<div class="container">
       <label><b>STUDENT ID</b></label>
-						<input type="text" placeholder="ENTER STUDENT ID" name="" required>
+						<input type="text" placeholder="ENTER STUDENT ID" name="SROLLNO" required>
 
       <label><b>PASSWORD</b></label>
-      <input type="password" placeholder="ENTER PASSWORD" name="" required>
+      <input type="password" placeholder="ENTER PASSWORD" name="SPASSWORD" required>
         
-      <button type="submit">LOGIN</button>
+      <button type="submit" name="SLOGIN">LOGIN</button>
       <label>
         <input type="checkbox" checked="checked" name=""> REMEMBER ME
       </label>
@@ -324,7 +328,7 @@ img.avatar {
 
 <div id="id02" class="modal">
   
-  <form class="modal-content animate" action="" method="post">
+  <form class="modal-content animate" action="index1.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="teacher.jpg" alt="Avatar" class="avatar">
@@ -332,12 +336,12 @@ img.avatar {
 
     <div class="container">
       <label><b>PROFESSOR ID</b></label>
-      <input type="text" placeholder="ENTER PROFESSOR ID" name="" required>
+      <input type="text" placeholder="ENTER PROFESSOR ID" name="PID" required>
 
       <label><b>PASSWORD</b></label>
-      <input type="password" placeholder="ENTER PASSWORD" name="" required>
+      <input type="password" placeholder="ENTER PASSWORD" name="PPASSWORD" required>
         
-      <button type="submit">LOGIN</button>
+      <button type="submit" name="PLOGIN">LOGIN</button>
       <label>
         <input type="checkbox" checked="checked" name=""> REMEMBER ME
       </label>
@@ -370,7 +374,7 @@ img.avatar {
 
 <div id="id03" class="modal">
   
-  <form class="modal-content animate" action="" method="post">
+  <form class="modal-content animate" action="index1.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="admin.jpg" alt="Avatar" class="avatar">
@@ -378,12 +382,12 @@ img.avatar {
 
     <div class="container">
       <label><b>ADMIN ID</b></label>
-      <input type="text" placeholder="ENTER ADMIN ID" name="" required>
+      <input type="text" placeholder="ENTER ADMIN ID" name="AID" required>
 
       <label><b>PASSWORD</b></label>
-      <input type="password" placeholder="ENTER PASSWORD" name="" required>
+      <input type="password" placeholder="ENTER PASSWORD" name="APASSWORD" required>
         
-      <button type="submit">LOGIN</button>
+      <button type="submit" name="ALOGIN">LOGIN</button>
       <label>
         <input type="checkbox" checked="checked" name="">REMEMBER ME
       </label>
@@ -463,5 +467,66 @@ window.onclick = function(event){
     </div>
  </div>
 </footer>
+<?php
+if(isset($_POST['SLOGIN']))
+{
+	$srollno=$_POST['SROLLNUMBER'];
+	$spassword=$_POST['SPASSWORD'];
+	$query="select * from student_details WHERE rollno='$srollno' AND password='$spassword'";
+	$query_run=mysqli_query($con,$query);
+	if(mysqli_num_rows($query_run)>0)
+	{
+		$_SESSION['SROLLNUMBER']= $srollno;
+		echo"<script>window.location.href='PROJECT_SQL/stddash.php'</script>";
+	
+	}
+	
+	else{
+		echo '<script type="text/javascript"> alert(" Student Error!")</script>';
+}
+}
+	
+
+?>
+ <?php
+if(isset($_POST['PLOGIN']))
+{
+	$p_no=$_POST['PID'];
+	$ppassword=$_POST['PPASSWORD'];
+	$query="select * from prof_details WHERE profno='$p_no' AND password='$ppassword'";
+	$query_run=mysqli_query($con,$query);
+	if(mysqli_num_rows($query_run)>0)
+	{
+		$_SESSION['PPROFESSORID']= $p_no;
+		echo"<script>window.location.href='PROJECT_SQL/professor/profdash.php'</script>";	
+	}
+	
+	else{
+		echo '<script type="text/javascript"> alert(" professor Error!")</script>';
+}
+}
+	
+
+?>
+ <?php
+if(isset($_POST['ALOGIN']))
+{
+	$a_no=$_POST['AID'];
+	$apassword=$_POST['APASSWORD'];
+	$query="select * from admin_login WHERE aid='$a_no' AND apassword='$apassword'";
+	$query_run=mysqli_query($con,$query);
+	if(mysqli_num_rows($query_run)>0)
+	{
+		$_SESSION['AID']= $a_no;
+		echo"<script>window.location.href='PROJECT_SQL/admin_dash/admindash.php'</script>";
+	}
+	
+	else{
+		echo '<script type="text/javascript"> alert("Admin Error!")</script>';
+}
+}
+	
+
+?>
 </body>
 </html>
