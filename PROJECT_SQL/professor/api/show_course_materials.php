@@ -21,8 +21,10 @@ if($result = $con->query($sql)){
     </div>
     <?php
     while($row = $result->fetch_assoc()){
+        $date=date_create($row['time']);
+    
         echo '<div class="card col-xl-3 col-lg-4 col-md-6 col-12 p-0" >
-                <div clas="card-header">' . $row['time'] .'</div>';
+                <div clas="card-header">' . date_format($date, 'H:i - d F, Y') .'</div>';
      if($row['type']=='link'){
 ?>
 
@@ -30,7 +32,7 @@ if($result = $con->query($sql)){
     <div class="card-body">
         <h4 class="card-title"><?php echo $row['title'] ?></h4>
         <p class="card-text"><?php echo stripslashes($row['description']) ?></p>
-        <a href="<?php echo $row['link'] ?>" target='_blank' class="btn btn-primary">Click here to view</a>
+    </div>
 <?php
     }else if($row['type']=='video'){
 ?>
@@ -40,6 +42,7 @@ if($result = $con->query($sql)){
     <div class="card-body">
         <h4 class="card-title"><?php echo $row['title'] ?></h4>
         <p class="card-text"><?php echo stripslashes($row['description']) ?></p>
+        </div>
 <?php
     }else{
 ?>
@@ -47,12 +50,18 @@ if($result = $con->query($sql)){
     <div class="card-body">
         <h4 class="card-title"><?php echo $row['title'] ?></h4>
         <p class="card-text"><?php echo stripslashes($row['description']) ?></p>
+    </div>
 <?php
     }  
     ?>
         
-    </div>
+    
     <div class='card-footer'>
+        <?php
+        if($row['type']=='link'){
+            echo '<a href="'. $row['link'] .'" target=\'_blank\' class="btn btn-primary">Click here to view</a>';
+        }
+        ?>
         <button class='btn btn-info' onclick='load_update_data(<?php echo $row["dataid"];?>)' data-bs-toggle="modal" data-bs-target="#updateExistingModal"><i class="fa fa-edit"></i></button>
         <button class='btn btn-danger' onclick='delete_material(<?php echo $row["dataid"];?>)'><i class="fa fa-trash-alt"></i></button>
 </div>

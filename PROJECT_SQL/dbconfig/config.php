@@ -1,5 +1,5 @@
 <?php
-$con= new mysqli("localhost", "root", "", "cmsproject");
+$con= new mysqli("localhost", "root", "", "cmsproj");
 
 
 
