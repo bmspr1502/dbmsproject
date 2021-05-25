@@ -483,6 +483,7 @@ if(isset($_POST['SLOGIN']))
 	
 	else{
 		echo '<script type="text/javascript"> alert(" Student Error!")</script>';
+    echo con->error;
 }
 }
 	
