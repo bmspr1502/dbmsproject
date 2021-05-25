@@ -71,7 +71,7 @@ if(!isset($_SESSION['sroll_no']))
 			 $sql="select name,DOB,Address from student_details where rollno={$_SESSION['sroll_no']}";
 
 	         
-	          $query_run=mysqli_query($con,$sql);
+	          $query_run=$con->query($sql);
 			  if($query_run->num_rows >0)
 			  { 
                     while($row=$query_run->fetch_assoc())
