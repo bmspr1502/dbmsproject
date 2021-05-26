@@ -1,6 +1,7 @@
 <?php
+session_start();
   require 'dbconfig/config.php';
-  require "scommondash.php";
+  
 ?>
 <!DOCTYPE html>
 <html>

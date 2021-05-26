@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "scommondash.php"
 ?>
 <!DOCTYPE html>
