@@ -120,7 +120,7 @@ $i++;
 
     <script type="text/javascript">
 	function view_course_details(course_id){
-		$.post('student/enroll_course.php', {
+		$.post('enroll_course.php', {
                 enroll: course_id
             },function(data){
                 $('#box').html(data);
