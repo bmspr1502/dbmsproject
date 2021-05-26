@@ -1,7 +1,5 @@
 <?php
 session_start();
-  require '../dbconfig/config.php';
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,10 +15,12 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
-<title>view_all_course</title>
+<title>Update Details</title>
 
 </head>
 <body>
+
+
 
 <div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
@@ -67,32 +67,28 @@ session_start();
         </nav>
 
  <div class="container-fluid p-0" id="enrolledcourses">
-        <h3 style="margin:20px">All Courses:</h3>
-     <div class="container" id="box">
-        <div class="row" id='courserow'>                         
-        </div>
-    </div>
-</div>
-  </div>
-</div>
-    <script>
-        function load_all_courses(){
-            $.get('api/load_all_courses.php', function(data){
-                $('#courserow').html(data);
-            })
-        }
+<h3>PROFILE DETAILS</h3>
+        <div class="container">
+            <div class="row">
+              <div class="col-md-6">  
+<form class="update_form" action="student_update_details.php" method="POST">
+<div class="form-group">
+<label class="control-label"><i class="fas fa-lock fa-1.5x"></i>NAME</label>
+<input type="text" placeholder="ENTER YOUR NAME" class="form-control"></div>
+<div class="form-group">
+<label class="control-label"><i class="fa fa-address-card" ></i> DOB </label>
+<input type="text" placeholder="ENTER YOUR DATE OF BITRH" class="form-control" ></div>
+<div class="form-group">
+<label class="control-label"><i class="fa fa-birthday-cake"></i>ADDDRESS</label>
+<input type="date" placeholder="ENTER YOUR ADDRESS"  class="form-control"></div>
 
-        function load_course_details(cid){
-            $.post('api/set_course.php', {
-                course_id: cid
-            },function(data){
-                $('#box').html(data);
-            })
-        }
-        $(document).ready(function(){
-            load_all_courses();
-        });
-    </script>
-	<script src="main.js"></script>
+<button class="btn btn-success" id="sendbtn" type="submit">SEND REQUEST TO ADMIN</button></div>
+</form>
+</div>
+</div></div></div>
+</div>
+<script src="main.js"></script>
+</form>
 </body>
+
 </html>
