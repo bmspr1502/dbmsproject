@@ -12,10 +12,7 @@
 	};
 	fullHeight();
 
-	$('#sidebar').mouseover(function(){
-		console.log('data');
-		$('#sidebar').toggleClass('active');
-	})
+
 	$('#sidebarCollapse').on('click', function () {
       $('#sidebar').toggleClass('active');
   });
