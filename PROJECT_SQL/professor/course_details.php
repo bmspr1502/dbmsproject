@@ -1,6 +1,8 @@
 <?php
-
 require "pcommondash.php";
+if(!isset($_SESSION['p_course'])){
+    echo '<script>window.location.href="course.php"</script>';
+  }
 ?>
 <!DOCTYPE html>
 <html>

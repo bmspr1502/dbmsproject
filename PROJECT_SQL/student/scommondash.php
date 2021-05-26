@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['sroll_no']))
 {
-	header("location:index.php");
+	header("location:../index.php");
 }
 ?>
 <!DOCTYPE html>
