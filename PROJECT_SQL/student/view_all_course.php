@@ -71,32 +71,42 @@ session_start();
      <div class="container" id="box">
     <div class="row">
                 
-<?php 
+    <?php 
 
-  $sql="select name from course_details";
-   $query_run=mysqli_query($con,$sql);
-   $storeArray = Array();
-   while ($row =$query_run->fetch_assoc()) {
-    $storeArray[] =  $row['name'];  
+$sql="SELECT * FROM `view_all_courses_student` WHERE rollno !='{$_SESSION['sroll_no']}' OR rollno IS NULL GROUP BY courseid";
+ $query_run=mysqli_query($con,$sql);
+ 
+ 
+    
+
+
+$i=0;
+$n=4;
+$colorArray =Array('warning','info','success','danger');
+while ($row =$query_run->fetch_assoc()) 
+{ ?> 
+ <div class="col-md-3">
+   <div class='card text-white bg-<?php echo $colorArray[$i%4]; ?> mb-3' style='max-width: 18rem;margin:20px;' id='cardcourse'>
+    <div class="card-header">
+       <center><i class="fa fa-book-reader fa-2x"></center></i>           
+         <h3 class="card-title" style="text-align:center;"><?php echo $row['course_name']; ?></h3>
+          </div>
+
+<center><input type="button" class="btn btn-primary" id="enroll" name="enroll" onclick="view_course_details('<?php echo $row['courseid'];?>' )" value="Enroll"/></center>
+ 
+ </div>
+</div>
+<?php
+$i++;
 }
-$total=count($storeArray);
- $i=0;
- while($i < $total)
- {  
-	echo '<div class="col-md-6 col-lg-4 col-12">'; 
-	echo   '<div class="card text-white bg-warning mb-3" style="margin:20px;" id="cardcourse">';
-	echo     '<div class="card-header">';
-	echo      ' <center><i class="fa fa-book-reader fa-2x"></center></i>';            
-    echo       ' <h3 class="card-title" style="text-align:center;">'; echo $storeArray[$i]; echo'</h3>
-            </div>
-  <div class="card-body">
-  <center><a href="#">View Details</a></center>
-   </div> 
-   </div>
-  </div>';
-  $i++;
- }
- ?>                           
+?>                           
+</div></div>
+          </div>
+          
+      </div>
+
+  </div>
+<p id="box"></p>                           
 </div>
 </div>
 </div>
@@ -108,5 +118,19 @@ $total=count($storeArray);
     <script src="bootstrap.min.js"></script>
     <script src="main.js"></script>
 
+    <script type="text/javascript">
+	function view_course_details(course_id){
+		$.post('student/enroll_course.php', {
+                enroll: course_id
+            },function(data){
+                $('#box').html(data);
+				location.reload();
+            })
+	};
+	
+	
+	
+
+	</script>
 </body>
 </html>
