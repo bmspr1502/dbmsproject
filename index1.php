@@ -291,12 +291,12 @@ img.avatar {
 
 							<div class="container">
       <label><b>STUDENT ID</b></label>
-						<input type="text" placeholder="ENTER STUDENT ID" name="SROLLNO" required>
+						<input type="text" placeholder="ENTER STUDENT ID" name="sroll_no" required>
 
       <label><b>PASSWORD</b></label>
-      <input type="password" placeholder="ENTER PASSWORD" name="SPASSWORD" required>
+      <input type="password" placeholder="ENTER PASSWORD" name="spassword" required>
         
-      <button type="submit" name="SLOGIN">LOGIN</button>
+      <button type="submit" name="slogin">LOGIN</button>
       <label>
         <input type="checkbox" checked="checked" name=""> REMEMBER ME
       </label>
@@ -336,12 +336,13 @@ img.avatar {
 
     <div class="container">
       <label><b>PROFESSOR ID</b></label>
-      <input type="text" placeholder="ENTER PROFESSOR ID" name="PID" required>
+      <input type="text" placeholder="ENTER PROFESSOR ID" name="pid" required>
 
       <label><b>PASSWORD</b></label>
-      <input type="password" placeholder="ENTER PASSWORD" name="PPASSWORD" required>
+      <input type="password" placeholder="ENTER PASSWORD" name="ppassword" required>
         
-      <button type="submit" name="PLOGIN">LOGIN</button>
+      <button type="submit" name="
+    plogin">LOGIN</button>
       <label>
         <input type="checkbox" checked="checked" name=""> REMEMBER ME
       </label>
@@ -382,12 +383,12 @@ img.avatar {
 
     <div class="container">
       <label><b>ADMIN ID</b></label>
-      <input type="text" placeholder="ENTER ADMIN ID" name="AID" required>
+      <input type="text" placeholder="ENTER ADMIN ID" name="aid" required>
 
       <label><b>PASSWORD</b></label>
-      <input type="password" placeholder="ENTER PASSWORD" name="APASSWORD" required>
+      <input type="password" placeholder="ENTER PASSWORD" name="apassword" required>
         
-      <button type="submit" name="ALOGIN">LOGIN</button>
+      <button type="submit" name="alogin">LOGIN</button>
       <label>
         <input type="checkbox" checked="checked" name="">REMEMBER ME
       </label>
@@ -468,16 +469,16 @@ window.onclick = function(event){
  </div>
 </footer>
 <?php
-if(isset($_POST['SLOGIN']))
+if(isset($_POST['slogin']))
 {
-	$srollno=$_POST['SROLLNUMBER'];
-	$spassword=$_POST['SPASSWORD'];
-	$query="select * from student_details WHERE rollno='$srollno' AND password='$spassword'";
+	$sroll_no=$_POST['sroll_no'];
+	$spassword=$_POST['spassword'];
+	$query="select * from student_details WHERE rollno='$sroll_no' AND password='$spassword'";
 	$query_run=mysqli_query($con,$query);
 	if(mysqli_num_rows($query_run)>0)
 	{
-		$_SESSION['SROLLNUMBER']= $srollno;
-		echo"<script>window.location.href='PROJECT_SQL/stddash.php'</script>";
+		$_SESSION['sroll_no']= $sroll_no;
+		echo"<script>window.location.href='PROJECT_SQL/student/stddash.php'</script>";
 	
 	}
 	
@@ -490,15 +491,15 @@ if(isset($_POST['SLOGIN']))
 
 ?>
  <?php
-if(isset($_POST['PLOGIN']))
+if(isset($_POST['plogin']))
 {
-	$p_no=$_POST['PID'];
-	$ppassword=$_POST['PPASSWORD'];
+	$p_no=$_POST['pid'];
+	$ppassword=$_POST['ppassword'];
 	$query="select * from prof_details WHERE profno='$p_no' AND password='$ppassword'";
 	$query_run=mysqli_query($con,$query);
 	if(mysqli_num_rows($query_run)>0)
 	{
-		$_SESSION['PPROFESSORID']= $p_no;
+		$_SESSION['pid']= $p_no;
 		echo"<script>window.location.href='PROJECT_SQL/professor/profdash.php'</script>";	
 	}
 	
@@ -511,15 +512,15 @@ if(isset($_POST['PLOGIN']))
 
 ?>
  <?php
-if(isset($_POST['ALOGIN']))
+if(isset($_POST['alogin']))
 {
-	$a_no=$_POST['AID'];
-	$apassword=$_POST['APASSWORD'];
+	$a_no=$_POST['aid'];
+	$apassword=$_POST['apassword'];
 	$query="select * from admin_login WHERE aid='$a_no' AND apassword='$apassword'";
 	$query_run=mysqli_query($con,$query);
 	if(mysqli_num_rows($query_run)>0)
 	{
-		$_SESSION['AID']= $a_no;
+		$_SESSION['aid']= $a_no;
 		header('location:PROJECT_SQL/admin_dash/admindash.php');
 	}
 	
