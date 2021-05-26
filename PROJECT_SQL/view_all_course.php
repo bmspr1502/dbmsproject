@@ -1,6 +1,6 @@
 <?php
   require 'dbconfig/config.php';
-  require"scommondash.php";
+  require "scommondash.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,7 +11,7 @@
     
     <!-- Bootstrap CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="bootstrap\css\stddashstyle.css" rel="stylesheet" >
+
 	<link href="/PROJECT_SQL/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
 </head>
 <body>

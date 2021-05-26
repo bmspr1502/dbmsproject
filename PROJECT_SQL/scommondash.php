@@ -27,19 +27,19 @@ if(!isset($_SESSION['sroll_no']))
 				<h1><a href="index.html" class="logo">CMS</a></h1>
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="#"><span class="fa fa-home"></span>DASHBOARD</a>
+            <a href="stddash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
+            <a href="student_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-sticky-note"></span>VIEW ALL COURSES</a>
+            <a href="view_all_course.php"><span class="fa fa-sticky-note"></span>VIEW ALL COURSES</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-bell"></span>NOTIFICATION</a>
+            <a href="student_notifications.php"><span class="fa fa-bell"></span>NOTIFICATION</a>
           </li>
           <li>
-            <a href="#"><span class="fa fa-sign-out"></span>LOGOUT</a>
+            <a href="log_out.php"><span class="fa fa-sign-out"></span>LOGOUT</a>
           </li>
         </ul>
     	</nav>
