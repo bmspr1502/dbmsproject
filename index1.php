@@ -478,7 +478,7 @@ if(isset($_POST['slogin']))
 	if(mysqli_num_rows($query_run)>0)
 	{
 		$_SESSION['sroll_no']= $sroll_no;
-		echo"<script>window.location.href='PROJECT_SQL/student/stddash.php'</script>";
+		echo"<script>window.location.href='PROJECT_SQL/stddash.php'</script>";
 	
 	}
 	
