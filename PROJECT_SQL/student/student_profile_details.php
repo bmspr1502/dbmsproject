@@ -71,7 +71,7 @@ require '../dbconfig/config.php';
 <div class="container-fluid p-0" id="con">
         <div class="content">
             
-            <img src="images/software-engineer-vector-6122111.jpg" style="width:70px;"></br>
+            <img src="../images/software-engineer-vector-6122111.jpg" style="width:70px;"></br>
 			
             <?php 
 			 $sql="select name,DOB,Address from student_details where rollno={$_SESSION['sroll_no']}";
