@@ -73,32 +73,7 @@ if(!isset($_SESSION['sroll_no']))
           </div>
         </nav>
 
-    <div class="container-fluid p-0" id="con">
-        <div class="content">
-            <h3>Profile Details</h3>
-            <img src="images/software-engineer-vector-6122111.jpg" style="width:70px;"></br>
-			
-            <?php 
-			 $sql="select name,DOB,Address from student_details where rollno={$_SESSION['sroll_no']}";
-
-	         
-	          $query_run=mysqli_query($con,$sql);
-			  if($query_run->num_rows >0)
-			  { 
-                    while($row=$query_run->fetch_assoc())
-                    {
-
-                    echo    "Name  -{$row['name']}</br>";
-                    echo    "DOB -{$row['DOB']}</br>";
-                    echo    "Address-{$row['Address']}</br>";
-                    }
-                    
-			
-			  }
-			?>
-          		   
-        </div>
-		</div>
+    
     
     <div class="container-fluid p-0" id="enrolledcourses">
        <h3> Enrolled courses</h3>

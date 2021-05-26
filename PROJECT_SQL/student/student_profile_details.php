@@ -1,4 +1,5 @@
 <?php
+session_start();
 require '../dbconfig/config.php';
 ?>
 <!DOCTYPE html>
@@ -67,23 +68,32 @@ require '../dbconfig/config.php';
 <body>
  <div class="container-fluid p-0" id="enrolledcourses">
 <h3>PROFILE DETAILS</h3>
-        <div class="container">
-            <div class="row">
-              <div class="col-md-6">  
-<form class="update_form" action="student_update_details.php" method="POST">
-<div class="form-group">
-<label class="control-label"><i class="fas fa-lock fa-1.5x"></i>NAME</label>
-<input type="text" placeholder="ENTER YOUR NAME" class="form-control"></div>
-<div class="form-group">
-<label class="control-label"><i class="fa fa-address-card" ></i> DOB </label>
-<input type="text" placeholder="ENTER YOUR DATE OF BITRH" class="form-control" ></div>
-<div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i>ADDDRESS</label>
-<input type="date" placeholder="ENTER YOUR ADDRESS"  class="form-control"></div>
+<div class="container-fluid p-0" id="con">
+        <div class="content">
+            
+            <img src="images/software-engineer-vector-6122111.jpg" style="width:70px;"></br>
+			
+            <?php 
+			 $sql="select name,DOB,Address from student_details where rollno={$_SESSION['sroll_no']}";
 
-<button class="btn btn-success" id="sendbtn" type="submit">SEND REQUEST TO ADMIN</button></div>
-</form>
-</div>
+	         
+	          $query_run=mysqli_query($con,$sql);
+			  if($query_run->num_rows >0)
+			  { 
+                    while($row=$query_run->fetch_assoc())
+                    {
+
+                    echo    "Name  -{$row['name']}</br>";
+                    echo    "DOB -{$row['DOB']}</br>";
+                    echo    "Address-{$row['Address']}</br>";
+                    }
+                    
+			
+			  }
+			?>
+          		   
+        </div>
+		</div>
 </div></div>
 
 
