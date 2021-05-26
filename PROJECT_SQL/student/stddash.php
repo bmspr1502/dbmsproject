@@ -1,5 +1,4 @@
 
-
 <?php 
 require '../dbconfig/config.php';
 session_start();
@@ -13,55 +12,67 @@ if(!isset($_SESSION['sroll_no']))
 <!DOCTYPE html>
 <html>
 <head>
-     <!-- Required meta tags -->
+
      <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="style.css">
     
-    <!-- Bootstrap CSS -->
-    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet" >
-    <link href="../bootstrap/css/stddashstyle.css" rel="stylesheet" >
-	<link href="../fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+
 
 </head>
 <body>
-<div id="topheader">
-    <div class="container-fluid">
-	
-	   
-	
-       <h2>CEG COURSE MANAGEMENT</h2> 
-       
-    </div>
-</div>
-<div class="container-fluid" id="sidebar" >
-    <div class="row" >
-        
-        <h1>HELLO USER</h1>
-        
-            <ul  >
-                <a href="stddash.php">
-				<li>DASHBOARD</li>
-                </a>
-               <a href="view_all_course.php">
-                <li> VIEW All COURSES</li></a>
+
+<div class="wrapper d-flex align-items-stretch">
+			<nav id="sidebar" class="active">
+				<h1><a href="#" class="logo">CMS</a></h1>
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="stddash.php"><span class="fa fa-home"></span>DASHBOARD</a>
+          </li>
+		  <li>
+            <a href="student_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
+          </li>
+          <li>
+            <a href="student_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
+          </li>
+          <li>
+            <a href="view_all_course.php"><span class="fa fa-sticky-note"></span>VIEW ALL COURSES</a>
+          </li>
+          <li>
+            <a href="student_notification.php"><span class="fa fa-bell"></span>NOTIFICATION</a>
+          </li>
+          <li>
+            <a href="log_out.php"><span class="fa fa-sign-out"></span>LOGOUT</a>
+          </li>
+        </ul>
+    	</nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+            <button type="button" id="sidebarCollapse" class="btn btn-primary">
+              <i class="fa fa-bars"></i>
+              <span class="sr-only">Toggle Menu</span>
+            </button>
+            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 
-                <a href="student_notifications.php">
-                <li>NOTIFICATIONS</li>
-                </a>
-                <a href="student_update_details.php">
-                <li>UPDATE DETAILS</li>
-                </a>
-				<a href="log_out.php">
-                <li>LOG OUT</li>
-                </a>
-             
+            </button>
 
-            </ul>
-            
-    
-        </div>
 
-    </div>
+          </div>
+        </nav>
+
     <div class="container-fluid p-0" id="con">
         <div class="content">
             <h3>Profile Details</h3>
@@ -87,6 +98,7 @@ if(!isset($_SESSION['sroll_no']))
 			?>
           		   
         </div>
+		</div>
     
     <div class="container-fluid p-0" id="enrolledcourses">
        <h3> Enrolled courses</h3>
@@ -122,39 +134,13 @@ $total=count($storeArray);
  ?>   
 </div>
 </div>	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
-	   
 
     </div>
     </div>
 </div>
-   <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
-    <script src="bootstrap/js/popper.min.js"></script>
-    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<script src="main.js"></script>
 
 </body>
 
 </html>
-
