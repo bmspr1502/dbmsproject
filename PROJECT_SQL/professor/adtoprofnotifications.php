@@ -25,10 +25,12 @@ require '../dbconfig/config.php';
 
 <div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
-			
+     
 			 <h1><a href="#" class="logo">CMS</a></h1>
-				<?php  echo $_SESSION['pname']?></h1>
+			 <h6>  <?php  echo $_SESSION['pname']?></h6>
          <ul class="list-unstyled components mb-5">
+        
+      
           <li class="active">
             <a href="profdash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
@@ -66,7 +68,54 @@ require '../dbconfig/config.php';
 
             </div>
         </nav>
+        <div class="container" >
+<div class="row">
+<h4><center>Notifications</center></h4>
 
+<table class="table table-bordered">
+    <thead>
+      <tr>
+	    <th>S.No</th>
+        <th>Title</th>
+        <th>Message</th>
+        <th>Logs</th>
+		<th>View</th>
+		
+      </tr>
+    </thead>
+    <tbody>
+	<?php
+	   $sql="select * from admin_notifications where target='professor' OR 'both'";
+	   $res=$con->query($sql);
+	   if(($res->num_rows)> 0)
+	   {      $i=0;
+	          while($row=$res->fetch_assoc()) 
+			  {
+				  $i++;
+				  echo "<tr>
+				       <td>{$i}</td>
+					   <td>{$row['title']}</td>
+			           <td>{$row['message']}</td>
+					   <td>{$row['logs']}</td>
+					   <td><a href='../admin_dash/{$row['upload']}' target='_blank'>View</a></td>
+					   
+					   </tr>";
+					   
+					   
+			  }
+	   }
+	   else{
+		   echo "No records found";
+	   }
+	
+	?>
+      
+    </tbody>
+  </table> 
+  </div>
+  </div>
+  </div>
+  </div>
 
 <script src="../dash_style/main.js"></script>
 </form>
