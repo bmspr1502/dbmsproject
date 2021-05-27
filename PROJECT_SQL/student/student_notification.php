@@ -94,7 +94,7 @@ require "../dbconfig/config.php";
 					   <td>{$row['title']}</td>
 			           <td>{$row['message']}</td>
 					   <td>{$row['logs']}</td>
-					   <td><a href='admin_dash/{$row['upload']}' target='_blank'>View</a></td>
+					   <td><a href='../admin_dash/{$row['upload']}' target='_blank'>View</a></td>
 					   
 					   </tr>";
 					   
