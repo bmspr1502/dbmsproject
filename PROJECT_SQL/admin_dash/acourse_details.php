@@ -80,18 +80,18 @@ require  '../dbconfig/config.php';
     <thead>
       <tr>
 	    <th>S.No</th>
-        <th>Rollno</th>
-        <th>Name</th>
-        <th>Password</th>
-		<th>Noofcourses</th>
-		<th>Edit</th>
-		<th>Delete</th>
+        <th>Course id</th>
+        <th>course Name</th>
+        <th>Professor id</th>
+		    <th>No of students</th>
+		    <th>Edit</th>
+		    <th>Delete</th>
 		
       </tr>
     </thead>
     <tbody class="tbody">
 	<?php
-	   $query="select * from student_details";
+	   $query="select * from course_details";
 	   $result=mysqli_query($con,$query);
 	   if($result->num_rows >0)
 	   {      $i=0;
@@ -100,9 +100,9 @@ require  '../dbconfig/config.php';
 				  $i++;
 				  echo "<tr>
 				       <td>{$i}</td>
-					   <td>{$row['rollno']}</td>
+					   <td>{$row['courseid']}</td>
 			           <td>{$row['name']}</td>
-					   <td>{$row['password']}</td>
+					   <td>{$row['profno']}</td>
 					   <td></td>
 					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit</button></td>
 					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>Delete</button></td>
@@ -131,17 +131,17 @@ require  '../dbconfig/config.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="student_details.php" method="POST" >
+        <form action="acourse_details.php" method="POST" >
 <div class="form-group align-items-center">
 <input type="hidden" id="sno"></input>
-<label class="control-label" ><i class="fas fa-lock fa-1.5x"></i> rollno</label>
-<input type="text"  class="form-control" name="srollno"  id="srollno"></div>
+<label class="control-label" ><i class="fas fa-lock fa-1.5x"></i> Courseid</label>
+<input type="text"  class="form-control" name="cid"  id="cid"></div>
 <div class="form-group">
-<label class="control-label" ><i class="fa fa-address-card" ></i>  Name</label>
-<input type="text"  class="form-control" name="sname" id="sname"></div>
+<label class="control-label" ><i class="fa fa-address-card" ></i> Course Name</label>
+<input type="text"  class="form-control" name="cname" id="cname"></div>
 <div class="form-group">
-<label class="control-label" ><i class="fa fa-birthday-cake"></i>  password</label>
-<input type="text"  class="form-control" name="spass" id="spass"></div>
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> Professor id</label>
+<input type="text"  class="form-control" name="pid" id="pid"></div>
 <input type="hidden" id="noofcourses"></input>
       </div>
       <div class="modal-footer">
@@ -157,7 +157,7 @@ require  '../dbconfig/config.php';
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div><form action="student_details.php" method="POST">
+      </div><form action="acourse_details.php" method="POST">
       <div class="modal-body">
 	  
         <h5>Are You sure want to delete this record?</h5>
@@ -178,7 +178,7 @@ if(isset($_POST['delete']))
 	
 	$id=$_POST['delete_id'];
 	
-	$query="delete from student_details WHERE rollno='$id'";
+	$query="delete from course_details WHERE courseid='$id'";
 	$query_run=mysqli_query($con,$query);
 	
 	if($query_run){
@@ -199,10 +199,10 @@ if(isset($_POST['delete']))
 if(isset($_POST['update']))
 {
 	
-	$id=$_POST['srollno'];
-	$sname=$_POST['sname'];
-	$spass=$_POST['spass'];
-	$query="update student_details set name='$sname',password='$spass' where rollno='$id'";
+	$id=$_POST['cid'];
+	$cname=$_POST['cname'];
+	$pid=$_POST['pid'];
+	$query="update course_details set name='$cname',profno='$pid' where courseid='$id'";
 	$query_run=mysqli_query($con,$query);
 	
 	if($query_run){
@@ -232,9 +232,9 @@ $(document).ready(function(){
 		  var data2=currrow.find('td:eq(2)').text();
 		  var data3=currrow.find('td:eq(3)').text();
 		   
-		 $('#srollno').val(data1);
-		  $('#sname').val(data2);
-		   $('#spass').val(data3);
+		 $('#cid').val(data1);
+		  $('#cname').val(data2);
+		   $('#pid').val(data3);
 		  console.log(data1);
 		   console.log(data2);
 		    console.log(data3);
