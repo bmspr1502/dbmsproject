@@ -1,14 +1,13 @@
 <?php
 session_start();
-require "../dbconfig/config.php";
-
+require '../dbconfig/config.php';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Update Details</title>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,39 +15,45 @@ require "../dbconfig/config.php";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../dash_style/style.css">
+<title>Update Details</title>
+
 </head>
 <body>
-</head>
-<body>
+
+
+
 <div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
-				<h1><a href="../index.php" class="logo">CMS</a></h1>
-        <ul class="list-unstyled components mb-5">
+     
+			 <h1><a href="#" class="logo">CMS</a></h1>
+			 <h6>  <?php  echo $_SESSION['pname']?></h6>
+         <ul class="list-unstyled components mb-5">
+        
+      
           <li class="active">
-            <a href="stddash.php"><span class="fa fa-home"></span>DASHBOARD</a>
+            <a href="profdash.php"><span class="fa fa-home"></span>DASHBOARD</a>
+          </li>
+		   <li>
+            <a href="professor_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
           </li>
 		  <li>
-            <a href="student_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
+            <a href="professor_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
           </li>
           <li>
-            <a href="student_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
+            <a href="course_details.php#navStudentDetails" onclick='show_course_details()'><span class="fa fa-sticky-note"></span>VIEW COURSE DETAILS</a>
           </li>
-          <li>
-            <a href="view_all_course.php"><span class="fa fa-sticky-note"></span>VIEW ALL COURSES</a>
+		  <li>
+            <a href="course_details.php#navCourseMaterials" onclick='show_course_materials()'><span class="fa fa-upload"></span>UPLOAD STUDY MATERIALS</a>
           </li>
-          <li>
-            <a href="course_details.php"><span class="fa fa-book"></span>VIEW COURSE DETAILS</a>
-          </li>
-          <li>
-            <a href="student_notification.php"><span class="fa fa-bell"></span>NOTIFICATION</a>
+		  <li>
+            <a href="course_details.php#navCourseNotifications" onclick='show_course_notifications()'><span class="fa fa-paper-plane"></span> SEND NOTIFICATION</a>
           </li>
           <li>
             <a href="log_out.php"><span class="fa fa-sign-out"></span>LOGOUT</a>
           </li>
-        </ul>
+         </ul>
     	</nav>
-
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5">
 
@@ -61,10 +66,8 @@ require "../dbconfig/config.php";
             </button>
 
 
-          </div>
+            </div>
         </nav>
-
-
         <div class="container" >
 <div class="row">
 <h4><center>Notifications</center></h4>
@@ -82,7 +85,7 @@ require "../dbconfig/config.php";
     </thead>
     <tbody>
 	<?php
-	   $sql="select * from admin_notifications where target='student' OR target='both'";
+	   $sql="select * from admin_notifications where target='professor' OR target='both'";
 	   $res=$con->query($sql);
 	   if(($res->num_rows)> 0)
 	   {      $i=0;
@@ -113,6 +116,9 @@ require "../dbconfig/config.php";
   </div>
   </div>
   </div>
-  <script src="main.js"></script>
+
+<script src="../dash_style/main.js"></script>
+</form>
 </body>
+
 </html>

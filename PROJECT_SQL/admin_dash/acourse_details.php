@@ -91,19 +91,22 @@ require  '../dbconfig/config.php';
     </thead>
     <tbody class="tbody">
 	<?php
+    
 	   $query="select * from course_details";
 	   $result=mysqli_query($con,$query);
 	   if($result->num_rows >0)
 	   {      $i=0;
 	          while($row=$result->fetch_assoc() )
 			  {
+          $sql="select * from student_courses where courseid='{$row['courseid']}'";
+          $query_run=mysqli_query($con,$sql);
 				  $i++;
 				  echo "<tr>
 				       <td>{$i}</td>
 					   <td>{$row['courseid']}</td>
 			           <td>{$row['name']}</td>
 					   <td>{$row['profno']}</td>
-					   <td></td>
+					   <td>$query_run->num_rows</td>
 					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit</button></td>
 					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>Delete</button></td>
 					   </tr>";
