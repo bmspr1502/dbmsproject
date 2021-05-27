@@ -1,13 +1,11 @@
-
 <?php
 session_start();
-
+require '../dbconfig/config.php';
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+ <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -18,11 +16,12 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../dash_style/style.css">
-	
-<title>Professor dashboard</title>
+<title>Update Details</title>
 
 </head>
 <body>
+
+
 
 <div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
@@ -34,7 +33,7 @@ session_start();
             <a href="profdash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
 		   <li>
-            <a href="adtoprofnotifications.php"><span class="fa fa-user"></span>ADMIN NOTIFICATIONS</a>
+            <a href="professor_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
           </li>
 		  <li>
             <a href="professor_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
@@ -46,7 +45,7 @@ session_start();
             <a href="course_details.php#navCourseMaterials" onclick='show_course_materials()'><span class="fa fa-upload"></span>UPLOAD STUDY MATERIALS</a>
           </li>
 		  <li>
-            <a href="course_details.php#navCourseNotifications" onclick='show_course_notifications()'><span class="fa fa-paper-plane"></span>SEND NOTIFICATION</a>
+            <a href="course_details.php#navCourseNotifications" onclick='show_course_notifications()'><span class="fa fa-paper-plane"></span> SEND NOTIFICATION</a>
           </li>
           <li>
             <a href="log_out.php"><span class="fa fa-sign-out"></span>LOGOUT</a>
@@ -69,57 +68,8 @@ session_start();
         </nav>
 
 
-
-
-    <div class="container-fluid p-0" id="enrolledcourses">
-       <h3> Enrolled courses</h3>
-       <div class="container mt-5"></div>
-            <div class="row">
-                <div class="col-md-3 "  >
-                   <div class="card text-center">
-                   <div class="card-header bg-success text-white">
-                   <div class="row align-items-center">
-                   <div class="col">
-                   <i class="fa fa-list fa-3x"></i>
-                    </div>
-                    <div class="col">
-                    <h3 class="display-3">08</h3>
-                    <h6>Tasks</h6>
-                    </div>
-                    </div>
-                   <div class="card-footer " style="width:fit-content;">
-                    <p>View Details</p>
-                    </div>
-                   
-                   
-                   </div>
-                   
-                   </div>
-                                </div>
-                                <div class="col-md-3 course"  >
-                                    <h5><center>DSA COURSE</center></h5>
-                                    <form >
-                                        <button id="btn">Viewcourse</button>
-                                    </form>
-                                                </div>
-                                                <div class="col-md-3 course"  >
-                                                    <h5><center>OS COURSE</center></h5>
-                                                    <form >
-                                                        <button id="btn">Viewcourse</button>
-                                                    </form>
-                                                                </div>
-                                
-
-            </div>
-            
-        </div>
-
-    </div>
-    </div>
-  <script src="../dash_style/main.js"></script>
- 
-
+<script src="../dash_style/main.js"></script>
+</form>
 </body>
 
 </html>
-
