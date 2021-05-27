@@ -19,9 +19,10 @@ require '../dbconfig/config.php';
 
 <title>PROFILE DETAILS</title>
 </head>
+<body>
 <div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar" class="active">
-				<h1><a href="../index.php" class="logo">CMS</a></h1>
+				<h1><a href="#" class="logo">CMS</a></h1>
         <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="stddash.php"><span class="fa fa-home"></span>DASHBOARD</a>
@@ -45,7 +46,7 @@ require '../dbconfig/config.php';
     	</nav>
 
         <!-- Page Content  -->
-      <div id="content " class="p-4 p-md-5">
+      <div id="content" class="p-4 p-md-5">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
@@ -62,45 +63,88 @@ require '../dbconfig/config.php';
           </div>
         </nav>
 
+    
+    
+    <div class="container-fluid p-0 text-center">
+       <h3> PROFILE DETAILS</h3>
+	    <div class="container text-center" id="box">
+        
 
+        <img src="../images/software-engineer-vector-6122111.jpg" style="width:10%;"></br></br>
+			
+      <?php 
+ $sql="select name,DOB,Address from student_details where rollno={$_SESSION['sroll_no']}";
 
-</head>
-<body>
- <div class="container-fluid p-0 " id="enrolledcourses">
-<h3>PROFILE DETAILS</h3>
-<div class="container-fluid p-0 " id="con">
-        <div class="content ">
+     
+      $query_run=mysqli_query($con,$sql);
+  if($query_run->num_rows >0)
+  { 
+              while($row=$query_run->fetch_assoc())
+              { 
+              ?>
+            <div class="row justify-content-center">
+          <div class="col-auto">
+      <table class="table table-responsive table-bordered">
+              <tr>
+                <th>DETAILS</th>
+                <th>VALUES</th>
+              
+              </tr>
+              <tr>
+              <td>Name</td>  
+              <td><?php echo $row['name']; ?></td> 
+            </tr>
+            <tr>
+              <td>Date Of Birth</td>  
+              <td><?php echo $row['DOB']; ?></td> 
+            </tr>
+            <tr>
+              <td>Address</td>  
+              <td><?php echo $row['Address']; ?></td> 
+            </tr>
+                  
             
-            <img src="../images/software-engineer-vector-6122111.jpg" style="width:70px;"></br>
-			
-            <?php 
-			 $sql="select name,DOB,Address from student_details where rollno={$_SESSION['sroll_no']}";
+           
+           
+           
+           <?php 
+           
+          
+          }
+              
 
-	         
-	          $query_run=mysqli_query($con,$sql);
-			  if($query_run->num_rows >0)
-			  { 
-                    while($row=$query_run->fetch_assoc())
-                    {
+  }
+?>
 
-                    echo    "Name  -{$row['name']}</br>";
-                    echo    "DOB -{$row['DOB']}</br>";
-                    echo    "Address-{$row['Address']}</br>";
-                    }
-                    
-			
-			  }
-			?>
-          		   
-        </div>
-		</div>
-</div></div>
+<?php
+ $sql="select * from student_courses where rollno={$_SESSION['sroll_no']}";
 
+     
+ $query_run=mysqli_query($con,$sql);
+if($query_run->num_rows >0)
+{
+?>
+<tr>
+  <td>No. of courses enrolled</td>
+  <td><?php echo $query_run->num_rows; ?></td>
+</tr>
+</table>
+          </div>
+            </div>
 
+<?php
+}?>
 </div>
+</div>	   
+
+    </div>
+    </div>
 </div>
 
  <script src="main.js"></script>
 </body>
 
 </html>
+
+            
+          
