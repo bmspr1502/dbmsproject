@@ -74,14 +74,6 @@ if(!isset($_SESSION['aid']))
         </nav>
 
 
-    <div class="container-fluid p-0" id="con">
-        <div class="content">
-            <h3>Profile Details</h3>
-            <img src="images/software-engineer-vector-6122111.jpg" style="width: 70px;">
-            <p>Name:</p>
-            <p>DOB:</p>
-            <P>Address:</p>
-        </div>
     
     <div class="container-fluid p-0" id="enrolledcourses">
        <h3>OVERALL DETAILS</h3>
@@ -107,7 +99,7 @@ if(!isset($_SESSION['aid']))
                     </div>
                     </div>
               
-                    <button type="button" class="btn btn-warning" href="student_details.php" >View Details</a>
+                    <a class="btn btn-warning" href="student_details.php" >View Details</a>
                     </div>
                    
                    
@@ -136,7 +128,7 @@ if(!isset($_SESSION['aid']))
                     </div>
                     </div>
                    
-                   <button type="submit" href="prof_details.php" class="btn btn-warning" >View Details</button>
+                   <a href="prof_details.php" class="btn btn-warning" >View Details</a>
                     </div>
                    
                    
@@ -165,7 +157,7 @@ if(!isset($_SESSION['aid']))
                     </div>
                     </div>
            
-                    <button type="button" class="btn btn-warning" href="#" >View Details</button>
+                    <a class="btn btn-warning" href="acourse_details.php" >View Details</a>
                     </div>
                    
                    
