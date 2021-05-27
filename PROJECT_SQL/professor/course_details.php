@@ -17,7 +17,7 @@ if(!isset($_SESSION['p_course'])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../dash_style/style.css">
 <title>view_all_course</title>
 
 </head>
@@ -28,7 +28,7 @@ if(!isset($_SESSION['p_course'])){
 			<nav id="sidebar" class="active">
 			
 			 <h1><a href="#" class="logo">CMS</a></h1>
-				<?php  echo $_SESSION['pname']?></h1>
+				<h1><?php  echo $_SESSION['pname']?></h1>
          <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="profdash.php"><span class="fa fa-home"></span>DASHBOARD</a>
@@ -40,7 +40,7 @@ if(!isset($_SESSION['p_course'])){
             <a href="professor_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
           </li>
           <li>
-            <a href="course_details.php#navStudentDetails" onclick='show_course_details()'><span class="fa fa-sticky-note"></span>VIEW ALL COURSES</a>
+            <a href="course_details.php#navStudentDetails" onclick='show_course_details()'><span class="fa fa-sticky-note"></span>VIEW COURSE DETAILS</a>
           </li>
 		  <li>
             <a href="course_details.php#navCourseMaterials" onclick='show_course_materials()'><span class="fa fa-upload"></span>UPLOAD STUDY MATERIALS</a>
@@ -54,7 +54,7 @@ if(!isset($_SESSION['p_course'])){
          </ul>
     	</nav>
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5">
+<div id="content" class="p-4 p-md-5">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
@@ -63,15 +63,16 @@ if(!isset($_SESSION['p_course'])){
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-
+            <a href='course.php' class='btn btn-success'>Go back to choose course</a>
 
             </div>
+            
         </nav>
 
 <div class="container-fluid p-0" id="enrolledcourses">
     <div id='insideNav'>
     
-        <ul class="nav nav-pills nav-fill mt-3 mb-3">
+        <ul class="nav nav-tabs nav-fill mt-3 mb-3">
         <li class="nav-item">
             <button class="nav-link" data-toggle='pill' id='navStudentDetails'  >Show Student Details</button>
         </li>
@@ -83,10 +84,10 @@ if(!isset($_SESSION['p_course'])){
         </li>
         </ul>
     </div>
-     <div class="container" id="box">
+    <div class="container" id="box">
     </div>
 </div>
-    </div>
+</div>
 </div>
 
 <script type='text/javascript'>
@@ -142,6 +143,6 @@ if(!isset($_SESSION['p_course'])){
         $('#navCourseNotifications').removeClass('active');
     }
 </script>
-<script src="main.js"></script>
+<script src="../dash_style/main.js"></script>
 </body>
 </html>

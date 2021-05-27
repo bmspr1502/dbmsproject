@@ -12,11 +12,11 @@ if($result = $con->query($sql)){
         <img class='card-img-top img-fluid' src='api/add-icon.png'>
         <div class='card-body'>
         <h4 class='card-title'>Add Course material</h4>
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#addNewDataModal">
-        
-  Click Here to add
-</button>
-
+        </div>
+        <div class='card-footer'>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addNewDataModal">
+            Click Here to add
+            </button>
         </div>
     </div>
     <?php
@@ -33,6 +33,7 @@ if($result = $con->query($sql)){
         <h4 class="card-title"><?php echo $row['title'] ?></h4>
         <p class="card-text"><?php echo stripslashes($row['description']) ?></p>
     </div>
+    <a href="<?php echo $row['link'] ?>" target='_blank' class="btn btn-primary">Click here to view</a>
 <?php
     }else if($row['type']=='video'){
 ?>
@@ -59,30 +60,30 @@ if($result = $con->query($sql)){
     <div class='card-footer'>
         <?php
         if($row['type']=='link'){
-            echo '<a href="'. $row['link'] .'" target=\'_blank\' class="btn btn-primary">Click here to view</a>';
+            
         }
         ?>
-        <button class='btn btn-info' onclick='load_update_data(<?php echo $row["dataid"];?>)' data-bs-toggle="modal" data-bs-target="#updateExistingModal"><i class="fa fa-edit"></i></button>
-        <button class='btn btn-danger' onclick='delete_material(<?php echo $row["dataid"];?>)'><i class="fa fa-trash-alt"></i></button>
-</div>
+        <button class='btn btn-info' onclick='load_update_data(<?php echo $row["dataid"];?>)' data-toggle="modal" data-target="#updateExistingModal"><i class="fa fa-edit"></i></button>
+        <button class='btn btn-danger' onclick='delete_material(<?php echo $row["dataid"];?>)'><i class="fa fa-trash"></i></button>
+    </div>
 </div>
     <?php 
 
     }
 ?>
-    </div>
+</div>
 
     <!-- Button trigger modal -->
 
     
 
 <!-- addNewDataModal -->
-<div class="modal fade" id="addNewDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal hide in fade" id="addNewDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Insert New Course Material</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close">X</button>
       </div>
       <div class="modal-body">
       <form id='addData'>
@@ -116,7 +117,7 @@ if($result = $con->query($sql)){
             
             <input type="submit" name='submit' id='addsubmit' class="btn btn-success" value='Save Changes'/>
             </form>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
 
       
@@ -127,12 +128,12 @@ if($result = $con->query($sql)){
 </div>
 
 <!-- updateExistingModal -->
-<div class="modal fade" id="updateExistingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal hide in fade" id="updateExistingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Update Existing Course Material</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn btn-close" data-dismiss="modal" aria-label="Close">X</button>
       </div>
       <div class="modal-body">
       <form id='updateData'>
@@ -167,7 +168,7 @@ if($result = $con->query($sql)){
             
             <input type="submit" name='submit' id='updateSubmit' class="btn btn-success" value='Save Changes'/>
             </form>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            <button type="button" id='updateClose' class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
 
       
@@ -220,6 +221,7 @@ if($result = $con->query($sql)){
         $.post('api/load_update_data.php', {
             dataid: dataid
         }, function(data){
+            //$('#updateExistingModal').modal('show');
             let result = JSON.parse(data);
             $('#updateDataId').val(result.dataid);
             $('#updateMaterialType').val(result.type);

@@ -1,9 +1,7 @@
 <?php
 session_start();
 include '../../dbconfig/config.php';
-if(!isset($_SESSION['p_course'])){
-  echo '<script>window.location.href="course.php"</script>';
-}
+
 $sql=  "SELECT * from all_courses
         where courseid = '". $_SESSION['p_course'] . "';";
 
@@ -42,7 +40,7 @@ if($result = $con->query($sql)){
             <th scope='row'><?php echo $i ?></th>
             <td><?php echo $stu_row['rollno']?></td>
             <td><?php echo $stu_row['name'] ?></td>
-            <td><button class='btn btn-danger' ><i class="fa fa-trash-alt"></i></button>
+            <td><button class='btn btn-danger' ><i class="fa fa-trash"></i></button>
           </tr>";
 <?php
           $i++;
