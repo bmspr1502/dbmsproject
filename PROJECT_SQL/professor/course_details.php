@@ -278,7 +278,7 @@ if(!isset($_SESSION['p_course'])){
             
         fd.append('file',files);
         $.ajax({
-            url: 'api/upload_file.php',
+            url: 'api/upload_file.php?type=course_material',
             type: 'post',
             data: fd,
             contentType: false,
@@ -323,9 +323,14 @@ if(!isset($_SESSION['p_course'])){
     }
 
     function show_course_notifications(){
-        make_all_inactive();
-        $('#navCourseNotifications').addClass('active');
-        $("#box").html('HIIIIII');  
+        $.post('api/show_course_notification.php',{
+            courseid: '<?php echo $_SESSION['p_course']?>'
+        },function(data){
+            make_all_inactive();
+            $('#navCourseNotifications').addClass('active');
+            $("#box").html(data);  
+        })
+       
     }
 
     $(document).ready(function(){

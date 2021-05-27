@@ -107,9 +107,13 @@ if(!isset($_SESSION['s_course'])){
     }
 
     function show_course_notifications(){
-        make_all_inactive();
-        $('#navCourseNotifications').addClass('active');
-        $("#box").html('HIIIIII');  
+        $.post('api/show_course_notification.php',{
+            courseid: '<?php echo $_SESSION['s_course']?>'
+        },function(data){
+            make_all_inactive();
+            $('#navCourseNotifications').addClass('active');
+            $("#box").html(data);  
+        });  
     }
 
     $(document).ready(function(){

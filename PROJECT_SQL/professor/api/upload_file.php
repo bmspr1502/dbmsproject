@@ -11,10 +11,10 @@ if(isset($_FILES)){
 
         $fileext = explode('.', $filename);
         $fileactualext = strtolower(end($fileext));
-        
+        $type= $_GET['type'];
         if ($fileerror === 0){
             
-            $filedestination = '../../uploads/' . $filename;
+            $filedestination = '../../uploads/'. $type .'/' . $filename;
             if(move_uploaded_file($filetmp, $filedestination)){
                 echo $filename;
             }

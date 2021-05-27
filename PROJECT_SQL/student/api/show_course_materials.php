@@ -49,7 +49,7 @@ if($result = $con->query($sql)){
             <h4 class="card-title"><?php echo $row['title'] ?></h4>
             <p class="card-text"><?php echo stripslashes($row['description']) ?></p>
         </div>
-        <a href="../uploads/<?php echo $row['link'] ?>" target='_blank' class="btn btn-success">Click here to download</a>
+        <a href="../uploads/course_material/<?php echo $row['link'] ?>" target='_blank' class="btn btn-success">Click here to download</a>
             <?php
         }  
         ?>
