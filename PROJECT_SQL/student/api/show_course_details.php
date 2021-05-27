@@ -3,7 +3,7 @@ session_start();
 include '../../dbconfig/config.php';
 
 $sql=  "SELECT * from all_courses
-        where courseid = '". $_SESSION['p_course'] . "';";
+        where courseid = '". $_SESSION['s_course'] . "';";
 
 if($result = $con->query($sql)){
     $row = $result->fetch_assoc();
@@ -18,7 +18,7 @@ if($result = $con->query($sql)){
     $stu_qry = "SELECT student_courses.rollno, student_details.name 
                 FROM student_courses INNER JOIN student_details 
                 ON student_details.rollno = student_courses.rollno 
-                WHERE student_courses.courseid = '". $_SESSION['p_course'] ."'";
+                WHERE student_courses.courseid = '". $_SESSION['s_course'] ."'";
 
     if($stu_res = $con->query($stu_qry)){
         ?>
@@ -28,7 +28,6 @@ if($result = $con->query($sql)){
       <th scope="col">#</th>
       <th scope="col">Roll No.</th>
       <th scope="col">Student Name</th>
-      <th scope="col">Remove Student</th>
     </tr>
 </thead>
 <tbody>
@@ -40,7 +39,6 @@ if($result = $con->query($sql)){
             <th scope='row'><?php echo $i ?></th>
             <td><?php echo $stu_row['rollno']?></td>
             <td><?php echo $stu_row['name'] ?></td>
-            <td><button class='btn btn-danger' ><i class="fa fa-trash"></i></button>
           </tr>
 <?php
           $i++;

@@ -76,38 +76,10 @@ if(!isset($_SESSION['sroll_no']))
 
     
     
-    <div class="container-fluid p-0" id="enrolledcourses">
+    <div class="container-fluid p-0">
        <h3> Enrolled courses</h3>
 	    <div class="container" id="box">
-        <div class="row">
-	   <?php 
-$sql="SELECT course_details.name from course_details 
-  INNER JOIN student_courses ON student_courses.courseid=course_details.courseid 
-  where student_courses.rollno='{$_SESSION['sroll_no']}'" ;
-   $query_run=mysqli_query($con,$sql);
-   $storeArray = Array();
-   while ($row =$query_run->fetch_assoc()) {
-    $storeArray[] =  $row['name'];  
-}
-$total=count($storeArray);
- $i=0;
- while($i < $total)
- { 
-	echo '<div class="col-md-3">';
-	echo   '<div class="card text-white bg-warning mb-3" style="max-width: 18rem;margin:20px;" id="cardcourse">';
-	echo     '<div class="card-header">';
-	echo      ' <center><i class="fa fa-book-reader fa-2x"></center></i>';  
-    echo       ' <h3 class="card-title" style="text-align:center;">'; echo $storeArray[$i]; echo'</h3>
-            </div>
-  <div class="card-body">
-  <center><a href="#">View Details</a></center>
-    
-   </div> 
-  </div>
-  </div>';
-  $i++;
- }
- ?>   
+        <div class="row" id='enrolledCourses'>
 </div>
 </div>	   
 
@@ -116,7 +88,27 @@ $total=count($storeArray);
 </div>
 
 <script src="main.js"></script>
+<script>
+function load_enrolled_courses(){
+    $.post('api/load_enrolled_courses.php', {
+      rollno: '<?php echo $_SESSION['sroll_no'];?>'
+    },function(data){
+        $('#enrolledCourses').html(data);
+    })
+  }
 
+  function open_course(courseid){
+    $.post('api/set_course.php', {
+      course_id: courseid
+    }, function(data){
+      $('#enrolledCourses').html(data);
+    })
+  }
+
+  $(document).ready(function(){
+    load_enrolled_courses();
+  })
+</script>
 </body>
 
 </html>

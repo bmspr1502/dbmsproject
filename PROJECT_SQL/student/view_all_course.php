@@ -67,68 +67,84 @@ session_start();
 	
 
  <div class="container-fluid p-0" id="enrolledcourses">
-        <h3 style="margin:20px">All Courses:</h3>
-     <div class="container" id="box">
-    <div class="row">
+        <h3>All Courses:</h3>
+        <input type="text" id="myinput" placeholder="Search..." class="form-control" />
+     <div class="container">
+       <p id='box'></p>
+    <div class="row" id='unenrolledCourses'>
                 
-    <?php 
-
-$sql="SELECT * FROM `view_all_courses_student` WHERE rollno !='{$_SESSION['sroll_no']}' OR rollno IS NULL GROUP BY courseid";
- $query_run=mysqli_query($con,$sql);
- 
- 
-    
-
-
-$i=0;
-$n=4;
-$colorArray =Array('warning','info','success','danger');
-while ($row =$query_run->fetch_assoc()) 
-{ ?> 
- <div class="col-md-3">
-   <div class='card text-white bg-<?php echo $colorArray[$i%4]; ?> mb-3' style='max-width: 18rem;margin:20px;' id='cardcourse'>
-    <div class="card-header">
-       <center><i class="fa fa-book-reader fa-2x"></center></i>           
-         <h3 class="card-title" style="text-align:center;"><?php echo $row['course_name']; ?></h3>
-          </div>
-
-<center><input type="button" class="btn btn-primary" id="enroll" name="enroll" onclick="view_course_details('<?php echo $row['courseid'];?>' )" value="Enroll"/></center>
- 
- </div>
-</div>
-<?php
-$i++;
-}
-?>                           
-</div></div>
+    </div>
+    <h4>Enrolled Courses</h4>
+    <div class="row" id='enrolledCourses'>
+                
+    </div>
+  </div>
           </div>
           
       </div>
 
   </div>
-<p id="box"></p>                           
+                          
 </div>
 </div>
 </div>
 </div>
 	</div>
 
- <script src="jquery.min.js"></script>
-    <script src="popper.js"></script>
-    <script src="bootstrap.min.js"></script>
+ 
     <script src="main.js"></script>
 
     <script type="text/javascript">
-	function view_course_details(course_id){
-		$.post('enroll_course.php', {
+	function enroll_course(course_id){
+		$.post('api/enroll_course.php', {
                 enroll: course_id
             },function(data){
                 $('#box').html(data);
-				location.reload();
+				//location.reload();
             })
 	};
+  function load_unenrolled_courses(){
+    $.post('api/load_unenrolled_courses.php', {
+      rollno: '<?php echo $_SESSION['sroll_no'];?>'
+    },function(data){
+        $('#unenrolledCourses').html(data);
+    })
+  }
+
+  function load_enrolled_courses(){
+    $.post('api/load_enrolled_courses.php', {
+      rollno: '<?php echo $_SESSION['sroll_no'];?>'
+    },function(data){
+        $('#enrolledCourses').html(data);
+    })
+  }
+
 	
-	
+	$(document).ready(function() {
+    load_unenrolled_courses();
+    load_enrolled_courses();
+    $('#myinput').keyup(function(){
+        search_text($(this).val());
+    });
+
+    function search_text(value){
+        $('.card ').each(function(){
+            var found = 'false';
+            $(this).each(function(){
+                if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                {
+                    found = 'true';
+                }
+            });
+            if(found == 'true'){
+                $(this).show()
+            }
+            else {
+                $(this).hide();
+            }
+        })
+    }
+});
 	
 
 	</script>

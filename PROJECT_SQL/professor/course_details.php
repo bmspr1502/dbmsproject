@@ -90,6 +90,181 @@ if(!isset($_SESSION['p_course'])){
 </div>
 </div>
 
+<!-- addNewDataModal -->
+<div class="modal fade" id="addNewDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Insert New Course Material</h5>
+        <button type="button" class="addClose close" data-dismiss="modal" aria-label="Close">X</button>
+      </div>
+      <div class="modal-body">
+      <form id='addData'>
+        <input type='hidden' name='courseid' value='<?php echo $_SESSION['p_course'];?>'>
+        <div class="form-group">
+            <label for="addmaterialType" class="form-label">Type of Material:</label>
+            <select class="form-control" id='addmaterialType' aria-label="Default select example" name='type'>
+                <option selected value='link'>Link</option>
+                <option value="video">YouTube Video</option>
+                <option value="code">Embedding HTML code</option>
+            </select>
+            <div id="typeHelp" class="form-text">Select the type correctly as that will decide how the material looks like.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="addlink" class="form-label">Link / code to embed:</label>
+            <textarea class='form-control' rows='4' id='addlink' name='link' style='width: 100%'></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="addtitle" class="form-label">Title of the material:</label>
+            <input type='text' class='form-control' name='title' rows='4' id='addtitle' style='width: 100%'>
+        </div>
+
+        <div class="form-group">
+            <label for="adddescription" class="form-label">Description of the material:</label>
+            <textarea class='form-control' rows='4' name='description' id='adddescription' style='width: 100%'></textarea>
+        </div>
+        </div>
+        <div class="modal-footer">
+            
+            <input type="submit" name='submit' id='addsubmit' class="btn btn-success" value='Save Changes'/>
+            </form>
+            <button type="button" class="btn btn-danger addClose" data-dismiss="modal">Close</button>
+        </div>
+
+      
+      
+      
+    </div>
+  </div>
+</div>
+
+<!-- updateExistingModal -->
+<div class="modal fade" id="updateExistingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Update Existing Course Material</h5>
+        <button type="button" class="updateClose close" data-dismiss="modal" aria-label="Close">X</button>
+      </div>
+      <div class="modal-body">
+      <form id='updateData'>
+        <input type='hidden' name='dataid' id='updateDataId'>
+        <input type='hidden' name='courseid' value='<?php echo $_SESSION['p_course'];?>'>
+        <div class="form-group">
+            <label for="updateMaterialType" class="form-label">Type of Material:</label>
+            <select class="form-control " id='updateMaterialType' aria-label="Default select example" name='type'>
+                <option selected value='link'>Link</option>
+                <option value="video">YouTube Video</option>
+                <option value="code">Embedding HTML code</option>
+            </select>
+            <div id="typeHelp" class="form-text">Select the type correctly as that will decide how the material looks like.</div>
+        </div>
+
+        <div class="form-group">
+            <label for="updateLink" class="form-label">Link / code to embed:</label>
+            <textarea class='form-control' rows='4' id='updateLink' name='link' style='width: 100%'></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="updateTitle" class="form-label">Title of the material:</label>
+            <input type='text' class='form-control' name='title' rows='4' id='updateTitle' style='width: 100%'>
+        </div>
+
+        <div class="form-group">
+            <label for="updateDescription" class="form-label">Description of the material:</label>
+            <textarea class='form-control' rows='4' name='description' id='updateDescription' style='width: 100%'></textarea>
+        </div>
+        </div>
+        <div class="modal-footer">
+            
+            <input type="submit" name='submit' id='updateSubmit' class="btn btn-success" value='Save Changes'/>
+            </form>
+            <button type="button" class="btn btn-danger updateClose" data-dismiss="modal">Close</button>
+        </div>
+
+      
+      
+      
+    </div>
+  </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('#addData').submit(function(event){
+                event.preventDefault();
+
+                var formValues= $(this).serialize();
+                console.log(formValues);
+
+                $.post("api/add_course_data.php", formValues, function(data){
+                    // Display the returned data in browser
+                    alert(data);
+                    //$("#addNewDataModal").close();
+                    //$('.modal-backdrop').remove();
+                    show_course_materials();
+                        //location.reload();
+                });
+            });
+
+        $('#updateData').submit(function(event){
+            event.preventDefault();
+
+            var formValues= $(this).serialize();
+            console.log(formValues);
+
+            $.post("api/update_course_data.php", formValues, function(data){
+                // Display the returned data in browser
+                alert(data);
+                //$("#updateExistingModal").close();
+                //$('.modal-backdrop').remove();
+                show_course_materials();
+                //location.reload();
+            });
+        });
+
+    });
+
+    $('.updateClose').click(function(){
+        $('#updateExistingModal').modal('hide');
+    });
+
+    $('.addClose').click(function(){
+        $('#addNewDataModal').modal('hide');
+    });
+
+    function load_update_data(dataid){
+        $.post('api/load_update_data.php', {
+            dataid: dataid
+        }, function(data){
+            //$('#updateExistingModal').modal('show');
+            let result = JSON.parse(data);
+            $('#updateDataId').val(result.dataid);
+            $('#updateMaterialType').val(result.type);
+            $('#updateLink').html(result.link);
+            $('#updateTitle').val(result.title);
+            $('#updateDescription').html(result.description);
+        })
+    }
+/*
+    $('#updateSubmit').click(function(){
+        $('#updateData').submit();
+    })
+*/
+    function delete_material(dataid){
+        if(confirm('Are you sure you want to delete this course material?')){
+            $.post('api/delete_course_material.php', {
+                dataid: dataid
+            }, function(data){
+                if(data!='DELETED')
+                    alert(data);
+
+                show_course_materials();
+            })
+        }
+    }
+</script>
 <script type='text/javascript'>
     function show_course_details(){
         $.post('api/show_course_details.php', function(data){

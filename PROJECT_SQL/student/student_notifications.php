@@ -1,12 +1,11 @@
 <?php
 session_start();
-require "../dbconfig/config.php";
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Update Details</title>
+<title>Total Notifications</title>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -38,6 +37,9 @@ require "../dbconfig/config.php";
             <a href="view_all_course.php"><span class="fa fa-sticky-note"></span>VIEW ALL COURSES</a>
           </li>
           <li>
+            <a href="course_details.php"><span class="fa fa-book-reader"></span>VIEW COURSE DETAILS</a>
+          </li>
+          <li>
             <a href="student_notifications.php"><span class="fa fa-bell"></span>NOTIFICATION</a>
           </li>
           <li>
@@ -55,9 +57,6 @@ require "../dbconfig/config.php";
             <button type="button" id="sidebarCollapse" class="btn btn-primary">
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
-            </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            
             </button>
 
 

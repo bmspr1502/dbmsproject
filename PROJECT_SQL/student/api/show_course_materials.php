@@ -3,22 +3,11 @@ session_start();
 include '../../dbconfig/config.php';
 
 $sql=  "SELECT * from `course_data`
-        WHERE courseid = '". $_SESSION['p_course'] ."';";
+        WHERE courseid = '". $_SESSION['s_course'] ."';";
 
 if($result = $con->query($sql)){
     ?>
     <div class="row">
-    <div class="card col-xl-3 col-lg-4 col-md-6 col-12" >
-        <img class='card-img-top img-fluid' src='api/add-icon.png'>
-        <div class='card-body'>
-        <h4 class='card-title'>Add Course material</h4>
-        </div>
-        <div class='card-footer'>
-            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#addNewDataModal">
-            Click Here to add
-            </button>
-        </div>
-    </div>
     <?php
     while($row = $result->fetch_assoc()){
         $date=date_create($row['time']);
@@ -55,22 +44,13 @@ if($result = $con->query($sql)){
 <?php
     }  
     ?>
-        
     
-    <div class='card-footer'>
-        <button class='btn btn-info' onclick='load_update_data(<?php echo $row["dataid"];?>)' data-toggle="modal" data-target="#updateExistingModal"><i class="fa fa-edit"></i></button>
-        <button class='btn btn-danger' onclick='delete_material(<?php echo $row["dataid"];?>)'><i class="fa fa-trash"></i></button>
-    </div>
 </div>
     <?php 
 
     }
 ?>
 </div>
-
-    <!-- Button trigger modal -->
-
-    
 
     <?php
 }else{

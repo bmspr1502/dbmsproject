@@ -59,8 +59,8 @@ session_start();
               <span class="sr-only">Toggle Menu</span>
             </button>
 
-
             </div>
+            
         </nav>
 
  <div class="container-fluid p-0" id="enrolledcourses">
