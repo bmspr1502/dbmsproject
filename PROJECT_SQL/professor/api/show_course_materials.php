@@ -24,7 +24,7 @@ if($result = $con->query($sql)){
         $date=date_create($row['time']);
     
         echo '<div class="card col-xl-3 col-lg-4 col-md-6 col-12 p-0" >
-                <div clas="card-header">' . date_format($date, 'H:i - d F, Y') .'</div>';
+                <div clas="card-header">Uploaded On: ' . date_format($date, 'H:i - d F, Y') .'</div>';
      if($row['type']=='link'){
 ?>
 

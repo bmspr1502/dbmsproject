@@ -13,7 +13,7 @@ if($result = $con->query($sql)){
         $date=date_create($row['time']);
     
         echo '<div class="card col-xl-3 col-lg-4 col-md-6 col-12 p-0" >
-                <div clas="card-header">' . date_format($date, 'H:i - d F, Y') .'</div>';
+                <div clas="card-header">Uploaded On: ' . date_format($date, 'H:i - d F, Y') .'</div>';
      if($row['type']=='link'){
 ?>
 
@@ -34,16 +34,25 @@ if($result = $con->query($sql)){
         <p class="card-text"><?php echo stripslashes($row['description']) ?></p>
         </div>
 <?php
-    }else{
-?>
-    <div class='card-img-top'><?php echo stripslashes($row['link'])?></div>
-    <div class="card-body">
-        <h4 class="card-title"><?php echo $row['title'] ?></h4>
-        <p class="card-text"><?php echo stripslashes($row['description']) ?></p>
-    </div>
-<?php
-    }  
-    ?>
+    }else if($row['type']=='code'){
+        ?>
+        <div class='card-img-top'><?php echo stripslashes($row['link'])?></div>
+        <div class="card-body">
+            <h4 class="card-title"><?php echo $row['title'] ?></h4>
+            <p class="card-text"><?php echo stripslashes($row['description']) ?></p>
+        </div>
+    <?php
+        }else{
+            ?>
+        <img class="card-img-top img-fluid" src="https://ieltsninja.com/content/wp-content/uploads/2021/01/Does-the-IDP-or-British-Council-Provide-Study-Material.jpg" alt="Card image">
+        <div class="card-body">
+            <h4 class="card-title"><?php echo $row['title'] ?></h4>
+            <p class="card-text"><?php echo stripslashes($row['description']) ?></p>
+        </div>
+        <a href="../uploads/<?php echo $row['link'] ?>" target='_blank' class="btn btn-success">Click here to download</a>
+            <?php
+        }  
+        ?>
     
 </div>
     <?php 
