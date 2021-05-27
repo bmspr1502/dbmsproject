@@ -41,7 +41,7 @@ require "../dbconfig/config.php";
             <a href="course_details.php"><span class="fa fa-book"></span>VIEW COURSE DETAILS</a>
           </li>
           <li>
-            <a href="student_notifications.php"><span class="fa fa-bell"></span>NOTIFICATION</a>
+            <a href="student_notification.php"><span class="fa fa-bell"></span>NOTIFICATION</a>
           </li>
           <li>
             <a href="log_out.php"><span class="fa fa-sign-out"></span>LOGOUT</a>
