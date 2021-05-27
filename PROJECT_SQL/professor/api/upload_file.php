@@ -13,10 +13,10 @@ if(isset($_FILES)){
         $fileactualext = strtolower(end($fileext));
         
         if ($fileerror === 0){
-            $filenamenew = uniqid('', true) . "." . $fileactualext;
-            $filedestination = 'prediction_api/train_img/' . $filenamenew;
+            
+            $filedestination = '../../uploads/' . $filename;
             if(move_uploaded_file($filetmp, $filedestination)){
-                echo $filenamenew;
+                echo $filename;
             }
             else{
                 echo '0';

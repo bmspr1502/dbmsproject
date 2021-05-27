@@ -103,15 +103,21 @@ if(!isset($_SESSION['p_course'])){
         <input type='hidden' name='courseid' value='<?php echo $_SESSION['p_course'];?>'>
         <div class="form-group">
             <label for="addmaterialType" class="form-label">Type of Material:</label>
-            <select class="form-control" id='addmaterialType' aria-label="Default select example" name='type'>
+            <select class="form-control" id='addmaterialType' aria-label="Default select example" onchange='change_add_group(this.value)' name='type'>
                 <option selected value='link'>Link</option>
                 <option value="video">YouTube Video</option>
                 <option value="code">Embedding HTML code</option>
+                <option value='file'>File</option>
             </select>
             <div id="typeHelp" class="form-text">Select the type correctly as that will decide how the material looks like.</div>
         </div>
 
-        <div class="form-group">
+        <div class='form-group' id='addfilegroup'>
+            <label for="addfile" class="form-label">Upload File</label>
+            <input type='file' class='form-control' id='addfile' name='file' onchange='upload_file()'/>
+            <p id='uploadcheck'></p>
+        </div>
+        <div class="form-group" id='addlinkgroup'>
             <label for="addlink" class="form-label">Link / code to embed:</label>
             <textarea class='form-control' rows='4' id='addlink' name='link' style='width: 100%'></textarea>
         </div>
@@ -154,15 +160,16 @@ if(!isset($_SESSION['p_course'])){
         <input type='hidden' name='courseid' value='<?php echo $_SESSION['p_course'];?>'>
         <div class="form-group">
             <label for="updateMaterialType" class="form-label">Type of Material:</label>
-            <select class="form-control " id='updateMaterialType' aria-label="Default select example" name='type'>
+            <select class="form-control " id='updateMaterialType' aria-label="Default select example" onchange='change_upload_group(this.value)' name='type'>
                 <option selected value='link'>Link</option>
                 <option value="video">YouTube Video</option>
                 <option value="code">Embedding HTML code</option>
+                <option value='file'>File</option>
             </select>
             <div id="typeHelp" class="form-text">Select the type correctly as that will decide how the material looks like.</div>
         </div>
-
-        <div class="form-group">
+        <a href="" target='_blank' id='updateFile' class="btn btn-success">Click here to open material</a>
+        <div class="form-group" id='updateLinkGroup'>
             <label for="updateLink" class="form-label">Link / code to embed:</label>
             <textarea class='form-control' rows='4' id='updateLink' name='link' style='width: 100%'></textarea>
         </div>
@@ -201,8 +208,8 @@ if(!isset($_SESSION['p_course'])){
                 $.post("api/add_course_data.php", formValues, function(data){
                     // Display the returned data in browser
                     alert(data);
-                    //$("#addNewDataModal").close();
-                    //$('.modal-backdrop').remove();
+                    $('#addData')[0].reset();
+                    change_add_group('link');
                     show_course_materials();
                         //location.reload();
                 });
@@ -217,12 +224,13 @@ if(!isset($_SESSION['p_course'])){
             $.post("api/update_course_data.php", formValues, function(data){
                 // Display the returned data in browser
                 alert(data);
-                //$("#updateExistingModal").close();
-                //$('.modal-backdrop').remove();
                 show_course_materials();
                 //location.reload();
             });
         });
+
+        $('#addfilegroup').hide();
+        $('#updateFile').hide();
 
     });
 
@@ -238,20 +246,19 @@ if(!isset($_SESSION['p_course'])){
         $.post('api/load_update_data.php', {
             dataid: dataid
         }, function(data){
-            //$('#updateExistingModal').modal('show');
             let result = JSON.parse(data);
             $('#updateDataId').val(result.dataid);
             $('#updateMaterialType').val(result.type);
+            if(result.type=='file'){
+                $('#updateFile').show();
+                $('#updateFile').attr('href', '../uploads/'+result.link);
+            }
             $('#updateLink').html(result.link);
             $('#updateTitle').val(result.title);
             $('#updateDescription').html(result.description);
         })
     }
-/*
-    $('#updateSubmit').click(function(){
-        $('#updateData').submit();
-    })
-*/
+
     function delete_material(dataid){
         if(confirm('Are you sure you want to delete this course material?')){
             $.post('api/delete_course_material.php', {
@@ -262,6 +269,39 @@ if(!isset($_SESSION['p_course'])){
 
                 show_course_materials();
             })
+        }
+    }
+
+    function upload_file(){
+        var fd = new FormData();
+        var files = $('#addfile')[0].files[0];
+            
+        fd.append('file',files);
+        $.ajax({
+            url: 'api/upload_file.php',
+            type: 'post',
+            data: fd,
+            contentType: false,
+            processData: false,
+            cache: false,
+            success: function(response){
+            if(response!=0){
+                $('#uploadcheck').html(response);
+                $('#addlink').val(response);
+            }else{
+                alert("Upload failed");
+            }
+            },
+        });
+    }
+
+    function change_add_group(value){
+        if(value=='file'){
+            $('#addlinkgroup').hide();
+            $('#addfilegroup').show();
+        }else{
+            $('#addlinkgroup').show();
+            $('#addfilegroup').hide();
         }
     }
 </script>
