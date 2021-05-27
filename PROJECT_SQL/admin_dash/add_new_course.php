@@ -49,7 +49,7 @@ require '../dbconfig\config.php';
             <a href="anotifications.php"><span class="fa fa-paper-plane"></span>SEND NOTIFICATIONS</a>
           </li>
           <li>
-            <a href="logout.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
+            <a href="log_out.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
           </li>
         </ul>
     	</nav>

@@ -47,7 +47,7 @@ require '..\dbconfig\config.php';
             <a href="anotifications.php"><span class="fa fa-paper-plane"></span>SEND NOTIFICATIONS</a>
           </li>
           <li>
-            <a href="logout.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
+            <a href="log_out.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
           </li>
         </ul>
     	</nav>
@@ -81,18 +81,18 @@ require '..\dbconfig\config.php';
 </select>
 </div>
 <div class="form-group">
-<label>Title</label>
-<input type="text"  name="title" required></input>
+<label>Title</label></br>
+<input type="text" style="width:50%" name="title" required></input>
 </div>
 <div >
-<label>Message</label>
+<label>Message</label></br>
 <textarea rows="5" cols="90" style="width:700px" name="message" required ></textarea>
 </div>
 <div >
-<label>Upload</label>
+<label>Upload</label></br>
 <input type="file" name="efile"></input>
 </div>
-<div class="form-group" >
+<div class="form-group mt-5" >
 <button type="submit" name="sendnot"class="btn btn-primary">Send Message</button>
 </div>
 </form>

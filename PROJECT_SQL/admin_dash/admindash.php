@@ -55,7 +55,7 @@ if(!isset($_SESSION['aid']))
             <a href="anotifications.php"><span class="fa fa-paper-plane"></span>SEND NOTIFICATIONS</a>
           </li>
           <li>
-            <a href="logout.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
+            <a href="log_out.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
           </li>
         </ul>
     	</nav>
@@ -106,15 +106,15 @@ if(!isset($_SESSION['aid']))
                     <h6>Students</h6>
                     </div>
                     </div>
-                   <div class="card-footer " style="width:fit-content;">
-                    <a href="student_details.php" >View Details</a>
+              
+                    <button type="button" class="btn btn-warning" href="student_details.php" >View Details</a>
                     </div>
                    
                    
                    </div>
                    
                    </div>
-                                </div>
+                               
 								 <div class="col-md-3 "  >
                    <div class="card text-center">
                    <div class="card-header bg-primary text-white">
@@ -135,15 +135,15 @@ if(!isset($_SESSION['aid']))
                     <h6>Professors</h6>
                     </div>
                     </div>
-                   <div class="card-footer " style="width:fit-content;">
-                    <a href="prof_details.php" >View Details</a>
+                   
+                   <button type="submit" href="prof_details.php" class="btn btn-warning" >View Details</button>
                     </div>
                    
                    
                    </div>
                    
                    </div>
-                                </div>
+                                
 								 <div class="col-md-3 "  >
                    <div class="card text-center">
                    <div class="card-header bg-danger text-white">
@@ -153,7 +153,7 @@ if(!isset($_SESSION['aid']))
                     </div>
                     <div class="col">
 					<?php 
-					$sql="select * from admin_login";
+					$sql="select * from course_details";
 					$query_run=mysqli_query($con,$sql);
 					
                    echo "<h3 class='display-3'>"; 
@@ -161,18 +161,18 @@ if(!isset($_SESSION['aid']))
 				   echo"</h3>"; 
 				   ?>
                     
-                    <h6>Admin</h6>
+                    <h6>Courses</h6>
                     </div>
                     </div>
-                   <div class="card-footer " style="width:fit-content;">
-                    <a href="#" >View Details</a>
+           
+                    <button type="button" class="btn btn-warning" href="#" >View Details</button>
                     </div>
                    
                    
                    </div>
                    
                    </div>
-                                </div>
+                                
 
             </div>
             
