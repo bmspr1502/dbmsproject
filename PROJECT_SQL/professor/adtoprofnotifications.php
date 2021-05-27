@@ -85,7 +85,7 @@ require '../dbconfig/config.php';
     </thead>
     <tbody>
 	<?php
-	   $sql="select * from admin_notifications where target='professor' OR 'both'";
+	   $sql="select * from admin_notifications where target='professor' OR target='both'";
 	   $res=$con->query($sql);
 	   if(($res->num_rows)> 0)
 	   {      $i=0;

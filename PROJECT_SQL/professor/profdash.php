@@ -34,7 +34,7 @@ session_start();
             <a href="profdash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
 		   <li>
-            <a href="adtoprofnotifications.php"><span class="fa fa-user"></span>ADMIN NOTIFICATIONS</a>
+            <a href="adtoprofnotifications.php"><span class="fa fa-bell"></span>ADMIN NOTIFICATIONS</a>
           </li>
 		  <li>
             <a href="professor_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
