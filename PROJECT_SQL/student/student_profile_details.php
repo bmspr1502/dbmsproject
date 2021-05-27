@@ -45,7 +45,7 @@ require '../dbconfig/config.php';
     	</nav>
 
         <!-- Page Content  -->
-      <div id="content" class="p-4 p-md-5">
+      <div id="content " class="p-4 p-md-5">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
@@ -66,9 +66,9 @@ require '../dbconfig/config.php';
 
 </head>
 <body>
- <div class="container-fluid p-0 align-items-center" id="enrolledcourses">
+ <div class="container-fluid p-0 " id="enrolledcourses">
 <h3>PROFILE DETAILS</h3>
-<div class="container-fluid p-0 align-items-center" id="con">
+<div class="container-fluid p-0 " id="con">
         <div class="content ">
             
             <img src="../images/software-engineer-vector-6122111.jpg" style="width:70px;"></br>
