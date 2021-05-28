@@ -82,6 +82,9 @@ if(!isset($_SESSION['p_course'])){
         <li class="nav-item">
             <button class="nav-link" data-toggle='pill' id='navCourseNotifications' >Course Notifications</button>
         </li>
+        <li class="nav-item">
+            <button class="nav-link" data-toggle='pill' id='navCourseDiscussion' >Course Discussion</button>
+        </li>
         </ul>
     </div>
     <div class="container" id="box">
@@ -112,9 +115,9 @@ if(!isset($_SESSION['p_course'])){
             <div id="typeHelp" class="form-text">Select the type correctly as that will decide how the material looks like.</div>
         </div>
 
-        <div class='form-group' id='addfilegroup'>
-            <label for="addfile" class="form-label">Upload File</label>
-            <input type='file' class='form-control' id='addfile' name='file' onchange='upload_file()'/>
+        <div class='custom-file' id='addfilegroup'>
+            <label for="addfile" class="custom-file-label">Upload File</label>
+            <input type='file' class='custom-file-input' id='addfile' name='file' onchange='upload_file()'/>
             <p id='uploadcheck'></p>
         </div>
         <div class="form-group" id='addlinkgroup'>
@@ -203,7 +206,7 @@ if(!isset($_SESSION['p_course'])){
                 event.preventDefault();
 
                 var formValues= $(this).serialize();
-                console.log(formValues);
+                //console.log(formValues);
 
                 $.post("api/add_course_data.php", formValues, function(data){
                     // Display the returned data in browser
@@ -219,7 +222,7 @@ if(!isset($_SESSION['p_course'])){
             event.preventDefault();
 
             var formValues= $(this).serialize();
-            console.log(formValues);
+            //console.log(formValues);
 
             $.post("api/update_course_data.php", formValues, function(data){
                 // Display the returned data in browser
@@ -333,6 +336,17 @@ if(!isset($_SESSION['p_course'])){
        
     }
 
+    function show_course_discussion(){
+        $.post('api/show_course_discussion.php',{
+            courseid: '<?php echo $_SESSION['p_course']?>'
+        },function(data){
+            make_all_inactive();
+            $('#navCourseDiscussion').addClass('active');
+            $("#box").html(data);  
+        })
+       
+    }
+
     $(document).ready(function(){
         if (window.location.hash === '#navStudentDetails') {
             show_course_details();
@@ -340,6 +354,8 @@ if(!isset($_SESSION['p_course'])){
             show_course_materials();
         }else if (window.location.hash === '#navCourseNotifications') {
             show_course_notifications();
+        }else if (window.location.hash === '#navCourseDiscussion') {
+            show_course_discussion();
         }else {
         show_course_details();
         }
@@ -355,12 +371,17 @@ if(!isset($_SESSION['p_course'])){
         $('#navCourseNotifications').click(function(){
             show_course_notifications();
         });
+
+        $('#navCourseDiscussion').click(function(){
+            show_course_discussion();
+        });
     })
     
     function make_all_inactive(){
         $('#navStudentDetails').removeClass('active');
         $('#navCourseMaterials').removeClass('active');
         $('#navCourseNotifications').removeClass('active');
+        $('#navCourseDiscussion').removeClass('active');
     }
 </script>
 <script src="../dash_style/main.js"></script>

@@ -79,6 +79,9 @@ if(!isset($_SESSION['s_course'])){
         <li class="nav-item">
             <button class="nav-link" data-toggle='pill' id='navCourseNotifications' >Course Notifications</button>
         </li>
+        <li class="nav-item">
+            <button class="nav-link" data-toggle='pill' id='navCourseDiscussion' >Course Discussion</button>
+        </li>
         </ul>
     </div>
     <div class="container" id="box">
@@ -116,6 +119,17 @@ if(!isset($_SESSION['s_course'])){
         });  
     }
 
+    function show_course_discussion(){
+        $.post('api/show_course_discussion.php',{
+            courseid: '<?php echo $_SESSION['s_course']?>'
+        },function(data){
+            make_all_inactive();
+            $('#navCourseDiscussion').addClass('active');
+            $("#box").html(data);  
+        })
+       
+    }
+
     $(document).ready(function(){
         if (window.location.hash === '#navStudentDetails') {
             show_course_details();
@@ -123,6 +137,8 @@ if(!isset($_SESSION['s_course'])){
             show_course_materials();
         }else if (window.location.hash === '#navCourseNotifications') {
             show_course_notifications();
+        }else if (window.location.hash === '#navCourseDiscussion') {
+            show_course_discussion();
         }else {
         show_course_details();
         }
@@ -138,12 +154,17 @@ if(!isset($_SESSION['s_course'])){
         $('#navCourseNotifications').click(function(){
             show_course_notifications();
         });
+
+        $('#navCourseDiscussion').click(function(){
+            show_course_discussion();
+        });
     })
     
     function make_all_inactive(){
         $('#navStudentDetails').removeClass('active');
         $('#navCourseMaterials').removeClass('active');
         $('#navCourseNotifications').removeClass('active');
+        $('#navCourseDiscussion').removeClass('active');
     }
 </script>
 </body>
