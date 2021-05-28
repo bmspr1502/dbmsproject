@@ -1,5 +1,6 @@
 <?php
 session_start();
+require '../dbconfig/config.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -65,27 +66,84 @@ session_start();
 
             </div>
         </nav>
+        <div class="container-fluid p-0 text-center">
+       <h3> PROFILE DETAILS</h3>
+	    <div class="container text-center" id="box">
+        
 
- <div class="container-fluid p-0" id="enrolledcourses">
-<h3>PROFILE DETAILS</h3>
-        <div class="container">
-            <div class="row">
-              <div class="col-md-6">  
-<form class="update_form" action="student_update_details.php" method="POST">
-<div class="form-group">
-<label class="control-label"><i class="fas fa-lock fa-1.5x"></i>NAME</label>
-<input type="text" placeholder="ENTER YOUR NAME" class="form-control"></div>
-<div class="form-group">
-<label class="control-label"><i class="fa fa-address-card" ></i> DOB </label>
-<input type="text" placeholder="ENTER YOUR DATE OF BITRH" class="form-control" ></div>
-<div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i>ADDDRESS</label>
-<input type="date" placeholder="ENTER YOUR ADDRESS"  class="form-control"></div>
+        <img src="../images/software-engineer-vector-6122111.jpg" style="width:10%;"></br></br>
+			
+      <?php 
+ $sql="select * from prof_details where profno={$_SESSION['pid']}";
 
-<button class="btn btn-success" id="sendbtn" type="submit">SEND REQUEST TO ADMIN</button></div>
-</form>
+     
+      $query_run=mysqli_query($con,$sql);
+  if($query_run->num_rows >0)
+  { 
+              while($row=$query_run->fetch_assoc())
+              { 
+              ?>
+            <div class="row justify-content-center">
+          <div class="col-auto">
+      <table class="table table-responsive table-dark table-striped">
+              <tr>
+                <th>DETAILS</th>
+                <th>VALUES</th>
+              
+              </tr>
+              <tr>
+              <td>Id</td>  
+              <td><?php echo $row['profno']; ?></td> 
+            </tr>
+              <tr>
+              <td>Name</td>  
+              <td><?php echo $row['name']; ?></td> 
+            </tr>
+            <tr>
+              <td>Email</td>  
+              <td><?php echo $row['email']; ?></td> 
+            </tr>
+            <tr>
+              <td>Contact No</td>  
+              <td><?php echo $row['contact no']; ?></td> 
+            </tr>
+                  
+            
+           
+           
+           
+           <?php 
+           
+          
+          }
+              
+
+  }
+?>
+
+<?php
+ $sql="select * from course_details where profno={$_SESSION['pid']}";
+
+     
+ $query_run=mysqli_query($con,$sql);
+if($query_run->num_rows >0)
+{
+?>
+<tr>
+  <td>No. of courses teaching</td>
+  <td><?php echo $query_run->num_rows; ?></td>
+</tr>
+</table>
+          </div>
+            </div>
+
+<?php
+}?>
 </div>
-</div></div></div>
+</div>	   
+
+    </div>
+    </div>
 </div>
 <script src="../dash_style/main.js"></script>
 </form>
