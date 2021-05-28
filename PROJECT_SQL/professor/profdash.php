@@ -1,13 +1,12 @@
-
 <?php
 session_start();
+  require '../dbconfig/config.php';
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+ <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -18,8 +17,7 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../dash_style/style.css">
-	
-<title>Professor dashboard</title>
+<title><?php  echo $_SESSION['pname']?>'s Dashboard</title>
 
 </head>
 <body>
@@ -28,16 +26,18 @@ session_start();
 			<nav id="sidebar" class="active">
 			
 			 <h1><a href="#" class="logo">CMS</a></h1>
-				<?php  echo $_SESSION['pname']?></h1>
          <ul class="list-unstyled components mb-5">
           <li class="active">
             <a href="profdash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
 		   <li>
-            <a href="adtoprofnotifications.php"><span class="fa fa-bell"></span>ADMIN NOTIFICATIONS</a>
+            <a href="professor_profile_details.php"><span class="fa fa-user"></span><?php  echo $_SESSION['pname']?>'s PROFILE DETAILS</a>
           </li>
 		  <li>
             <a href="professor_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
+          </li>
+          <li>
+            <a href="adtoprofnotifications.php"><span class="fa fa-bell"></span>ADMIN NOTIFICATIONS</a>
           </li>
           <li>
             <a href="course_details.php#navStudentDetails" onclick='show_course_details()'><span class="fa fa-sticky-note"></span>VIEW COURSE DETAILS</a>
@@ -46,7 +46,7 @@ session_start();
             <a href="course_details.php#navCourseMaterials" onclick='show_course_materials()'><span class="fa fa-upload"></span>UPLOAD STUDY MATERIALS</a>
           </li>
 		  <li>
-            <a href="course_details.php#navCourseNotifications" onclick='show_course_notifications()'><span class="fa fa-paper-plane"></span>SEND NOTIFICATION</a>
+            <a href="course_details.php#navCourseNotifications" onclick='show_course_notifications()'><span class="fa fa-paper-plane"></span> SEND NOTIFICATION</a>
           </li>
           <li>
             <a href="log_out.php"><span class="fa fa-sign-out"></span>LOGOUT</a>
@@ -68,58 +68,33 @@ session_start();
             </div>
         </nav>
 
-
-
-
-    <div class="container-fluid p-0" id="enrolledcourses">
-       <h3> Enrolled courses</h3>
-       <div class="container mt-5"></div>
-            <div class="row">
-                <div class="col-md-3 "  >
-                   <div class="card text-center">
-                   <div class="card-header bg-success text-white">
-                   <div class="row align-items-center">
-                   <div class="col">
-                   <i class="fa fa-list fa-3x"></i>
-                    </div>
-                    <div class="col">
-                    <h3 class="display-3">08</h3>
-                    <h6>Tasks</h6>
-                    </div>
-                    </div>
-                   <div class="card-footer " style="width:fit-content;">
-                    <p>View Details</p>
-                    </div>
-                   
-                   
-                   </div>
-                   
-                   </div>
-                                </div>
-                                <div class="col-md-3 course"  >
-                                    <h5><center>DSA COURSE</center></h5>
-                                    <form >
-                                        <button id="btn">Viewcourse</button>
-                                    </form>
-                                                </div>
-                                                <div class="col-md-3 course"  >
-                                                    <h5><center>OS COURSE</center></h5>
-                                                    <form >
-                                                        <button id="btn">Viewcourse</button>
-                                                    </form>
-                                                                </div>
-                                
-
-            </div>
-            
+ <div class="container-fluid p-0" id="enrolledcourses">
+        <h3 style="margin:20px">All Courses:</h3>
+     <div class="container" id="box">
+        <div class="row" id='courserow'>                         
         </div>
-
     </div>
-    </div>
-  <script src="../dash_style/main.js"></script>
- 
+</div>
+  </div>
+</div>
+    <script>
+        function load_all_courses(){
+            $.get('api/load_all_courses.php', function(data){
+                $('#courserow').html(data);
+            })
+        }
 
+        function load_course_details(cid){
+            $.post('api/set_course.php', {
+                course_id: cid
+            },function(data){
+                $('#box').html(data);
+            })
+        }
+        $(document).ready(function(){
+            load_all_courses();
+        });
+    </script>
+	<script src="../dash_style/main.js"></script>
 </body>
-
 </html>
-

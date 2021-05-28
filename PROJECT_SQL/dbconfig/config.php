@@ -1,6 +1,8 @@
 <?php
-$con= new mysqli("localhost", "root", "", "cmsproj");
-
+$con= new mysqli("localhost", "root", "", "cmsproject");
+if(!$con){
+    die($con->error);
+}
 
 
 ?>
