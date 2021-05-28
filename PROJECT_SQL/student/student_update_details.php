@@ -94,14 +94,16 @@ require '../dbconfig/config.php';
 if(isset($_POST['request']))
 {   
     
-	$newpassword=$_POST['newpassword'];
-	$newname=$_POST['newname'];
-	$newdob=$_POST['newdob'];
-	$newaddress=$_POST['address'];
+	$newpassword=$con->real_escape_string($_POST['newpassword']);
+	$newname=$con->real_escape_string($_POST['newname']);
+	$newdob=$con->real_escape_string($_POST['newdob']);
+	$newaddress=$con->real_escape_string($_POST['address']);
 	
-	$query="insert into student_update values ('{$_SESSION['sroll_no']}','$newpassword','$newname','$newdob','$newaddress')";
-	$query_run=mysqli_query($con,$query);
-	if($query_run){
+	$query=$con->prepare("insert into student_update(rollno,newpassword,newname,newdob,newaddress) values (?,?,?,?,?)");
+  $query->bind_param('sssss',$_SESSION['sroll_no'],$newpassword,$newname,$newdob,$newaddress);
+	
+ 
+	if($query->execute()){
 		echo "<script type='text/javascript'> alert('sucessfully requested');</script>";
 	}
 	else{

@@ -73,8 +73,15 @@ require  '../dbconfig/config.php';
 
         <div class="container" >
 <div class="row">
-<h4><center>Students Details</center></h4>
+<h4><center>All Students Details</center></h4>
+<div class="container" >
+<div class="row">
 
+<form >
+<input type="text" name="Search" placeholder="Search..." id="myinput" style="width:200%" />
+</br>
+</br>
+</form>
 
 <table class="table table-bordered">
     <thead>
@@ -268,5 +275,20 @@ $(document).ready(function(){
           		  
 </script>	</script>
 <script src="main.js"></script>
+<script>
+$(document).ready(function(){
+		$('#myinput').on("keyup",function(){
+			var value=$(this).val().toLowerCase();
+			$('.tbody tr').filter(function(){
+				$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	
+				
+			});
+			
+			
+		});
+		
+	});
+</script>
 </body>
 </html>
