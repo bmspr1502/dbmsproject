@@ -74,11 +74,11 @@ require '../dbconfig/config.php';
               <div class="col-md-6">  
 <form class="update_form" action="student_update_details.php" method="POST">
 <div class="form-group">
-<label class="control-label"><i class="fas fa-lock fa-1.5x"></i> Change Password</label>
-<input type="text" placeholder="Type your new password" class="form-control" name="newpassword"></div>
+<label class="control-label"><i class="fas fa-lock fa-1.5x"></i>Title</label>
+<input type="text" placeholder="Title" class="form-control" name="title"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-address-card" ></i> Change your name </label>
-<input type="text" placeholder="Type your updated name" class="form-control" name="newname" ></div>
+<label class="control-label"><i class="fa fa-address-card" ></i>Message</label>
+<input type="text" placeholder="Type your updated name" class="form-control" name="message" ></div>
 <div class="form-group">
 <label class="control-label"><i class="fa fa-birthday-cake"></i> Change Date of Birth</label>
 <input type="date"  class="form-control" name="newdob" ></div>

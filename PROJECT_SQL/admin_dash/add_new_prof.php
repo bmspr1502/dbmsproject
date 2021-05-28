@@ -98,9 +98,9 @@ if(isset($_POST['create']))
 	$profid=$_POST['profid'];
 	$profname=$_POST['profname'];
 	$profpassword=$_POST['profpassword'];
-	$noofcourses=0;
 	
-	$query="insert into prof_details values ('$profid','$profname','$profpassword','$noofcourses')";
+	
+	$query="insert into prof_details values ('$profid','$profname','$profpassword','','')";
 	$query_run=mysqli_query($con,$query);
 	
 	if($query_run){

@@ -93,9 +93,9 @@ if(isset($_POST['create']))
 	$courseid=$_POST['courseid'];
 	$coursename=$_POST['coursename'];
 	$professorid=$_POST['professorid'];
-	$noofstudents=0;
+ 
 	
-	$query="insert into course_details values ('$courseid','$coursename','$professorid','$noofstudents')";
+	$query="insert into course_details values ('$courseid','$coursename','$professorid')";
 	$query_run=mysqli_query($con,$query);
 	if($query_run){
 		echo "<script type='text/javascript'> alert('sucessfully created');</script>";
