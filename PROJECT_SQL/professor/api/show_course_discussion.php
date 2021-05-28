@@ -94,7 +94,7 @@ if(isset($_POST['courseid'])){
 ?>
 <script>
 function search_text(value){
-        $('.card ').each(function(){
+        $('.card-header ').each(function(){
             var found = 'false';
             $(this).each(function(){
                 if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
