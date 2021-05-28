@@ -84,7 +84,7 @@ require '../dbconfig/config.php';
               ?>
             <div class="row justify-content-center">
           <div class="col-auto">
-      <table class="table table-responsive table-bordered">
+      <table class="table table-responsive table-dark table-striped">
               <tr>
                 <th>DETAILS</th>
                 <th>VALUES</th>
