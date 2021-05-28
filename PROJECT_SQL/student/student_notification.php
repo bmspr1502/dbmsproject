@@ -4,7 +4,7 @@ require "../dbconfig/config.php";
 
 ?>
 <!DOCTYPE html>
-<html>
+  <html> 
 <head>
 <title>Update Details</title>
 <meta charset="utf-8">
