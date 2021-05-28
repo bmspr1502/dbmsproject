@@ -68,47 +68,43 @@ require "../dbconfig/config.php";
         <div class="container" >
 <div class="row">
 <h4><center>Notifications</center></h4>
+<div class="container">
 
-<table class="table table-bordered">
-    <thead>
-      <tr>
-	    <th>S.No</th>
-        <th>Title</th>
-        <th>Message</th>
-        <th>Logs</th>
-		<th>View</th>
-		
-      </tr>
-    </thead>
-    <tbody>
-	<?php
-	   $sql="select * from admin_notifications where target='student' OR target='both'";
-	   $res=$con->query($sql);
-	   if(($res->num_rows)> 0)
-	   {      $i=0;
-	          while($row=$res->fetch_assoc()) 
-			  {
-				  $i++;
-				  echo "<tr>
-				       <td>{$i}</td>
-					   <td>{$row['title']}</td>
-			           <td>{$row['message']}</td>
-					   <td>{$row['logs']}</td>
-					   <td><a href='../admin_dash/{$row['upload']}' target='_blank'>View</a></td>
-					   
-					   </tr>";
-					   
-					   
-			  }
-	   }
-	   else{
-		   echo "No records found";
-	   }
-	
-	?>
+    <?php
+    $qry = "SELECT * from admin_notifications WHERE  target='student' OR target='both'";
+    
+
+    
+    $output = $con->query($qry);
+    $color = array('success', 'primary', 'info', 'warning', 'danger', 'secondary', 'dark');
+    $i = 0;
+    while($row = $output->fetch_assoc()){
+    ?>
+    <div class="row">
+    <div class="card text-white bg-<?php echo $color[($i+2)%7]?> mt-3" style="width:100%">
+    <div class="card-header">
+    <h6><?php echo $row['title']; ?></h6>
+    </div>
+        <div class="card-body">
+            <p><?php echo $row['message'];?></p>
+            <?php if($row['upload']!=NULL){
+?>
+            <a href="../admin_dash/<?php echo $row['upload'] ?>" target='_blank' class="float-right btn btn-primary">Click here to view</a>
+            <?php 
+            }
+        $date = date_create($row['logs']);
+        echo 'Uploaded On: ' . date_format($date, 'H:i - d F, Y') ;?>
+        </div>
+    </div>
+</div>
+    <?php
+    
+    $i++;
+    }
+
+    ?>
       
-    </tbody>
-  </table> 
+    </div>
   </div>
   </div>
   </div>
@@ -116,3 +112,4 @@ require "../dbconfig/config.php";
   <script src="main.js"></script>
 </body>
 </html>
+
