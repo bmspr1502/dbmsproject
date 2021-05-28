@@ -83,7 +83,7 @@ require  '../dbconfig/config.php';
 </br>
 </form>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-dark table-striped">
     <thead>
       <tr>
 	    <th>S.No</th>
