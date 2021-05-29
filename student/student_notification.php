@@ -31,7 +31,7 @@ require "../dbconfig/config.php";
             <a href="student_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
           </li>
           <li>
-            <a href="student_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
+            <a href="student_update_details.php"><span class="fa fa-user-plus"></span>SEND REQUEST </a>
           </li>
           <li>
             <a href="view_all_course.php"><span class="fa fa-sticky-note"></span>VIEW ALL COURSES</a>

@@ -28,7 +28,7 @@ while ($row =$query_run->fetch_assoc())
         <p>Taught By: <?php echo $row['prof_name']?></p>
     </div>
     <div class='card-footer'>
-    <center><input type="button" class="btn btn-primary" onclick="open_course('<?php echo $row['courseid'];?>' )" value="View Course"/></center>
+    <center><input type="button" class="btn btn-primary" onclick="open_course('<?php echo $row['courseid'];?>', '<?php echo $row['course_name'];?>' )" value="View Course"/></center>
     </div>
  </div>
 </div>
