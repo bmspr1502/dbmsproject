@@ -1,5 +1,4 @@
 <?php
-session_start();
 require  '../dbconfig/config.php';
 
 ?>
@@ -12,7 +11,8 @@ require  '../dbconfig/config.php';
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"  type="text/javascript" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -70,10 +70,9 @@ require  '../dbconfig/config.php';
         </nav>
 
 
-
-        <div class="container" >
+<div class="container" >
 <div class="row">
-<h4><center>All Courses Details</center></h4>
+<h4><center>All Professor Details</center></h4>
 <div class="container" >
 <div class="row">
 
@@ -83,39 +82,41 @@ require  '../dbconfig/config.php';
 </br>
 </form>
 
-<table class="table table-bordered table-dark table-striped">
+<table class="table table-bordered table-striped table-dark  ">
     <thead>
       <tr>
 	    <th>S.No</th>
-        <th>Course id</th>
-        <th>course Name</th>
-        <th>Professor id</th>
-		    <th>No of students</th>
-		    <th>Edit</th>
-		    <th>Delete</th>
+        <th>Profnumber</th>
+        <th>Name</th>
+        <th>Password</th>
+	
+		<th>Edit</th>
+		<th>Delete</th>
 		
       </tr>
     </thead>
-    <tbody class="tbody">
+    <tbody class="tbody"> 
 	<?php
+	   $sql="select * from prof_details";
     
-	   $query="select * from course_details";
-	   $result=mysqli_query($con,$query);
-	   if($result->num_rows >0)
+	   $res=$con->query($sql);
+	   if($res->num_rows >0)
 	   {      $i=0;
-	          while($row=$result->fetch_assoc() )
+	          while($row=$res->fetch_assoc()) 
 			  {
-          $sql="select * from student_courses where courseid='{$row['courseid']}'";
-          $query_run=mysqli_query($con,$sql);
 				  $i++;
 				  echo "<tr>
-				       <td>{$i}</td>
-					   <td>{$row['courseid']}</td>
-			           <td>{$row['name']}</td>
+				     <td>{$i}</td>
 					   <td>{$row['profno']}</td>
-					   <td>$query_run->num_rows</td>
-					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit</button></td>
-					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>Delete</button></td>
+			       <td>{$row['name']}</td>
+					   <td>{$row['password']}</td>
+					 
+					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit
+</button>
+					   
+					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>
+ Delete
+</button>
 					   </tr>";
 					   
 					   
@@ -129,7 +130,8 @@ require  '../dbconfig/config.php';
       
     </tbody>
   </table>
- <!-- Button trigger modal -->
+  
+  <!-- Button trigger modal -->
 
 
 <!-- Modal -->
@@ -141,23 +143,23 @@ require  '../dbconfig/config.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="acourse_details.php" method="POST" >
+        <form action="prof_details.php" method="POST" >
 <div class="form-group align-items-center">
 <input type="hidden" id="sno"></input>
-<label class="control-label" ><i class="fas fa-lock fa-1.5x"></i> Courseid</label>
-<input type="text"  class="form-control" name="cid"  id="cid"></div>
+<label class="control-label" ><i class="fas fa-lock fa-1.5x"></i> profno</label>
+<input type="text"  class="form-control" name="profid"  id="profid"></div>
 <div class="form-group">
-<label class="control-label" ><i class="fa fa-address-card" ></i> Course Name</label>
-<input type="text"  class="form-control" name="cname" id="cname"></div>
+<label class="control-label" ><i class="fa fa-address-card" ></i> Prof Name</label>
+<input type="text"  class="form-control" name="profname" id="profname"></div>
 <div class="form-group">
-<label class="control-label" ><i class="fa fa-birthday-cake"></i> Professor id</label>
-<input type="text"  class="form-control" name="pid" id="pid"></div>
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> Prof password</label>
+<input type="text"  class="form-control" name="profpass" id="profpass"></div>
 <input type="hidden" id="noofcourses"></input>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" name="update">Update</button>
-      </div></form>
+      </div>
     </div>
   </div>
 </div>
@@ -167,7 +169,7 @@ require  '../dbconfig/config.php';
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div><form action="acourse_details.php" method="POST">
+      </div><form action="prof_details.php" method="POST">
       <div class="modal-body">
 	  
         <h5>Are You sure want to delete this record?</h5>
@@ -188,7 +190,7 @@ if(isset($_POST['delete']))
 	
 	$id=$_POST['delete_id'];
 	
-	$query="delete from course_details WHERE courseid='$id'";
+	$query="delete from prof_details WHERE profno='$id'";
 	$query_run=mysqli_query($con,$query);
 	
 	if($query_run){
@@ -209,10 +211,10 @@ if(isset($_POST['delete']))
 if(isset($_POST['update']))
 {
 	
-	$id=$_POST['cid'];
-	$cname=$_POST['cname'];
-	$pid=$_POST['pid'];
-	$query="update course_details set name='$cname',profno='$pid' where courseid='$id'";
+	$id=$_POST['profid'];
+	$profname=$_POST['profname'];
+	$profpass=$_POST['profpass'];
+	$query="update prof_details set name='$profname',password='$profpass' where profno='$id'";
 	$query_run=mysqli_query($con,$query);
 	
 	if($query_run){
@@ -229,11 +231,8 @@ if(isset($_POST['update']))
 
 ?>
 
-
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"  type="text/javascript" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
-    <script src="/PROJECT_SQL/bootstrap/js/popper.min.js"></script>
-    <script src="/PROJECT_SQL/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script>
+jQuery(document).ready(function($){
 $(document).ready(function(){
 	$('.editbtn').on('click',function(){
 		$('#editmodal').modal('show');
@@ -242,9 +241,9 @@ $(document).ready(function(){
 		  var data2=currrow.find('td:eq(2)').text();
 		  var data3=currrow.find('td:eq(3)').text();
 		   
-		 $('#cid').val(data1);
-		  $('#cname').val(data2);
-		   $('#pid').val(data3);
+		 $('#profid').val(data1);
+		  $('#profname').val(data2);
+		   $('#profpass').val(data3);
 		  console.log(data1);
 		   console.log(data2);
 		    console.log(data3);
@@ -252,10 +251,11 @@ $(document).ready(function(){
 			 
 });
 });
-		  
+});		  
           		  
 </script>
 	<script>
+jQuery(document).ready(function($){
 $(document).ready(function(){
 	$('.deletebtn').on('click',function(){
 		$('#DeleteConfirm').modal('show');
@@ -274,9 +274,9 @@ $(document).ready(function(){
 			 
 });
 });
-  
-          		  
-</script>	</script>
+});		  
+ 		         		  
+</script>
 <script src="../dash_style/main.js"></script>
 <script>
 $(document).ready(function(){

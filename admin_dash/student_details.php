@@ -1,4 +1,5 @@
 <?php
+session_start();
 require  '../dbconfig/config.php';
 
 ?>
@@ -11,9 +12,7 @@ require  '../dbconfig/config.php';
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"  type="text/javascript" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -49,7 +48,7 @@ require  '../dbconfig/config.php';
             <a href="anotifications.php"><span class="fa fa-paper-plane"></span>SEND NOTIFICATIONS</a>
           </li>
           <li>
-            <a href="log_out.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
+            <a href="logout.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
           </li>
         </ul>
     	</nav>
@@ -71,9 +70,10 @@ require  '../dbconfig/config.php';
         </nav>
 
 
-<div class="container" >
+
+        <div class="container" >
 <div class="row">
-<h4><center>All Professor Details</center></h4>
+<h4><center>All Students Details</center></h4>
 <div class="container" >
 <div class="row">
 
@@ -83,41 +83,36 @@ require  '../dbconfig/config.php';
 </br>
 </form>
 
-<table class="table table-bordered table-striped table-dark  ">
+<table class="table table-bordered table-dark table-striped">
     <thead>
       <tr>
 	    <th>S.No</th>
-        <th>Profnumber</th>
+        <th>Rollno</th>
         <th>Name</th>
         <th>Password</th>
-	
+		<th>Noofcourses</th>
 		<th>Edit</th>
 		<th>Delete</th>
 		
       </tr>
     </thead>
-    <tbody class="tbody"> 
+    <tbody class="tbody">
 	<?php
-	   $sql="select * from prof_details";
-    
-	   $res=$con->query($sql);
-	   if($res->num_rows >0)
+	   $query="select * from student_details";
+	   $result=mysqli_query($con,$query);
+	   if($result->num_rows >0)
 	   {      $i=0;
-	          while($row=$res->fetch_assoc()) 
+	          while($row=$result->fetch_assoc() )
 			  {
 				  $i++;
 				  echo "<tr>
-				     <td>{$i}</td>
-					   <td>{$row['profno']}</td>
-			       <td>{$row['name']}</td>
+				       <td>{$i}</td>
+					   <td>{$row['rollno']}</td>
+			           <td>{$row['name']}</td>
 					   <td>{$row['password']}</td>
-					 
-					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit
-</button>
-					   
-					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>
- Delete
-</button>
+					   <td></td>
+					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit</button></td>
+					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>Delete</button></td>
 					   </tr>";
 					   
 					   
@@ -131,8 +126,7 @@ require  '../dbconfig/config.php';
       
     </tbody>
   </table>
-  
-  <!-- Button trigger modal -->
+ <!-- Button trigger modal -->
 
 
 <!-- Modal -->
@@ -144,23 +138,23 @@ require  '../dbconfig/config.php';
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="prof_details.php" method="POST" >
+        <form action="student_details.php" method="POST" >
 <div class="form-group align-items-center">
 <input type="hidden" id="sno"></input>
-<label class="control-label" ><i class="fas fa-lock fa-1.5x"></i> profno</label>
-<input type="text"  class="form-control" name="profid"  id="profid"></div>
+<label class="control-label" ><i class="fas fa-lock fa-1.5x"></i> rollno</label>
+<input type="text"  class="form-control" name="srollno"  id="srollno"></div>
 <div class="form-group">
-<label class="control-label" ><i class="fa fa-address-card" ></i> Prof Name</label>
-<input type="text"  class="form-control" name="profname" id="profname"></div>
+<label class="control-label" ><i class="fa fa-address-card" ></i>  Name</label>
+<input type="text"  class="form-control" name="sname" id="sname"></div>
 <div class="form-group">
-<label class="control-label" ><i class="fa fa-birthday-cake"></i> Prof password</label>
-<input type="text"  class="form-control" name="profpass" id="profpass"></div>
+<label class="control-label" ><i class="fa fa-birthday-cake"></i>  password</label>
+<input type="text"  class="form-control" name="spass" id="spass"></div>
 <input type="hidden" id="noofcourses"></input>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" name="update">Update</button>
-      </div>
+      </div></form>
     </div>
   </div>
 </div>
@@ -170,7 +164,7 @@ require  '../dbconfig/config.php';
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div><form action="prof_details.php" method="POST">
+      </div><form action="student_details.php" method="POST">
       <div class="modal-body">
 	  
         <h5>Are You sure want to delete this record?</h5>
@@ -191,7 +185,7 @@ if(isset($_POST['delete']))
 	
 	$id=$_POST['delete_id'];
 	
-	$query="delete from prof_details WHERE profno='$id'";
+	$query="delete from student_details WHERE rollno='$id'";
 	$query_run=mysqli_query($con,$query);
 	
 	if($query_run){
@@ -212,10 +206,10 @@ if(isset($_POST['delete']))
 if(isset($_POST['update']))
 {
 	
-	$id=$_POST['profid'];
-	$profname=$_POST['profname'];
-	$profpass=$_POST['profpass'];
-	$query="update prof_details set name='$profname',password='$profpass' where profno='$id'";
+	$id=$_POST['srollno'];
+	$sname=$_POST['sname'];
+	$spass=$_POST['spass'];
+	$query="update student_details set name='$sname',password='$spass' where rollno='$id'";
 	$query_run=mysqli_query($con,$query);
 	
 	if($query_run){
@@ -233,11 +227,8 @@ if(isset($_POST['update']))
 ?>
 
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"  type="text/javascript" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
-    <script src="/PROJECT_SQL/bootstrap/js/popper.min.js"></script>
-    <script src="/PROJECT_SQL/bootstrap/js/bootstrap.bundle.min.js"></script>
+   
 	<script>
-jQuery(document).ready(function($){
 $(document).ready(function(){
 	$('.editbtn').on('click',function(){
 		$('#editmodal').modal('show');
@@ -246,9 +237,9 @@ $(document).ready(function(){
 		  var data2=currrow.find('td:eq(2)').text();
 		  var data3=currrow.find('td:eq(3)').text();
 		   
-		 $('#profid').val(data1);
-		  $('#profname').val(data2);
-		   $('#profpass').val(data3);
+		 $('#srollno').val(data1);
+		  $('#sname').val(data2);
+		   $('#spass').val(data3);
 		  console.log(data1);
 		   console.log(data2);
 		    console.log(data3);
@@ -256,11 +247,10 @@ $(document).ready(function(){
 			 
 });
 });
-});		  
+		  
           		  
 </script>
 	<script>
-jQuery(document).ready(function($){
 $(document).ready(function(){
 	$('.deletebtn').on('click',function(){
 		$('#DeleteConfirm').modal('show');
@@ -279,9 +269,9 @@ $(document).ready(function(){
 			 
 });
 });
-});		  
- 		         		  
-</script>
+  
+          		  
+</script>	</script>
 <script src="../dash_style/main.js"></script>
 <script>
 $(document).ready(function(){

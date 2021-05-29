@@ -14,9 +14,8 @@ require '../dbconfig/config.php';
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../dash_style/style.css">
-<title>Profile Details</title>
+<title>Update Details</title>
 
 </head>
 <body>
@@ -65,89 +64,57 @@ require '../dbconfig/config.php';
               <span class="sr-only">Toggle Menu</span>
             </button>
             <div class='mx-auto text-center'>
-                <h4>Prof. <?php echo $_SESSION['pname'];?>'s Details</h4>
+                <h4>Prof. <?php echo $_SESSION['pname'];?>'s Notifications from Admin</h4>
             </div>
 
             </div>
         </nav>
-        <div class="container-fluid p-0 text-center">
-	    <div class="container text-center" id="box">
-        
+        <div class="container" >
+<div class="row">
+<table class="table table-bordered">
+    <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Logs</th>
+            <th>View</th>
+          </tr>
+    </thead>
+    <tbody>
+	<?php
+	   $sql="select * from admin_notifications where target='professor' OR target='both'";
+	   $res=$con->query($sql);
+	   if(($res->num_rows)> 0)
+	   {      $i=0;
+	          while($row=$res->fetch_assoc()) 
+			  {
+				  $i++;
+				  echo "<tr>
+				       <td>{$i}</td>
+					   <td>{$row['title']}</td>
+			           <td>{$row['message']}</td>
+					   <td>{$row['logs']}</td>
+					   <td><a href='../admin_dash/{$row['upload']}' target='_blank'>View</a></td>
+					   
+					   </tr>";
+					   
+					   
+			  }
+	   }
+	   else{
+		   echo "No records found";
+	   }
+	
+	?>
+      
+    </tbody>
+  </table> 
+  </div>
+  </div>
+  </div>
+  </div>
 
-        <img src="../images/software-engineer-vector-6122111.jpg" style="width:10%;"></br></br>
-			
-      <?php 
- $sql="select * from prof_details where profno={$_SESSION['pid']}";
-
-     
-      $query_run=mysqli_query($con,$sql);
-  if($query_run->num_rows >0)
-  { 
-              while($row=$query_run->fetch_assoc())
-              { 
-              ?>
-            <div class="row justify-content-center">
-          <div class="col-auto">
-      <table class="table table-responsive table-dark table-striped">
-              <tr>
-                <th>DETAILS</th>
-                <th>VALUES</th>
-              
-              </tr>
-              <tr>
-              <td>Id</td>  
-              <td><?php echo $row['profno']; ?></td> 
-            </tr>
-              <tr>
-              <td>Name</td>  
-              <td><?php echo $row['name']; ?></td> 
-            </tr>
-            <tr>
-              <td>Email</td>  
-              <td><?php echo $row['email']; ?></td> 
-            </tr>
-            <tr>
-              <td>Contact No</td>  
-              <td><?php echo $row['contact no']; ?></td> 
-            </tr>
-                  
-            
-           
-           
-           
-           <?php 
-           
-          
-          }
-              
-
-  }
-?>
-
-<?php
- $sql="select * from course_details where profno={$_SESSION['pid']}";
-
-     
- $query_run=mysqli_query($con,$sql);
-if($query_run->num_rows >0)
-{
-?>
-        <tr>
-          <td>No. of courses teaching</td>
-          <td><?php echo $query_run->num_rows; ?></td>
-        </tr>
-        </table>
-      </div>
-    </div>
-
-<?php
-}?>
-</div>
-</div>	   
-
-    </div>
-    </div>
-</div>
 <script src="../dash_style/main.js"></script>
 </form>
 </body>
