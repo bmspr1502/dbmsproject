@@ -58,9 +58,9 @@ require '../dbconfig/config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              
-            </button>
+            <div class='mx-auto text-center'>
+              <h4>UPDATE DETAILS</h4>
+            </div>
 
 
           </div>
@@ -68,14 +68,14 @@ require '../dbconfig/config.php';
 
 
  <div class="container-fluid p-0" id="enrolledcourses">
-<h3>Update Details:</h3>
+
         <div class="container">
             <div class="row">
               <div class="col-md-6">  
 <form class="update_form" action="student_update_details.php" method="POST">
 <div class="form-group">
 <input type="hidden" class="form-control" name="rollno" value="<?php echo $_SESSION['sroll_no'];?>">
-<label class="control-label"><i class="fas fa-lock fa-1.5x"></i>Title</label>
+<label class="control-label"><i class="fa fa-lock fa-1.5x"></i>Title</label>
 <input type="text" placeholder="Title" class="form-control" name="title"></div>
 <div class="form-group">
 <label class="control-label"><i class="fa fa-address-card" ></i>Request</label>

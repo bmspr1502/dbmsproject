@@ -118,14 +118,14 @@ if(isset($_POST['update']))
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
+			<div class='mx-auto text-center'>
+              <h4>STUDENT DETAILS</h4>
+            </div>
 		      </div>
         </nav>
 
-
-
         <div class="container" >
 <div class="row">
-<h4><center>All Students Details</center></h4>
 <div class="container" >
 <div class="row">
 <div class="container">
@@ -170,7 +170,7 @@ if(isset($_POST['update']))
 					   <td>{$row['DOB']}</td>
 					   <td>{$row['Address']}</td>
 					   <td>{$row['email']}</td>
-					   <td>{$row['contactno']}</td>
+					   <td>{$row['contact no']}</td>
 					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit</button></td>
 					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>Delete</button></td>
 					   </tr>";

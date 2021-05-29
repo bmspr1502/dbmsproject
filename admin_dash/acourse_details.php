@@ -17,7 +17,7 @@ require  '../dbconfig/config.php';
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="../dash_style/style.css">
-<title>student requests</title>
+<title>Course details</title>
 
 </head>
 
@@ -64,14 +64,18 @@ require  '../dbconfig/config.php';
             <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
-		</div>
+            <div class='mx-auto text-center'>
+              <h4>COURSE DETAILS</h4>
+            </div>
+            
+		      </div>
         </nav>
 
 
 
         <div class="container" >
 <div class="row">
-<h4><center>All Courses Details</center></h4>
+
 <div class="container" >
 <div class="row">
 

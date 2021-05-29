@@ -61,16 +61,16 @@ require  '../dbconfig/config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
+            <div class='mx-auto text-center'>
+              <h4>PROFESSOR DETAILS</h4>
+            </div>
 		</div>
         </nav>
 
 
 <div class="container" >
 <div class="row">
-<h4><center>All Professor Details</center></h4>
+
 <div class="container" >
 <div class="row">
 

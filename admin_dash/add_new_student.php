@@ -60,15 +60,15 @@ require '../dbconfig/config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
+            <div class='mx-auto text-center'>
+              <h4>CREATE A NEW STUDENT</h4>
+            </div>
 		</div>
         </nav>
 
 
 <div class="container align-items-center" id="newcourse">
-<h4> ADD NEW STUDENT </h4>
+
 <form action="add_new_student.php" method="POST" >
 <div class="form-group align-items-center">
 
@@ -81,16 +81,16 @@ require '../dbconfig/config.php';
 <label class="control-label"><i class="fa fa-birthday-cake"></i> Student Password </label>
 <input type="text" placeholder="Enter Student password" class="form-control" name="spassword"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Student DOB </label>
+<label class="control-label"><i class="fa fa-address-book-o"></i> Student DOB </label>
 <input type="date" placeholder="Enter Student DOB" class="form-control" name="sdob"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Student Address </label>
+<label class="control-label"><i class="fa fa-address-card-o"></i> Student Address </label>
 <input type="text-area" placeholder="Enter Student Address" class="form-control" name="saddress"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Student Email  </label>
+<label class="control-label"><i class="fa fa-envelope-o"></i> Student Email  </label>
 <input type="email" placeholder="Enter Student email" class="form-control" name="semail"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Student Contact no </label>
+<label class="control-label"><i class="fa fa-phone"></i> Student Contact no </label>
 <input type="number" placeholder="Enter Student Contactno" class="form-control" name="scontactno"></div>
 
 <button class="btn btn-primary" id="sendbtn" type="submit" name="create">CREATE NEW STUDENT</button>

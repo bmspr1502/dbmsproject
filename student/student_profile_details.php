@@ -55,9 +55,9 @@ require '../dbconfig/config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                
-            </button>
+            <div class='mx-auto text-center'>
+              <h4>PROFILE DETAILS</h4>
+            </div>
 
 
           </div>
@@ -66,7 +66,7 @@ require '../dbconfig/config.php';
     
     
     <div class="container-fluid p-0 text-center">
-       <h3> PROFILE DETAILS</h3>
+
 	    <div class="container text-center" id="box">
         
 

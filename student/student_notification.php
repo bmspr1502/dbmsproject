@@ -60,7 +60,7 @@ require "../dbconfig/config.php";
             </button>
 
             <div class='mx-auto text-center'>
-                <h4>Admin Notifications</h4>
+                <h4>STUDENT NOTIFICATION</h4>
             </div>
 
           </div>

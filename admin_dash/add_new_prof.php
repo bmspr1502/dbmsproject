@@ -61,17 +61,15 @@ require '../dbconfig/config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
+            <div class='mx-auto text-center'>
+              <h4>CREATE A NEW PROFESSOR</h4>
+            </div>
 		</div>
         </nav>
 
 
 
 <div class="container align-items-center" id="newcourse">
-<h4> ADD NEW PROFESSOR </h4>
-
 
 <form action="add_new_prof.php" method="POST" >
 <div class="form-group align-items-center">
@@ -85,10 +83,10 @@ require '../dbconfig/config.php';
 <label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Password </label>
 <input type="text" placeholder="Enter Professor Password" class="form-control" name="ppass"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Email  </label>
+<label class="control-label"><i class="fa fa-address-card-o"></i> Professor Email  </label>
 <input type="email" placeholder="Enter Professor email" class="form-control" name="pemail"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Contact no </label>
+<label class="control-label"><i class="fa fa-phone"></i> Professor Contact no </label>
 <input type="number" placeholder="Enter Professor Contactno" class="form-control" name="pcontactno"></div>
 
 <button class="btn btn-primary" id="sendbtn" type="submit" name="create">CREATE PROFESSOR</button>
