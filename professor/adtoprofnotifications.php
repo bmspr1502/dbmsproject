@@ -94,10 +94,11 @@ require '../dbconfig/config.php';
 				       <td>{$i}</td>
 					   <td>{$row['title']}</td>
 			           <td>{$row['message']}</td>
-					   <td>{$row['logs']}</td>
-					   <td><a href='../admin_dash/{$row['upload']}' target='_blank'>View</a></td>
-					   
-					   </tr>";
+					   <td>{$row['logs']}</td>";
+          if($row['upload'])
+          echo "<td><a href='../uploads/admin_notif/{$row['upload']}' target='_blank'>View</a></td>";
+          
+          echo "</tr>";
 					   
 					   
 			  }

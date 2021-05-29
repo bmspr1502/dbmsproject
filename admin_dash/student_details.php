@@ -40,7 +40,9 @@ if(isset($_POST['update']))
 	
 	
 	
-	$query=$con->prepare("update student_details set name=?, password=?, DOB=?,Address=?,email=?,contactno=? where rollno=?");
+	if(!($query=$con->prepare("update student_details set name=?, password=?, DOB=?,Address=?,email=?,contactno=? where rollno=?"))){
+    echo $con->error;
+  }
 	$query->bind_param("sssssss",$sname,$spassword,$sdob,$saddress,$semail,$scontactno,$sid);
 
 	
@@ -169,7 +171,7 @@ if(isset($_POST['update']))
 					   <td>{$row['DOB']}</td>
 					   <td>{$row['Address']}</td>
 					   <td>{$row['email']}</td>
-					   <td>{$row['contact no']}</td>
+					   <td>{$row['contactno']}</td>
 					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit</button></td>
 					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>Delete</button></td>
 					   </tr>";
