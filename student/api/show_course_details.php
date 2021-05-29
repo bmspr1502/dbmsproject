@@ -10,7 +10,7 @@ if($result = $con->query($sql)){
     ?>
 <h3>Course ID: <?php echo $row['courseid']?></h3>
 <h3> Course Name: <?php echo $row['course_name']?></h3>
-<h3> Professor's name: <?php echo $row['prof_name']?></h3>
+<h3> Professor's name: <a href='#' data-toggle="modal" data-target="#viewProfile" onclick='show_information_of_person("prof","<?php echo $row["profno"]?>")'><?php echo $row['prof_name']?></a></h3>
 <button class='btn btn-danger float-right' onclick='unenroll_student("<?php echo $_SESSION["sroll_no"]?>","<?php echo $row["courseid"]?>")'>Unenroll From This Course</button>
 <h4 class='m-3'> Student's Details</h4>
 
@@ -37,7 +37,7 @@ if($result = $con->query($sql)){
           ?>
             <tr>
             <th scope='row'><?php echo $i ?></th>
-            <td><?php echo $stu_row['rollno']?></td>
+            <td><a href='#' data-toggle="modal" data-target="#viewProfile" onclick='show_information_of_person("student","<?php echo $stu_row["rollno"]?>")'><?php echo $stu_row['rollno']?></a></td>
             <td><?php echo $stu_row['name'] ?></td>
           </tr>
 <?php
