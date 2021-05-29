@@ -65,6 +65,9 @@ require '../dbconfig/config.php';
               <h4>Add New Professor</h4>
 		      </div>
            
+             
+            </div>
+		
         </nav>
 
 
@@ -85,10 +88,10 @@ require '../dbconfig/config.php';
 <label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Password </label>
 <input type="text" placeholder="Enter Professor Password" class="form-control" name="ppass"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Email  </label>
+<label class="control-label"><i class="fa fa-address-card-o"></i> Professor Email  </label>
 <input type="email" placeholder="Enter Professor email" class="form-control" name="pemail"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Contact no </label>
+<label class="control-label"><i class="fa fa-phone"></i> Professor Contact no </label>
 <input type="number" placeholder="Enter Professor Contactno" class="form-control" name="pcontactno"></div>
 
 <button class="btn btn-primary" id="sendbtn" type="submit" name="create">CREATE PROFESSOR</button>

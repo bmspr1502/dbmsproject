@@ -57,9 +57,9 @@ session_start();
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              
-            </button>
+            <div class='mx-auto text-center'>
+              <h4>ALL COURSES</h4>
+            </div>
 
 
           </div>
@@ -67,14 +67,14 @@ session_start();
 	
 
  <div class="container-fluid p-0" id="enrolledcourses">
-        <h3>All Courses:</h3>
+
         <input type="text" id="myinput" placeholder="Search..." class="form-control" />
      <div class="container">
        <p id='box'></p>
     <div class="row" id='unenrolledCourses'>
                 
     </div>
-    <h4>Enrolled Courses</h4>
+    <h4>ENROLLED COURSES:</h4>
     <div class="row" id='enrolledCourses'>
                 
     </div>

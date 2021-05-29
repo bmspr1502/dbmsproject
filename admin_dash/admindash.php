@@ -66,17 +66,16 @@ if(!isset($_SESSION['aid']))
               <span class="sr-only">Toggle Menu</span>
             </button>
             <div class='mx-auto text-center'>
-              <h4>Admin's Dashboard</h4>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-			</div>
+              <h4>ADMIN DASHBOARD</h4>
+            </div>
+            
+		    	</div>
         </nav>
 
 
     
     <div class="container-fluid p-0" id="enrolledcourses">
-       <h3><center>Overall Details</center></h3>
+       <h3><center>OVERALL DETAILS</center></h3>
         <div class="container mt-5">
             <div class="row">
                  <div class="col-md-3 "  >

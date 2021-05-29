@@ -24,6 +24,7 @@ if(!isset($_SESSION['sroll_no']))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="../dash_style/style.css">
+	<title>Student dashboard</title>
     
 
 
@@ -65,9 +66,9 @@ if(!isset($_SESSION['sroll_no']))
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                
-            </button>
+            <div class='mx-auto text-center'>
+              <h4>ENROLLED COURSES</h4>
+            </div>
 
 
           </div>
@@ -76,7 +77,7 @@ if(!isset($_SESSION['sroll_no']))
     
     
     <div class="container-fluid p-0">
-       <h3> Enrolled courses</h3>
+
 	    <div class="container" id="box">
         <div class="row" id='enrolledCourses'>
 </div>

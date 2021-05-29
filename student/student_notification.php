@@ -6,7 +6,7 @@ require "../dbconfig/config.php";
 <!DOCTYPE html>
   <html> 
 <head>
-<title>Update Details</title>
+<title>Notifications</title>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
@@ -60,7 +60,7 @@ require "../dbconfig/config.php";
             </button>
 
             <div class='mx-auto text-center'>
-                <h4>Admin Notifications</h4>
+                <h4>STUDENT NOTIFICATION</h4>
             </div>
 
           </div>

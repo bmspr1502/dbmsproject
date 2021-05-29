@@ -60,9 +60,9 @@ require  '../dbconfig/config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
+            <div class='mx-auto text-center'>
+              <h4>PROFILE DETAILS</h4>
+            </div>
 		</div>
         </nav>
 
@@ -72,7 +72,7 @@ require  '../dbconfig/config.php';
 
 <div class="container-fluid p-0" id="con">
         <div class="content">
-            <h3>Profile Details</h3>
+            
             <img src="../images/software-engineer-vector-6122111.jpg" style="width: 70px;">
             <p>Name:</p>
             <p>DOB:</p>

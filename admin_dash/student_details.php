@@ -169,7 +169,7 @@ if(isset($_POST['update']))
 					   <td>{$row['DOB']}</td>
 					   <td>{$row['Address']}</td>
 					   <td>{$row['email']}</td>
-					   <td>{$row['contactno']}</td>
+					   <td>{$row['contact no']}</td>
 					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit</button></td>
 					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>Delete</button></td>
 					   </tr>";
