@@ -79,16 +79,16 @@ require '../dbconfig/config.php';
 <form action="add_new_prof.php" method="POST" >
 <div class="form-group align-items-center">
 
-<label class="control-label"><i class="fa fa-lock"></i> Professor-ID</label>
+<label class="control-label"><i class="fa fa-bookmark"></i> Professor-ID</label>
 <input type="text" placeholder="Enter Professor ID" class="form-control" name="pid" ></div>
 <div class="form-group">
 <label class="control-label"><i class="fa fa-address-card" ></i> Professor Name</label>
 <input type="text" placeholder="Enter Professor Name" class="form-control" name="pname"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Password </label>
+<label class="control-label"><i class="fa fa-lock"></i> Professor Password </label>
 <input type="text" placeholder="Enter Professor Password" class="form-control" name="ppass"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-address-card-o"></i> Professor Email  </label>
+<label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Email  </label>
 <input type="email" placeholder="Enter Professor email" class="form-control" name="pemail"></div>
 <div class="form-group">
 <label class="control-label"><i class="fa fa-phone"></i> Professor Contact no </label>
