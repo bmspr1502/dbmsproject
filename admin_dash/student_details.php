@@ -2,6 +2,63 @@
 session_start();
 require  '../dbconfig/config.php';
 
+
+
+if(isset($_POST['delete']))
+{
+	
+	$id=$_POST['delete_id'];
+	
+	$query="delete from student_details WHERE rollno='$id'";
+	$query_run=mysqli_query($con,$query);
+	
+	if($query_run){
+		echo "<script type='text/javascript'> alert('dataleted');</script>";
+		
+	}
+	else{
+		echo "<script type='text/javascript'> alert('unsuccessfull deletion');</script>";
+		
+	}
+	
+}
+
+
+
+
+if(isset($_POST['update']))
+{
+	
+	   
+	$sid=$_POST['srollno'];
+	$sname=$_POST['sname'];
+	$spassword=$_POST['spass'];
+	$sdob=$_POST['sdob'];
+	$saddress=$_POST['saddress'];
+	$semail=$_POST['semail'];
+	$scontactno=$_POST['scontactno'];
+	
+	
+	
+	$query=$con->prepare("update student_details set name=?, password=?, DOB=?,Address=?,email=?,contactno=? where rollno=?");
+	$query->bind_param("sssssss",$sname,$spassword,$sdob,$saddress,$semail,$scontactno,$sid);
+
+	
+	
+	if($query->execute()){
+		echo "<script type='text/javascript'> alert('data updated');</script>";
+		
+	}
+	else{
+		echo "<script type='text/javascript'> alert('unsuccessfull updation".$con->error."');</script>";
+          
+		
+		
+	}
+	
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -115,7 +172,7 @@ require  '../dbconfig/config.php';
 					   <td>{$row['DOB']}</td>
 					   <td>{$row['Address']}</td>
 					   <td>{$row['email']}</td>
-					   <td>{$row['contact no']}</td>
+					   <td>{$row['contactno']}</td>
 					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit</button></td>
 					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>Delete</button></td>
 					   </tr>";
@@ -146,9 +203,9 @@ require  '../dbconfig/config.php';
         <form action="student_details.php" method="POST" >
       
 <div class="form-group align-items-center">
-<input type="hidden" id="sno"></input>
+
 <label class="control-label" ><i class="fa fa-lock "></i> rollno</label>
-<input type="text"  class="form-control" name="srollno"  id="srollno"></div>
+<input type="hidden"  class="form-control" name="srollno"  id="srollno"  ></div>
 <div class="form-group">
 <label class="control-label" ><i class="fa fa-address-card" ></i>  Name</label>
 <input type="text"  class="form-control" name="sname" id="sname"></div>
@@ -199,53 +256,7 @@ require  '../dbconfig/config.php';
     </div>
   </div>
 </div>
-<?php
 
-if(isset($_POST['delete']))
-{
-	
-	$id=$_POST['delete_id'];
-	
-	$query="delete from student_details WHERE rollno='$id'";
-	$query_run=mysqli_query($con,$query);
-	
-	if($query_run){
-		echo "<script type='text/javascript'> alert('dataleted');</script>";
-		
-	}
-	else{
-		echo "<script type='text/javascript'> alert('unsuccessfull deletion');</script>";
-		
-	}
-	
-}
-
-
-?>
-<?php
-
-if(isset($_POST['update']))
-{
-	
-	$id=$_POST['srollno'];
-	$sname=$_POST['sname'];
-	$spass=$_POST['spass'];
-	$query="update student_details set name='$sname',password='$spass' where rollno='$id'";
-	$query_run=mysqli_query($con,$query);
-	
-	if($query_run){
-		echo "<script type='text/javascript'> alert('datadated');</script>";
-		
-	}
-	else{
-		echo "<script type='text/javascript'> alert('unsuccessfull updation');</script>";
-		
-	}
-	
-}
-
-
-?>
 
 
    
