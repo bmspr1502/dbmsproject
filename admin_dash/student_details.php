@@ -90,9 +90,12 @@ require  '../dbconfig/config.php';
         <th>Rollno</th>
         <th>Name</th>
         <th>Password</th>
-		<th>Noofcourses</th>
-		<th>Edit</th>
-		<th>Delete</th>
+        <th>DOB</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Contact No</th>
+		    <th>Edit</th>
+		    <th>Delete</th>
 		
       </tr>
     </thead>
@@ -106,11 +109,14 @@ require  '../dbconfig/config.php';
 			  {
 				  $i++;
 				  echo "<tr>
-				       <td>{$i}</td>
+				      <td>{$i}</td>
 					   <td>{$row['rollno']}</td>
-			           <td>{$row['name']}</td>
+			       <td>{$row['name']}</td>
 					   <td>{$row['password']}</td>
-					   <td></td>
+					   <td>{$row['DOB']}</td>
+					   <td>{$row['Address']}</td>
+					   <td>{$row['email']}</td>
+					   <td>{$row['contact no']}</td>
 					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit</button></td>
 					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>Delete</button></td>
 					   </tr>";
