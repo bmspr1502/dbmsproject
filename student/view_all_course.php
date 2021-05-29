@@ -100,7 +100,9 @@ session_start();
                 enroll: course_id
             },function(data){
                 $('#box').html(data);
-				//location.reload();
+                load_unenrolled_courses();
+                load_enrolled_courses();
+				        //location.reload();
             })
 	};
   function load_unenrolled_courses(){
@@ -116,6 +118,14 @@ session_start();
       rollno: '<?php echo $_SESSION['sroll_no'];?>'
     },function(data){
         $('#enrolledCourses').html(data);
+    })
+  }
+
+  function open_course(courseid){
+    $.post('api/set_course.php', {
+      course_id: courseid
+    }, function(data){
+      $('#enrolledCourses').html(data);
     })
   }
 

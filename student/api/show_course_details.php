@@ -11,7 +11,7 @@ if($result = $con->query($sql)){
 <h3>Course ID: <?php echo $row['courseid']?></h3>
 <h3> Course Name: <?php echo $row['course_name']?></h3>
 <h3> Professor's name: <?php echo $row['prof_name']?></h3>
-<button class='btn btn-danger float-right'>Unenroll From This Course</button>
+<button class='btn btn-danger float-right' onclick='unenroll_student("<?php echo $_SESSION["sroll_no"]?>","<?php echo $row["courseid"]?>")'>Unenroll From This Course</button>
 <h4 class='m-3'> Student's Details</h4>
 
 <?php
@@ -52,7 +52,20 @@ if($result = $con->query($sql)){
     }
 
 ?>
-
+<p id='unenroll'></p>
+<script>
+    function unenroll_student(roll, courseid){
+      if(confirm("Are you sure you want to unenroll from the course? You will still be able to enroll back if needed.")){
+          $.post('api/unenroll_student.php', {
+            rollno: roll, 
+            courseid: courseid
+          }, function(data){
+            $('#unenroll').html(data);
+            location.href='stddash.php';
+          })
+        }
+    }
+</script>
 <?php
 
 
