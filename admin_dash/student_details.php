@@ -2,6 +2,63 @@
 session_start();
 require  '../dbconfig/config.php';
 
+
+
+if(isset($_POST['delete']))
+{
+	
+	$id=$_POST['delete_id'];
+	
+	$query="delete from student_details WHERE rollno='$id'";
+	$query_run=mysqli_query($con,$query);
+	
+	if($query_run){
+		echo "<script type='text/javascript'> alert('dataleted');</script>";
+		
+	}
+	else{
+		echo "<script type='text/javascript'> alert('unsuccessfull deletion');</script>";
+		
+	}
+	
+}
+
+
+
+
+if(isset($_POST['update']))
+{
+	
+	   
+	$sid=$_POST['srollno'];
+	$sname=$_POST['sname'];
+	$spassword=$_POST['spass'];
+	$sdob=$_POST['sdob'];
+	$saddress=$_POST['saddress'];
+	$semail=$_POST['semail'];
+	$scontactno=$_POST['scontactno'];
+	
+	
+	
+	$query=$con->prepare("update student_details set name=?, password=?, DOB=?,Address=?,email=?,contactno=? where rollno=?");
+	$query->bind_param("sssssss",$sname,$spassword,$sdob,$saddress,$semail,$scontactno,$sid);
+
+	
+	
+	if($query->execute()){
+		echo "<script type='text/javascript'> alert('data updated');</script>";
+		
+	}
+	else{
+		echo "<script type='text/javascript'> alert('unsuccessfull updation".$con->error."');</script>";
+          
+		
+		
+	}
+	
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,9 +86,7 @@ require  '../dbconfig/config.php';
           <li class="active">
             <a href="admindash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
-		  <li>
-            <a href="admin_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
-          </li>
+		  
           <li>
             <a href="add_new_student.php"><span class="fa fa-user-plus"></span>ADD NEW STUDENT</a>
           </li>
@@ -48,7 +103,7 @@ require  '../dbconfig/config.php';
             <a href="anotifications.php"><span class="fa fa-paper-plane"></span>SEND NOTIFICATIONS</a>
           </li>
           <li>
-            <a href="logout.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
+            <a href="log_out.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
           </li>
         </ul>
     	</nav>
@@ -63,10 +118,7 @@ require  '../dbconfig/config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-		</div>
+		      </div>
         </nav>
 
 
@@ -76,12 +128,14 @@ require  '../dbconfig/config.php';
 <h4><center>All Students Details</center></h4>
 <div class="container" >
 <div class="row">
+<div class="container">
+<form>
+<input type="text" name="Search" placeholder="Search..." id="myinput" style="width:100%" class="form-control"/>
+<br>
+<br>
 
-<form >
-<input type="text" name="Search" placeholder="Search..." id="myinput" style="width:200%" />
-</br>
-</br>
 </form>
+</div>
 
 <table class="table table-bordered table-dark table-striped">
     <thead>
@@ -90,9 +144,12 @@ require  '../dbconfig/config.php';
         <th>Rollno</th>
         <th>Name</th>
         <th>Password</th>
-		<th>Noofcourses</th>
-		<th>Edit</th>
-		<th>Delete</th>
+        <th>DOB</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Contact No</th>
+		    <th>Edit</th>
+		    <th>Delete</th>
 		
       </tr>
     </thead>
@@ -106,11 +163,14 @@ require  '../dbconfig/config.php';
 			  {
 				  $i++;
 				  echo "<tr>
-				       <td>{$i}</td>
+				      <td>{$i}</td>
 					   <td>{$row['rollno']}</td>
-			           <td>{$row['name']}</td>
+			       <td>{$row['name']}</td>
 					   <td>{$row['password']}</td>
-					   <td></td>
+					   <td>{$row['DOB']}</td>
+					   <td>{$row['Address']}</td>
+					   <td>{$row['email']}</td>
+					   <td>{$row['contactno']}</td>
 					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit</button></td>
 					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>Delete</button></td>
 					   </tr>";
@@ -135,24 +195,40 @@ require  '../dbconfig/config.php';
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close close" datasmiss="modal" aria-label="Close">X</button>
       </div>
       <div class="modal-body">
         <form action="student_details.php" method="POST" >
+      
 <div class="form-group align-items-center">
-<input type="hidden" id="sno"></input>
-<label class="control-label" ><i class="fas fa-lock fa-1.5x"></i> rollno</label>
-<input type="text"  class="form-control" name="srollno"  id="srollno"></div>
+
+<label class="control-label" ><i class="fa fa-lock "></i> rollno</label>
+<input type="hidden"  class="form-control" name="srollno"  id="srollno"  ></div>
 <div class="form-group">
 <label class="control-label" ><i class="fa fa-address-card" ></i>  Name</label>
 <input type="text"  class="form-control" name="sname" id="sname"></div>
 <div class="form-group">
-<label class="control-label" ><i class="fa fa-birthday-cake"></i>  password</label>
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> Password</label>
 <input type="text"  class="form-control" name="spass" id="spass"></div>
-<input type="hidden" id="noofcourses"></input>
+    
+      <div class="form-group">
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> DOB</label>
+<input type="text"  class="form-control" name="sdob" id="sdob"></div>
+      
+      <div class="form-group">
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> Address</label>
+<input type="text"  class="form-control" name="saddress" id="saddress"></div>
+      
+      <div class="form-group">
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> Email</label>
+<input type="email"  class="form-control" name="semail" id="semail"></div>
+      
+      <div class="form-group">
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> Contact no</label>
+<input type="text"  class="form-control" name="scontactno" id="scontactno"></div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" name="update">Update</button>
       </div></form>
     </div>
@@ -163,7 +239,7 @@ require  '../dbconfig/config.php';
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">X</button>
       </div><form action="student_details.php" method="POST">
       <div class="modal-body">
 	  
@@ -172,59 +248,13 @@ require  '../dbconfig/config.php';
       </div>
       <div class="modal-footer" >
         
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
 		<button type="submit" class="btn btn-danger" name="delete" >Delete</button>
       </div></form>
     </div>
   </div>
 </div>
-<?php
 
-if(isset($_POST['delete']))
-{
-	
-	$id=$_POST['delete_id'];
-	
-	$query="delete from student_details WHERE rollno='$id'";
-	$query_run=mysqli_query($con,$query);
-	
-	if($query_run){
-		echo "<script type='text/javascript'> alert('data deleted');</script>";
-		
-	}
-	else{
-		echo "<script type='text/javascript'> alert('unsuccessfull deletion');</script>";
-		
-	}
-	
-}
-
-
-?>
-<?php
-
-if(isset($_POST['update']))
-{
-	
-	$id=$_POST['srollno'];
-	$sname=$_POST['sname'];
-	$spass=$_POST['spass'];
-	$query="update student_details set name='$sname',password='$spass' where rollno='$id'";
-	$query_run=mysqli_query($con,$query);
-	
-	if($query_run){
-		echo "<script type='text/javascript'> alert('data updated');</script>";
-		
-	}
-	else{
-		echo "<script type='text/javascript'> alert('unsuccessfull updation');</script>";
-		
-	}
-	
-}
-
-
-?>
 
 
    
@@ -236,10 +266,18 @@ $(document).ready(function(){
           var data1=currrow.find('td:eq(1)').text();
 		  var data2=currrow.find('td:eq(2)').text();
 		  var data3=currrow.find('td:eq(3)').text();
+		  var data4=currrow.find('td:eq(4)').text();
+		  var data5=currrow.find('td:eq(5)').text();
+		  var data6=currrow.find('td:eq(6)').text();
+		  var data7=currrow.find('td:eq(7)').text();
 		   
 		 $('#srollno').val(data1);
 		  $('#sname').val(data2);
 		   $('#spass').val(data3);
+		   $('#sdob').val(data4);
+		   $('#saddress').val(data5);
+		   $('#semail').val(data6);
+		   $('#scontactno').val(data7);
 		  console.log(data1);
 		   console.log(data2);
 		    console.log(data3);

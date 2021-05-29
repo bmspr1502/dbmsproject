@@ -36,9 +36,7 @@ if(!isset($_SESSION['aid']))
           <li class="active">
             <a href="admindash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
-		  <li>
-            <a href="admin_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
-          </li>
+		 
           <li>
             <a href="add_new_student.php"><span class="fa fa-user-plus"></span>ADD NEW STUDENT</a>
           </li>
@@ -67,6 +65,8 @@ if(!isset($_SESSION['aid']))
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
+            <div class='mx-auto text-center'>
+              <h4>Admin's Dashboard</h4>
             <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['aid']))
 
     
     <div class="container-fluid p-0" id="enrolledcourses">
-       <h3>OVERALL DETAILS</h3>
+       <h3><center>Overall Details</center></h3>
         <div class="container mt-5">
             <div class="row">
                  <div class="col-md-3 "  >

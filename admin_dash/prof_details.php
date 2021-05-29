@@ -29,9 +29,7 @@ require  '../dbconfig/config.php';
           <li class="active">
             <a href="admindash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
-		  <li>
-            <a href="admin_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
-          </li>
+		
           <li>
             <a href="add_new_student.php"><span class="fa fa-user-plus"></span>ADD NEW STUDENT</a>
           </li>
@@ -76,11 +74,14 @@ require  '../dbconfig/config.php';
 <div class="container" >
 <div class="row">
 
-<form >
-<input type="text" name="Search" placeholder="Search..." id="myinput" style="width:200%" />
-</br>
-</br>
+<div class="container">
+<form>
+<input type="text" name="Search" placeholder="Search..." id="myinput" style="width:100%" class="form-control"/>
+<br>
+<br>
+
 </form>
+</div>
 
 <table class="table table-bordered table-striped table-dark  ">
     <thead>

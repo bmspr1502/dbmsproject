@@ -27,9 +27,7 @@ require '../dbconfig/config.php';
           <li class="active">
             <a href="admindash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
-		  <li>
-            <a href="admin_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
-          </li>
+		  
           <li>
             <a href="add_new_student.php"><span class="fa fa-user-plus"></span>ADD NEW STUDENT</a>
           </li>
@@ -72,15 +70,15 @@ require '../dbconfig/config.php';
 <div class="row">
 <h4><center>Students Requests</center></h4>
 
-<table class="table table-bordered">
+<table class="table table-bordered table-dark table-striped">
     <thead>
       <tr>
 	    <th>S.No</th>
         <th>Rollno</th>
-        <th>newpassword</th>
-        <th>newname</th>
-		<th>newdob</th>
-		<th>newaddress</th>
+        <th>Title</th>
+        <th>Request</th>
+		    <th>logs</th>
+
       </tr>
     </thead>
     <tbody>
@@ -95,10 +93,10 @@ require '../dbconfig/config.php';
 				  echo "<tr>
 				       <td>{$i}</td>
 					   <td>{$row['rollno']}</td>
-			           <td>{$row['newpassword']}</td>
-					   <td>{$row['newname']}</td>
-					   <td>{$row['newdob']}</td>
-					   <td>{$row['newaddress']}</td>
+			           <td>{$row['title']}</td>
+					   <td>{$row['request']}</td>
+					   <td>{$row['logs']}</td>
+					   
 					   </tr>";
 					   
 					   

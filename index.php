@@ -514,16 +514,6 @@ window.onclick = function(event){
         });
 
     })
-
-    $('#ALOGIN').click(function(){
-        $('#adminForm').submit();
-    })
-    $('#ALOGIN').click(function(){
-        $('#adminForm').submit();
-    })
-    $('#ALOGIN').click(function(){
-        $('#adminForm').submit();
-    })
 </script>
 </body>
 </html>

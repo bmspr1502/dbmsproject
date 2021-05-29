@@ -31,9 +31,6 @@ require '../dbconfig/config.php';
             <a href="admindash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
 		  <li>
-            <a href="admin_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
-          </li>
-          <li>
             <a href="add_new_student.php"><span class="fa fa-user-plus"></span>ADD NEW STUDENT</a>
           </li>
           <li>
@@ -79,14 +76,20 @@ require '../dbconfig/config.php';
 <form action="add_new_prof.php" method="POST" >
 <div class="form-group align-items-center">
 
-<label class="control-label"><i class="fas fa-lock fa-1.5x"></i> Professor-ID</label>
-<input type="text" placeholder="Enter Professor ID" class="form-control" name="profid" ></div>
+<label class="control-label"><i class="fa fa-lock"></i> Professor-ID</label>
+<input type="text" placeholder="Enter Professor ID" class="form-control" name="pid" ></div>
 <div class="form-group">
 <label class="control-label"><i class="fa fa-address-card" ></i> Professor Name</label>
-<input type="text" placeholder="Enter Professor Name" class="form-control" name="profname"></div>
+<input type="text" placeholder="Enter Professor Name" class="form-control" name="pname"></div>
 <div class="form-group">
 <label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Password </label>
-<input type="text" placeholder="Enter Professor Password" class="form-control" name="profpassword"></div>
+<input type="text" placeholder="Enter Professor Password" class="form-control" name="ppass"></div>
+<div class="form-group">
+<label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Email  </label>
+<input type="email" placeholder="Enter Professor email" class="form-control" name="pemail"></div>
+<div class="form-group">
+<label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Contact no </label>
+<input type="number" placeholder="Enter Professor Contactno" class="form-control" name="pcontactno"></div>
 
 <button class="btn btn-primary" id="sendbtn" type="submit" name="create">CREATE PROFESSOR</button>
 </form></div>
@@ -95,19 +98,21 @@ require '../dbconfig/config.php';
 if(isset($_POST['create']))
 {   
     
-	$profid=$_POST['profid'];
-	$profname=$_POST['profname'];
-	$profpassword=$_POST['profpassword'];
+	$profid=$_POST['pid'];
+	$profname=$_POST['pname'];
+	$ppass=$_POST['ppass'];
+	$pemail=$_POST['pemail'];
+	$pcontactno=$_POST['pcontactno'];
 	
 	
-	$query="insert into prof_details values ('$profid','$profname','$profpassword')";
+	$query="insert into prof_details values ('$profid','$profname','$ppass','$pemail','$pcontactno')";
 	$query_run=mysqli_query($con,$query);
 	
 	if($query_run){
 		echo "<script type='text/javascript'> alert('sucessfully created');</script>";
 	}
 	else{
-		echo "<script type='text/javascript'> alert('unsuccess');</script>";
+		echo "<script type='text/javascript'> alert('unsuccess ". $con->error ."');</script>";
 		
 	}
 }

@@ -30,9 +30,7 @@ require '../dbconfig\config.php';
           <li class="active">
             <a href="admindash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
-		  <li>
-            <a href="admin_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
-          </li>
+		  
           <li>
             <a href="add_new_student.php"><span class="fa fa-user-plus"></span>ADD NEW STUDENT</a>
           </li>
@@ -73,14 +71,33 @@ require '../dbconfig\config.php';
 <form action="add_new_course.php" method="POST" >
 <div class="form-group align-items-center">
 
-<label class="control-label"><i class="fas fa-lock fa-1.5x"></i> Course-ID</label>
+<label class="control-label"><i class="fa fa-lock"></i> Course-ID</label>
 <input type="text" placeholder="Enter Course ID" class="form-control" name="courseid" ></div>
 <div class="form-group">
 <label class="control-label"><i class="fa fa-address-card" ></i> Course Name</label>
 <input type="text" placeholder="Enter Course Name" class="form-control" name="coursename"></div>
 <div class="form-group">
 <label class="control-label"><i class="fa fa-birthday-cake"></i> Professor-ID </label>
-<input type="text" placeholder="Enter Professor ID" class="form-control" name="professorid"></div>
+
+
+<select class="form-control" name="professorid" id="profid">
+<?php
+$sql="select profno,name from prof_details";
+if($query_run=$con->query($sql))
+{
+  while($row=$query_run->fetch_assoc()){
+
+?>
+  <option value="<?php echo $row['profno'];?>"><?php echo $row['name']; ?></option>
+  
+  <?php }
+
+}
+else{
+  echo $con->error;
+} ?>
+</select>
+</div>
 
 <button class="btn btn-primary" id="sendbtn" type="submit" name="create">CREATE NEW COURSE</button>
 </form></div>

@@ -40,7 +40,7 @@ if($result = $con->query($sql)){
             <th scope='row'><?php echo $i ?></th>
             <td><?php echo $stu_row['rollno']?></td>
             <td><?php echo $stu_row['name'] ?></td>
-            <td><button class='btn btn-danger' ><i class="fa fa-trash"></i></button>
+            <td><button class='btn btn-danger' onclick='unenroll_student("<?php echo $stu_row["rollno"]?>","<?php echo $row["courseid"]?>")'><i class="fa fa-trash"></i></button>
           </tr>
 <?php
           $i++;
@@ -55,6 +55,20 @@ if($result = $con->query($sql)){
 
 ?>
 
+<p id='unenroll'></p>
+<script>
+    function unenroll_student(roll, courseid){
+      if(confirm("Are you sure you want to remove the student? The student will still be able to enroll back if needed.")){
+          $.post('api/unenroll_student.php', {
+            rollno: roll, 
+            courseid: courseid
+          }, function(data){
+            $('#unenroll').html(data);
+            show_course_details();
+          })
+        }
+    }
+</script>
 <?php
 
 

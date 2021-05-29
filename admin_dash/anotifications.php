@@ -28,9 +28,7 @@ require '..\dbconfig\config.php';
           <li class="active">
             <a href="admindash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
-		  <li>
-            <a href="admin_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
-          </li>
+		 
           <li>
             <a href="add_new_student.php"><span class="fa fa-user-plus"></span>ADD NEW STUDENT</a>
           </li>
@@ -62,6 +60,8 @@ require '..\dbconfig\config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
+            <div class='mx-auto text-center'>
+                <h4>Send Notifications</h4>
             <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
