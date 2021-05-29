@@ -201,22 +201,49 @@ if(!isset($_SESSION['p_course'])){
     </div>
   </div>
 </div>
+
+
+<!-- The Modal -->
+<div class="modal" id="viewProfile">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title text-center" id='viewProfileHeading'>Modal Heading</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div id='viewProfileBox'>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 <script>
     $(document).ready(function(){
         $('#addData').submit(function(event){
                 event.preventDefault();
 
                 var formValues= $(this).serialize();
-                //console.log(formValues);
+                
 
                 $.post("api/add_course_data.php", formValues, function(data){
-                    // Display the returned data in browser
+                    
                     alert(data);
                     $('#addData')[0].reset();
                     change_add_group('link');
                     show_course_materials();
                     $('#addlink').val('');
-                        //location.reload();
+                        
                 });
             });
 
@@ -224,13 +251,13 @@ if(!isset($_SESSION['p_course'])){
             event.preventDefault();
 
             var formValues= $(this).serialize();
-            //console.log(formValues);
+           
 
             $.post("api/update_course_data.php", formValues, function(data){
-                // Display the returned data in browser
+               
                 alert(data);
                 show_course_materials();
-                //location.reload();
+                
             });
         });
 
@@ -307,6 +334,23 @@ if(!isset($_SESSION['p_course'])){
         }else{
             $('#addlinkgroup').show();
             $('#addfilegroup').hide();
+        }
+    }
+
+    function show_information_of_person(type, id){
+        $('#viewProfileHeading').html(type+' : '+id);
+        if(type=='student'){
+            $.post('api/search_profile.php', {
+                rollno: id
+            }, function(data){
+                $('#viewProfileBox').html(data);
+            });
+        }else{
+            $.post('api/search_profile.php', {
+                pid: id
+            }, function(data){
+                $('#viewProfileBox').html(data);
+            });
         }
     }
 </script>
