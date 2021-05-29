@@ -1,101 +1,60 @@
 <?php
-   session_start();
-   require 'PROJECT_SQL/dbconfig/config.php'
+ session_start();
+require 'dbconfig/config.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <title></title>
+  <title>LOGIN PAGE</title>
+<style> 
+.headerr{
+	height:100px;
+  background-color:LightSteelBlue;
 
-  <style>
-    .jumbotron {
-	  background-image : url("ba.gif");
-	  background-position:cover;
-	  background-repeat:repeat;
+}
 
-	  
-
-    }
-
-    .jumbotron h1 {
-	 padding-top:10px;
+.headerr_text
+{
+    padding-top:20px;
     text-align:center;
-    font-family: Sans-serif;
-    font-size: 70px;
+    font-family:Helvetica;
+    font-size: 6;
+    text-align:center;
+}
 
-    }
-
-    .alert {
+.alert{
       margin: 0px;
-    }
-
-	.a{
-	background-image : url("bgr.gif");
-	}
-    .bs-example {
-      margin:0px;
-	  position: sticky;
-    }
-
-    .navbar-brand {
-      font-size: 20px;
-      font-family: sans-serif;
-    }
-	.card {
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      max-width: 300px;
-      margin: auto;
-      text-align: center;
-      font-family: arial;
-    }
-
-    .title {
-      color: grey;
-      font-size: 18px;
-    }
-
-    button {
-      border: none;
-      outline: 0;
-      display: inline-block;
-      padding: 8px;
-      color: white;
-      background-color: #000;
-      text-align: center;
-      cursor: pointer;
-      width: 100%;
-      font-size: 18px;
-    }
-
-    button:hover,
-    a:hover {
-      opacity: 0.7;
-    }
-
-    .grid-container {
-      display: grid;
-      grid-template-columns: auto auto auto;
-      padding: 10px;
-    }
-
-    a:link {
-      text-decoration: none;
-    }
-
-    a {
-      color: white;
-    }
+}
+.a{
+    background-image:url("images/loginbg.jpg");
+	position:relative;
+}
+.bs-example {
+    margin:0px;
 	
+}
+.title {
+    color: grey;
+    font-size: 18px;
+}
 
-    .glow {
+
+a:link {
+     text-decoration: none;
+ }   
+a {
+      color: white;
+}
+	
+.glow {
       font-size: 70px;
       color: #ffffff;
       text-align: center;
@@ -153,265 +112,418 @@
 	
     @-webkit-keyframes glow {
       from {
-        text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+        text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px white, 0 0 40px LightSteelBlue, 0 0 50px LightCyan  , 0 0 60px black, 0 0 70px black;
       }
 
       to {
-        text-shadow: 0 0 20px #eeeeee, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+        text-shadow: 0 0 20px white, 0 0 30px LightSteelBlue, 0 0 40px black, 0 0 50px white, 0 0 60px LightCyan , 0 0 70px PowderBlue  , 0 0 80px PowderBlue  ;
       }
     }
-  </style>
+	
+	.card {
+      box-shadow: 5px 5px 5px rgba(0,0,255,0.3);
+	  background-color:snow;
+      max-width: 300px;
+	  max-height:150px;
+      margin: auto;
+      text-align: center;
+      font-family: Verdana;
+	  padding: 10px 0;
+	  font-size: 20px;
+    }
+
+    .title {
+      color: grey;
+      font-size: 18px;
+}
+    .grid-container {
+    display: grid;
+	grid-template-columns: minmax(30vw, 1fr);
+	grid-template-rows: minmax(30vh, 1fr);
+	align-items: center;
+	justify-content: center;    
+    }
+
+    a:link {
+      text-decoration: none;
+    }
+
+    a {
+      color: white;
+    }
+	
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+     
+button {
+  background-color: #04AA6D;
+  color: white;
+   outline: 0;
+  display: inline-block;
+  padding: 14px 16px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size:15px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+
+.modal {
+  display: none;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+  padding-top:10px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 40%;
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 300px) {
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
 
 </head>
-
-<body>
- <div class="jumbotron" style="margin-bottom:0px;margin-top: 0px;">
-    <h1 class="display-14 glow">COURSE MANAGMENET SYSTEM</h1>
-
-  </div>
-
+<body id="HOME">
   <div class="bs-example">
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed">
-      <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-        	
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark ">	
+       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">			
         <div class="navbar-nav">
-		<a href="#HOME" class="nav-item nav-link">HOME</a>
-          <a href="#ABOUT US" class="nav-item nav-link">ABOUT US</a>
-          <a href="#CONTACT US" class="nav-item nav-link">CONTACT US</a>
-        </div>
+       <a href="#HOME" class="navbar-brand">HOME</a>
+     <a href="#STUDENT" class="nav-item nav-link">STUDENT</a>
+     <a href="#PROFESSOR" class="nav-item nav-link">PROFESSOR</a>
+         <a href="#ADMIN" class="nav-item nav-link">ADMIN</a>
+     <a href="#ABOUT US" class="nav-item nav-link">ABOUT US</a>
+         <a href="#CONTACT US" class="nav-item nav-link">CONTACT US</a>
+         </div>
+       </div>
+     </nav>
+ </div>
+ <div class="headerr";">
+    <h1 class="headerr_text glow"><b>𝓒𝓔𝓖 𝓒𝓜𝓢</b></h1>
+</div>
 
-      </div>
-    </nav>
-  </div>
+
+<div class="a" > 
+<div class="grid-container">
+    <div class="grid-item">
+      <div class="card">
+	   <div class="container">
+	    <div class="row">
+        	<div class="col-sm-12" id="STUDENT">
+
+	         <h2>STUDENT</h2>
+				<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">LOGIN</button>
+					<div id="id01" class="modal">
   
-  
-  
-  <div class ="a">
-  <br><br>
+<form class="modal-content animate" action="index1.php" method="post" id='studentForm'>
+    <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="student/stud.png" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>STUDENT ID</b></label>
+						<input type="text" placeholder="ENTER STUDENT ID" name="SROLLNO" required>
+
+      <label><b>PASSWORD</b></label>
+      <input type="password" placeholder="ENTER PASSWORD" name="SPASSWORD" required>
+        
+      <button type="submit" name="SLOGIN" id='SLOGIN'>LOGIN</button>
+      <label>
+        <input type="checkbox" checked="checked" name=""> REMEMBER ME
+      </label>
+    </div>
+    <p id='sresult'></p>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">CANCEL</button>
+    </div>
+  </form>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="grid-container">
     <div class="grid-item">
       <div class="card">
 	  <div class="container">
 	<div class="row">
-	<div class=" col-xs-12 ">
-			<div class="d-flex justify-content-center">
-					<div class="brand_logo_container">
-						<img src="student.png" alt="John" style="width:100%">
-					</div>
-				</div><br>
-				<h4>STUDENT</h4>
-				<div class="d-flex justify-content-center form_container">
-					<form action="homlof.php" class="myform" method="POST">
-						<div class="input-group">
-							<div class="input-group-append">
-								<span class="input-group"></span>
-							</div>
-											
-							
-							<input type="text" name="SROLLNUMBER" class="form-control input_user" value="" placeholder="ROLL NUMBER" required>
-						</div>
-						<div class="input-group">
-							<div class="input-group-append">
-								<span class="input-group"></span>
-							</div>
-							<input type="password"  name="SPASSWORD" class="form-control input_pass" value="" placeholder="PASSWORD" required>
-						</div><br>
-						
-					<div class="d-flex justify-content-center  login_container">
-					<input type="submit"  name="SLOGIN" class="btn btn-info" value="LOGIN">
-				 	
-				   </div>
-					</form>
-					</div>
-					</div>
-						</div>
-					</div>
-						</div>
-					</div><br><br><br><br><br>
-					    <div class="grid-item">
-      <div class="card">
-	  <div class="container">
-	<div class="row">
-	<div class="col-xs-12">
-			<div class="d-flex justify-content-center">
-					<div class="brand_logo_container">
-						<img src="teacher.jpg" alt="John" style="width:100%">
-					</div>
-				</div><br>
-				<h4>PROFESSOR</h4>
-				<div class="d-flex justify-content-center form_container">
-					<form action="homlof.php" class="myform" method="POST">
-						<div class="input-group">
-							<div class="input-group-append">
-								<span class="input-group"></span>
-							</div>
-											
-							
-							<input type="text" name="PPROFESSORID" class="form-control input_user" value="" placeholder="PROFESSOR ID">
-						</div>
-						<div class="input-group">
-							<div class="input-group-append">
-								<span class="input-group"></span>
-							</div>
-							<input type="password" name="PPASSWORD"  class="form-control input_pass" value="" placeholder="PASSWORD">
-						</div><br>
-						
-					<div class="d-flex justify-content-center  login_container">
-					<input type="submit" name="PLOGIN" class="btn btn-info" value="LOGIN">
-				 	
-				   </div>
-					</form>
-					</div>
-					</div>
-						</div>
-					</div>
-						</div>
-					</div><br><br><br><br><br>
-					    <div class="grid-item">
-      <div class="card">
-	  <div class="container">
-	<div class="row">
-	<div class="col-xs-2"></div>
-	<div class="col-xs-8">
-			<div class="d-flex justify-content-center">
-					<div class="brand_logo_container">
-						<img src="admin.png" alt="John" style="width:80%">
-					</div>
-				</div><br>
-				<h4>ADMIN</h4>
-				<div class="d-flex justify-content-center form_container">
-					<form action="homlof.php" class="myform" method="POST">
-						<div class="input-group">
-							<div class="input-group-append">
-								<span class="input-group"></span>
-							</div>
-											
-							
-							<input type="text" name="AADMINID" class="form-control input_user" value="" placeholder="ADMIN ID" required>
-						</div>
-						<div class="input-group">
-							<div class="input-group-append">
-								<span class="input-group"></span>
-							</div>
-							<input type="password" name="APASSWORD" class="form-control input_pass" value="" placeholder="PASSWORD" required>
-						</div><br>
-						
-					<div class="d-flex justify-content-center  login_container">
-					<input type="submit" name="ALOGIN" class="btn btn-info" value="LOGIN">
-				 	
-				   </div>
-					</form>
-					</div>
-					</div>
-					<div class="col-xs-2"></div>
-						</div>
-					</div>
-						</div>
-					</div>
-        
+	<div class="col-sm-12">
+	<div id="PROFESSOR">
+	<h2>PROFESSOR</h2>
+	</div>
 
-					</div>
-						</div>
+<button onclick="document.getElementById('id02').style.display='block'" style="width:auto;">LOGIN</button>
 
+<div id="id02" class="modal">
   
+  <form class="modal-content animate" action="index1.php" method="post" id='professorForm'>
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="images/teacher.jpg" alt="Avatar" class="avatar">
+    </div>
 
-  <footer>
+    <div class="container">
+      <label><b>PROFESSOR ID</b></label>
+      <input type="text" placeholder="ENTER PROFESSOR ID" name="PID" required>
+
+      <label><b>PASSWORD</b></label>
+      <input type="password" placeholder="ENTER PASSWORD" name="PPASSWORD" required>
+        
+      <button type="submit" name="PLOGIN" id='PLOGIN'>LOGIN</button>
+      <label>
+        <input type="checkbox" checked="checked" name=""> REMEMBER ME
+      </label>
+    </div>
+    <p id='presult'></p>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">CANCEL</button>
+
+    </div>
+  </form>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid-container">
+    <div class="grid-item">
+      <div class="card">
+	  <div class="container">
+	<div class="row">
+	<div class="col-sm-12">
+	<div id="ADMIN">
+	<h3>ADMIN</h3>
+	</div>
+
+<button onclick="document.getElementById('id03').style.display='block'" style="width:auto;">LOGIN</button>
+
+<div id="id03" class="modal">
+  
+  <form class="modal-content animate" action="index1.php" method="post" id='adminForm'>
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="admin_dash/admin.jpg" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label><b>ADMIN ID</b></label>
+      <input type="text" placeholder="ENTER ADMIN ID" name="AID" required>
+
+      <label><b>PASSWORD</b></label>
+      <input type="password" placeholder="ENTER PASSWORD" name="APASSWORD" required>
+        
+      <button type="submit" name="ALOGIN" id='ALOGIN'>LOGIN</button>
+      <label>
+        <input type="checkbox" checked="checked" name="">REMEMBER ME
+      </label>
+    </div>
+    <p id='aresult'></p>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">CANCEL</button>
+
+    </div>
+  </form>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+
+var modal = document.getElementById('id01');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<script>
+var modal = document.getElementById('id02');
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+<script>
+var modal = document.getElementById('id03');
+window.onclick = function(event){
+    if (event.target == modal){
+        modal.style.display = "none";
+    }
+}
+</script>
+</div>
 
 
-  <br>
+<footer>
   <div class="container">
     <div class="row">
-	<div class="col-sm-12" style="color:#ffffff"  id="ABOUT US">
-	<p><b>ABOUT US</b></p><br>
-<p style="color:ghostwhite"><i>We all have faced the problem where we would have missed some information that was sent in the official groups,sometimes lost track of the information sent.  Some have thought of designing a course management system where for each course the professor can directly send the details and any other announcements to the students.</i></p>
+	<div class="col-sm-12"  style="color:#ffffff"  id="ABOUT US">
+	<div style="font-family:verdana">
+	<p> ABOUT US</p><br>
+<p style="color:ghostwhite">We all have faced the problem where we would have missed some information that was sent in the official groups,sometimes lost track of the information sent.  Some have thought of designing a course management system where for each course the professor can directly send the details and any other announcements to the students.</p>
+     </div>
 	</div>
 	</div>
 	</div>
-      <br><br><br>
+
 	  
-  <div class="container">
+<div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div style="color:#ffffff;" class="wow fadeInUp footer-copyright" id="CONTACT US">
-		 <p>CONTACT US</p>
-		 <p>
-		 
-    <a href="https://www.facebook.com/AnnaUniversityImpUpdates/" class="fa fa-facebook"></a>
-    <a href="https://www.instagram.com/anna_university/" class="fa fa-instagram"></a>
-    <a href="https://twitter.com/annauniversity?lang=en" class="fa fa-twitter"></a>
+        <div style="color:#ffffff" class="wow fadeInUp footer-copyright" id="CONTACT US">
+		 <p >CONTACT US</p>
+   <p>	 
+    <a href="https://www.facebook.com/AnnaUniversityImpUpdates/" target='_blank' class="fa fa-facebook"></a>
+    <a href="https://www.instagram.com/anna_university/" target='_blank' class="fa fa-instagram"></a>
+    <a href="https://twitter.com/annauniversity?lang=en" target='_blank' class="fa fa-twitter"></a>
   </p>
           <p>Made in India <br>
             Copyright &copy; 2021 </p>
         </div>
       </div>
     </div>
-  </div>
+ </div>
 </footer>
 
-   <?php
-if(isset($_POST['SLOGIN']))
-{
-	$srollno=$_POST['SROLLNUMBER'];
-	$spassword=$_POST['SPASSWORD'];
-	$query="select * from student_details WHERE rollno='$srollno' AND password='$spassword'";
-	$query_run=mysqli_query($con,$query);
-	if(mysqli_num_rows($query_run)>0)
-	{
-		$_SESSION['SROLLNUMBER']= $srollno;
-		echo"<script>window.location.href='stddash.php'</script>";
-	
-	}
-	
-	else{
-		echo '<script type="text/javascript"> alert(" Student Error!")</script>';
-}
-}
-	
 
-?>
- <?php
-if(isset($_POST['PLOGIN']))
-{
-	$p_no=$_POST['PPROFESSORID'];
-	$ppassword=$_POST['PPASSWORD'];
-	$query="select * from prof_details WHERE profno='$p_no' AND password='$ppassword'";
-	$query_run=mysqli_query($con,$query);
-	if(mysqli_num_rows($query_run)>0)
-	{
-		$_SESSION['PPROFESSORID']= $p_no;
-		echo"<script>window.location.href='profdash.php'</script>";	
-	}
-	
-	else{
-		echo '<script type="text/javascript"> alert(" professor Error!")</script>';
-}
-}
-	
+<script>
 
-?>
- <?php
-if(isset($_POST['ALOGIN']))
-{
-	$a_no=$_POST['AADMINID'];
-	$apassword=$_POST['APASSWORD'];
-	$query="select * from admin_login WHERE aid='$a_no' AND apassword='$apassword'";
-	$query_run=mysqli_query($con,$query);
-	if(mysqli_num_rows($query_run)>0)
-	{
-		$_SESSION['AADMINID']= $a_no;
-		echo"<script>window.location.href='admindash.php'</script>";
-	}
-	
-	else{
-		echo '<script type="text/javascript"> alert("Admin Error!")</script>';
-}
-}
-	
+    
+    $(document).ready(function(){
+        $('#studentForm').submit(function(event){
+            event.preventDefault();
 
-?>
+            var formValues= $(this).serialize();
+            console.log(formValues);
+
+            $.post("check.php", formValues, function(data){
+                // Display the returned data in browser
+                $('#sresult').html(data);
+                //alert(data);
+            });
+        });
+
+        $('#professorForm').submit(function(event){
+            event.preventDefault();
+
+            var formValues= $(this).serialize();
+            console.log(formValues);
+
+            $.post("check.php", formValues, function(data){
+                // Display the returned data in browser
+                $('#presult').html(data);
+                //alert(data);
+            });
+        });
+
+        $('#adminForm').submit(function(event){
+            event.preventDefault();
+
+            var formValues= $(this).serialize();
+            console.log(formValues);
+
+            $.post("check.php", formValues, function(data){
+                // Display the returned data in browser
+                $('#aresult').html(data);
+                //alert(data);
+            });
+        });
+
+    })
+
+    $('#ALOGIN').click(function(){
+        $('#adminForm').submit();
+    })
+    $('#ALOGIN').click(function(){
+        $('#adminForm').submit();
+    })
+    $('#ALOGIN').click(function(){
+        $('#adminForm').submit();
+    })
+</script>
 </body>
 </html>
