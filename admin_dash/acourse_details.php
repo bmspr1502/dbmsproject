@@ -136,7 +136,7 @@ require  '../dbconfig/config.php';
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
-                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                      <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">&times;</button>
                     </div>
                     <div class="modal-body">
                       <form action="acourse_details.php" method="POST">
@@ -168,7 +168,7 @@ require  '../dbconfig/config.php';
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-                      <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                      <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">&times;</button>
                     </div>
                     <form action="acourse_details.php" method="POST">
                       <div class="modal-body">
@@ -178,7 +178,7 @@ require  '../dbconfig/config.php';
                       </div>
                       <div class="modal-footer">
 
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close close">Close</button>
                         <button type="submit" class="btn btn-danger" name="delete">Delete</button>
                       </div>
                     </form>
