@@ -74,17 +74,13 @@ require '../dbconfig/config.php';
               <div class="col-md-6">  
 <form class="update_form" action="student_update_details.php" method="POST">
 <div class="form-group">
+<input type="hidden" class="form-control" name="rollno" value="<?php echo $_SESSION['sroll_no'];?>">
 <label class="control-label"><i class="fas fa-lock fa-1.5x"></i>Title</label>
 <input type="text" placeholder="Title" class="form-control" name="title"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-address-card" ></i>Message</label>
-<input type="text" placeholder="Type your updated name" class="form-control" name="message" ></div>
-<div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Change Date of Birth</label>
-<input type="date"  class="form-control" name="newdob" ></div>
-<div class="form-group">
-<label class="control-label"  ><i class="fa fa-address-card"  ></i> Change Addresss</label>
-<textarea rows="4" cols="70" name="address" class="form-control" style="margin-left:10px"></textarea>
+<label class="control-label"><i class="fa fa-address-card" ></i>Request</label>
+
+<textarea rows="4" cols="70" name="request" class="form-control" style="margin-left:10px"></textarea>
 <button  name="request" class="btn btn-success" id="sendbtn" type="submit">SEND REQUEST TO ADMIN</button></div>
 </form>
 </div>
@@ -94,13 +90,13 @@ require '../dbconfig/config.php';
 if(isset($_POST['request']))
 {   
     
-	$newpassword=$con->real_escape_string($_POST['newpassword']);
-	$newname=$con->real_escape_string($_POST['newname']);
-	$newdob=$con->real_escape_string($_POST['newdob']);
-	$newaddress=$con->real_escape_string($_POST['address']);
+	$rollno=$con->real_escape_string($_POST['rollno']);
+	$title=$con->real_escape_string($_POST['title']);
+	$request=$con->real_escape_string($_POST['request']);
+
 	
-	$query=$con->prepare("insert into student_update(rollno,newpassword,newname,newdob,newaddress) values (?,?,?,?,?)");
-  $query->bind_param('sssss',$_SESSION['sroll_no'],$newpassword,$newname,$newdob,$newaddress);
+	$query=$con->prepare("insert into student_update(rollno,title,request) values (?,?,?)");
+  $query->bind_param('sss',$_SESSION['sroll_no'],$title,$request);
 	
  
 	if($query->execute()){
