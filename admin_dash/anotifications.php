@@ -28,9 +28,7 @@ require '..\dbconfig\config.php';
           <li class="active">
             <a href="admindash.php"><span class="fa fa-home"></span>DASHBOARD</a>
           </li>
-		  <li>
-            <a href="admin_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
-          </li>
+		 
           <li>
             <a href="add_new_student.php"><span class="fa fa-user-plus"></span>ADD NEW STUDENT</a>
           </li>
