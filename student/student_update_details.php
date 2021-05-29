@@ -81,18 +81,18 @@ require '../dbconfig/config.php';
 <label class="control-label"><i class="fa fa-address-card" ></i>Request</label>
 
 <textarea rows="4" cols="70" name="request" class="form-control" style="margin-left:10px"></textarea>
-<button  name="request" class="btn btn-success" id="sendbtn" type="submit">SEND REQUEST TO ADMIN</button></div>
+<button  name="send" class="btn btn-success" id="sendbtn" type="submit">SEND REQUEST TO ADMIN</button></div>
 </form>
 </div>
 </div></div></div>
 
 <?php
-if(isset($_POST['request']))
+if(isset($_POST['send']))
 {   
     
 	$rollno=$con->real_escape_string($_POST['rollno']);
 	$title=$con->real_escape_string($_POST['title']);
-	$request=$con->real_escape_string($_POST['request']);
+	$request=$_POST['request'];
 
 	
 	$query=$con->prepare("insert into student_update(rollno,title,request) values (?,?,?)");

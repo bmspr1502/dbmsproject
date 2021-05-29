@@ -62,9 +62,7 @@ require '..\dbconfig\config.php';
             </button>
             <div class='mx-auto text-center'>
                 <h4>Send Notifications</h4>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
+      
 		</div>
         </nav>
 

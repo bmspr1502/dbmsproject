@@ -118,14 +118,13 @@ if(isset($_POST['update']))
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
+			<div class='mx-auto text-center'>
+              <h4>All Students Details</h4>
 		      </div>
         </nav>
 
 
 
-        <div class="container" >
-<div class="row">
-<h4><center>All Students Details</center></h4>
 <div class="container" >
 <div class="row">
 <div class="container">

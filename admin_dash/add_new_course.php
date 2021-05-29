@@ -60,14 +60,15 @@ require '../dbconfig\config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
+            <div class='mx-auto text-center'>
+              <h4>Add New Course</h4>
+		      </div>
+           
 		</div>
         </nav>
 
 <div class="container align-items-center" id="newcourse">
-<h4> CREATE A NEW COURSE </h4>
+
 <form action="add_new_course.php" method="POST" >
 <div class="form-group align-items-center">
 
