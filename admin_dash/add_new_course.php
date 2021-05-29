@@ -72,13 +72,13 @@ require '../dbconfig\config.php';
 <form action="add_new_course.php" method="POST" >
 <div class="form-group align-items-center">
 
-<label class="control-label"><i class="fa fa-lock"></i> Course-ID</label>
+<label class="control-label"><i class="fa fa-bookmark"></i> Course-ID</label>
 <input type="text" placeholder="Enter Course ID" class="form-control" name="courseid" ></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-address-card" ></i> Course Name</label>
+<label class="control-label"><i class="fa fa-address-book" ></i> Course Name</label>
 <input type="text" placeholder="Enter Course Name" class="form-control" name="coursename"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Professor-ID </label>
+<label class="control-label"><i class="fa fa-id-card"></i> Professor-ID </label>
 
 
 <select class="form-control" name="professorid" id="profid">
