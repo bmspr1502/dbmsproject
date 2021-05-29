@@ -111,10 +111,10 @@ require  '../dbconfig/config.php';
 			       <td>{$row['name']}</td>
 					   <td>{$row['password']}</td>
 					 
-					   <td><button type='button' class='btn btn-success editbtn' data-bs-toggle='modal' data-bs-target='#editmodal'>Edit
+					   <td><button type='button' class='btn btn-success editbtn' data-toggle='modal' data-target='#editmodal'>Edit
 </button>
 					   
-					   <td><button type='button' class='btn btn-danger deletebtn' data-bs-toggle='modal' data-bs-target='#DeleteConfirm'>
+					   <td><button type='button' class='btn btn-danger deletebtn' data-toggle='modal' data-target='#DeleteConfirm'>
  Delete
 </button>
 					   </tr>";
@@ -140,7 +140,7 @@ require  '../dbconfig/config.php';
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form action="prof_details.php" method="POST" >
@@ -157,7 +157,7 @@ require  '../dbconfig/config.php';
 <input type="hidden" id="noofcourses"></input>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" name="update">Update</button>
       </div>
     </div>
@@ -168,7 +168,7 @@ require  '../dbconfig/config.php';
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
       </div><form action="prof_details.php" method="POST">
       <div class="modal-body">
 	  
@@ -177,7 +177,7 @@ require  '../dbconfig/config.php';
       </div>
       <div class="modal-footer" >
         
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
 		<button type="submit" class="btn btn-danger" name="delete" >Delete</button>
       </div></form>
     </div>
