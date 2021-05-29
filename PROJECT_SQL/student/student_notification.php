@@ -16,7 +16,7 @@ require "../dbconfig/config.php";
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="../dash_style/style.css">
 </head>
 <body>
 </head>
@@ -60,6 +60,9 @@ require "../dbconfig/config.php";
               <span class="sr-only">Toggle Menu</span>
             </button>
 
+            <div class='mx-auto text-center'>
+                <h4>Admin Notifications</h4>
+            </div>
 
           </div>
         </nav>
@@ -67,7 +70,6 @@ require "../dbconfig/config.php";
 
         <div class="container" >
 <div class="row">
-<h4><center>Notifications</center></h4>
 <div class="container">
 
     <?php
@@ -80,23 +82,30 @@ require "../dbconfig/config.php";
     $i = 0;
     while($row = $output->fetch_assoc()){
     ?>
-    <div class="row">
-    <div class="card text-white bg-<?php echo $color[($i+2)%7]?> mt-3" style="width:100%">
-    <div class="card-header">
-    <h6><?php echo $row['title']; ?></h6>
+    <div class="card text-white bg-<?php echo $color[$i%7]?> mt-3">
+    <div class="card-header p-1 text-center">
+    <h4><?php echo $row['title']; ?></h4>
     </div>
-        <div class="card-body">
-            <p><?php echo $row['message'];?></p>
-            <?php if($row['upload']!=NULL){
-?>
-            <a href="../admin_dash/<?php echo $row['upload'] ?>" target='_blank' class="float-right btn btn-primary">Click here to view</a>
-            <?php 
-            }
-        $date = date_create($row['logs']);
-        echo 'Uploaded On: ' . date_format($date, 'H:i - d F, Y') ;?>
+    <div class='row d-flex'>
+    <?php if($row['upload']!=NULL){
+        ?>
+        <div class='col-md-3 d-flex'>
+        <button onclick='window.open("../uploads/admin_notif/<?php echo $row["upload"] ?>", "_blank")' target='_blank' style='width:100%, height:100%' class="btn btn-<?php echo $color[($i+2)%7]?>">Click here to view</button>
         </div>
+        <?php
+    }?>
+        <div class='<?php if($row['upload']!=NULL){echo "col-md-9";} else{echo "col-md-12";}?> d-flex'>
+        <div class="card-body p-1">
+        <blockquote class="blockquote mb-0 ml-3">
+            <p><?php echo $row['message'];?></p>
+            <footer class="blockquote-footer text-white p-0"><?php
+         $date = date_create($row['logs']);
+         echo 'Uploaded On: ' . date_format($date, 'H:i - d F, Y') ;?></footer>
+            </blockquote>
+         </div>
+         </div>
     </div>
-</div>
+    </div>
     <?php
     
     $i++;
@@ -109,7 +118,7 @@ require "../dbconfig/config.php";
   </div>
   </div>
   </div>
-  <script src="main.js"></script>
+  <script src="../dash_style/main.js"></script>
 </body>
 </html>
 

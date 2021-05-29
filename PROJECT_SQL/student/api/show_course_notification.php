@@ -23,10 +23,10 @@ if(isset($_POST['courseid'])){
         <?php
     }?>
         <div class='<?php if($row['file']!=NULL){echo "col-md-9";} else{echo "col-md-12";}?> d-flex'>
-        <div class="card-body">
-        <blockquote class="blockquote mb-0">
+        <div class="card-body p-1">
+        <blockquote class="blockquote mb-0 ml-3">
             <p><?php echo $row['content'];?></p>
-            <footer class="blockquote-footer text-white"><?php
+            <footer class="blockquote-footer text-white p-0"><?php
          $date = date_create($row['time']);
          echo 'Uploaded On: ' . date_format($date, 'H:i - d F, Y') ;?></footer>
             </blockquote>

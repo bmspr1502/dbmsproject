@@ -11,7 +11,7 @@ if($result = $con->query($sql)){
 <h3>Course ID: <?php echo $row['courseid']?></h3>
 <h3> Course Name: <?php echo $row['course_name']?></h3>
 <h3> Professor's name: <?php echo $row['prof_name']?></h3>
-
+<button class='btn btn-danger float-right'>Unenroll From This Course</button>
 <h4 class='m-3'> Student's Details</h4>
 
 <?php

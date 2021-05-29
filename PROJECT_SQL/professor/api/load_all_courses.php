@@ -15,7 +15,7 @@
                 </div>
     <div class="card-body">
         <p>Taught by: <?php echo $row['prof_name'];?></p>
-    <center><input type='button' onclick="load_course_details('<?php echo $row['courseid'];?>')" class='btn btn-success' value='View Details'></center>
+    <center><input type='button' onclick="load_course_details('<?php echo $row['courseid'];?>', '<?php echo $row['course_name'];?>')" class='btn btn-success' value='View Details'></center>
     </div> 
     </div>
     </div>

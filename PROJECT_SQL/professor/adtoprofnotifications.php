@@ -24,36 +24,36 @@ require '../dbconfig/config.php';
 
 
 <div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar" class="active">
-     
-			 <h1><a href="#" class="logo">CMS</a></h1>
-			 <h6>  <?php  echo $_SESSION['pname']?></h6>
-         <ul class="list-unstyled components mb-5">
-        
-      
-          <li class="active">
-            <a href="profdash.php"><span class="fa fa-home"></span>DASHBOARD</a>
-          </li>
-		   <li>
-            <a href="professor_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
-          </li>
-		  <li>
-            <a href="professor_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
-          </li>
-          <li>
-            <a href="course_details.php#navStudentDetails" onclick='show_course_details()'><span class="fa fa-sticky-note"></span>VIEW COURSE DETAILS</a>
-          </li>
-		  <li>
-            <a href="course_details.php#navCourseMaterials" onclick='show_course_materials()'><span class="fa fa-upload"></span>UPLOAD STUDY MATERIALS</a>
-          </li>
-		  <li>
-            <a href="course_details.php#navCourseNotifications" onclick='show_course_notifications()'><span class="fa fa-paper-plane"></span> SEND NOTIFICATION</a>
-          </li>
-          <li>
-            <a href="log_out.php"><span class="fa fa-sign-out"></span>LOGOUT</a>
-          </li>
-         </ul>
-    	</nav>
+<nav id="sidebar" class="active">
+			
+      <h1><a href="#" class="logo">CMS</a></h1>
+        <ul class="list-unstyled components mb-5">
+         <li class="active">
+           <a href="profdash.php"><span class="fa fa-home"></span>DASHBOARD</a>
+         </li>
+      <li>
+           <a href="professor_profile_details.php"><span class="fa fa-user"></span><?php  echo $_SESSION['pname']?>'s PROFILE DETAILS</a>
+         </li>
+         <li>
+           <a href="adtoprofnotifications.php"><span class="fa fa-bell"></span>ADMIN NOTIFICATIONS</a>
+         </li>
+         <li>
+           <a href="course_details.php#navStudentDetails" onclick='show_course_details()'><span class="fa fa-sticky-note"></span>VIEW COURSE DETAILS</a>
+         </li>
+     <li>
+           <a href="course_details.php#navCourseMaterials" onclick='show_course_materials()'><span class="fa fa-upload"></span>UPLOAD STUDY MATERIALS</a>
+         </li>
+     <li>
+           <a href="course_details.php#navCourseNotifications" onclick='show_course_notifications()'><span class="fa fa-paper-plane"></span> SEND NOTIFICATION</a>
+         </li>
+         <li>
+           <a href="course_details.php#navCourseDiscussion" onclick='show_course_discussion()'><span class="fa fa-indent"></span>COURSE DISCUSSIONS</a>
+         </li>
+         <li>
+           <a href="log_out.php"><span class="fa fa-sign-out"></span>LOGOUT</a>
+         </li>
+        </ul>
+     </nav>
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5">
 
@@ -64,24 +64,23 @@ require '../dbconfig/config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-
+            <div class='mx-auto text-center'>
+                <h4>Prof. <?php echo $_SESSION['pname'];?>'s Notifications from Admin</h4>
+            </div>
 
             </div>
         </nav>
         <div class="container" >
 <div class="row">
-<h4><center>Notifications</center></h4>
-
 <table class="table table-bordered">
     <thead>
-      <tr>
-	    <th>S.No</th>
-        <th>Title</th>
-        <th>Message</th>
-        <th>Logs</th>
-		<th>View</th>
-		
-      </tr>
+          <tr>
+            <th>S.No</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Logs</th>
+            <th>View</th>
+          </tr>
     </thead>
     <tbody>
 	<?php

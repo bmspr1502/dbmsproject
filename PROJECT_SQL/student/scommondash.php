@@ -72,10 +72,7 @@ if(!isset($_SESSION['sroll_no']))
       </div>
 		</div>
 
-    <script src="jquery.min.js"></script>
-    <script src="popper.js"></script>
-    <script src="bootstrap.min.js"></script>
-    <script src="main.js"></script>
+    <script src="../dash_style/main.js"></script>
   
 </body>
 </html>

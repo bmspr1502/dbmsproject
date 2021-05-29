@@ -21,7 +21,7 @@ if(!isset($_SESSION['aid']))
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="../dash_style/style.css">
 
 </head>
 <body>
@@ -175,7 +175,7 @@ if(!isset($_SESSION['aid']))
 </div>
 </div>
 
-	<script src="main.js"></script>
+	<script src="../dash_style/main.js"></script>
 
 </body>
 </html>

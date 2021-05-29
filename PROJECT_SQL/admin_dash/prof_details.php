@@ -17,7 +17,7 @@ require  '../dbconfig/config.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="../dash_style/style.css">
 <title>student requests</title>
 
 </head>
@@ -49,7 +49,7 @@ require  '../dbconfig/config.php';
             <a href="anotifications.php"><span class="fa fa-paper-plane"></span>SEND NOTIFICATIONS</a>
           </li>
           <li>
-            <a href="logout.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
+            <a href="log_out.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
           </li>
         </ul>
     	</nav>
@@ -282,7 +282,7 @@ $(document).ready(function(){
 });		  
  		         		  
 </script>
-<script src="main.js"></script>
+<script src="../dash_style/main.js"></script>
 <script>
 $(document).ready(function(){
 		$('#myinput').on("keyup",function(){

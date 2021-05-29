@@ -33,9 +33,6 @@ session_start();
 		   <li>
             <a href="professor_profile_details.php"><span class="fa fa-user"></span><?php  echo $_SESSION['pname']?>'s PROFILE DETAILS</a>
           </li>
-		  <li>
-            <a href="professor_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
-          </li>
           <li>
             <a href="adtoprofnotifications.php"><span class="fa fa-bell"></span>ADMIN NOTIFICATIONS</a>
           </li>
@@ -49,6 +46,9 @@ session_start();
             <a href="course_details.php#navCourseNotifications" onclick='show_course_notifications()'><span class="fa fa-paper-plane"></span> SEND NOTIFICATION</a>
           </li>
           <li>
+            <a href="course_details.php#navCourseDiscussion" onclick='show_course_discussion()'><span class="fa fa-indent"></span>COURSE DISCUSSIONS</a>
+          </li>
+          <li>
             <a href="log_out.php"><span class="fa fa-sign-out"></span>LOGOUT</a>
           </li>
          </ul>
@@ -57,19 +57,21 @@ session_start();
       <div id="content" class="p-4 p-md-5">
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-
-            <button type="button" id="sidebarCollapse" class="btn btn-primary">
-              <i class="fa fa-bars"></i>
-              <span class="sr-only">Toggle Menu</span>
-            </button>
-
+          <div class="container-fluid d-flex">
+            
+              <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                <i class="fa fa-bars"></i>
+                <span class="sr-only">Toggle Menu</span>
+              </button>
+            
+            <div class='mx-auto text-center'>
+                <h4>Prof. <?php echo $_SESSION['pname'];?>'s Dashboard</h4>
+            </div>
 
             </div>
         </nav>
 
  <div class="container-fluid p-0" id="enrolledcourses">
-        <h3 style="margin:20px">All Courses:</h3>
      <div class="container" id="box">
         <div class="row" id='courserow'>                         
         </div>
@@ -84,9 +86,10 @@ session_start();
             })
         }
 
-        function load_course_details(cid){
+        function load_course_details(course_id, course_name){
             $.post('api/set_course.php', {
-                course_id: cid
+                course_id: course_id,
+                course_name: course_name
             },function(data){
                 $('#box').html(data);
             })
