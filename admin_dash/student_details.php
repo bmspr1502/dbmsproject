@@ -227,9 +227,7 @@ if(isset($_POST['update']))
 ?>
 
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"  type="text/javascript" integrity="sha512-+NqPlbbtM1QqiK8ZAo4Yrj2c4lNQoGv8P79DPtKzj++l5jnN39rHA/xsqn8zE9l0uSoxaCdrOgFs6yjyfbBxSg==" crossorigin="anonymous"></script>
-    <script src="/PROJECT_SQL/bootstrap/js/popper.min.js"></script>
-    <script src="/PROJECT_SQL/bootstrap/js/bootstrap.bundle.min.js"></script>
+   
 	<script>
 $(document).ready(function(){
 	$('.editbtn').on('click',function(){
