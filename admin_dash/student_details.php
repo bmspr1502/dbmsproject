@@ -74,11 +74,10 @@ require  '../dbconfig/config.php';
 <div class="container" >
 <div class="row">
 
-<form >
-<input type="text" name="Search" placeholder="Search..." id="myinput" style="width:200%" />
-</br>
-</br>
-</form>
+<input type="text" name="Search" placeholder="Search..." id="myinput" style="width:200%" class="form-control"/>
+<hr>
+
+
 
 <table class="table table-bordered table-dark table-striped">
     <thead>
@@ -142,17 +141,33 @@ require  '../dbconfig/config.php';
       </div>
       <div class="modal-body">
         <form action="student_details.php" method="POST" >
-        <div class="form-group align-items-center">
-          <input type="hidden" id="sno"></input>
-          <label class="control-label" ><i class="fa fa-lock fa-1.5x"></i> rollno</label>
-          <input type="text"  class="form-control" name="srollno"  id="srollno"></div>
-          <div class="form-group">
-          <label class="control-label" ><i class="fa fa-address-card" ></i>  Name</label>
-          <input type="text"  class="form-control" name="sname" id="sname"></div>
-          <div class="form-group">
-          <label class="control-label" ><i class="fa fa-birthday-cake"></i>  password</label>
-          <input type="text"  class="form-control" name="spass" id="spass"></div>
-          <input type="hidden" id="noofcourses"></input>
+      
+<div class="form-group align-items-center">
+<input type="hidden" id="sno"></input>
+<label class="control-label" ><i class="fa fa-lock "></i> rollno</label>
+<input type="text"  class="form-control" name="srollno"  id="srollno"></div>
+<div class="form-group">
+<label class="control-label" ><i class="fa fa-address-card" ></i>  Name</label>
+<input type="text"  class="form-control" name="sname" id="sname"></div>
+<div class="form-group">
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> Password</label>
+<input type="text"  class="form-control" name="spass" id="spass"></div>
+    
+      <div class="form-group">
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> DOB</label>
+<input type="text"  class="form-control" name="sdob" id="sdob"></div>
+      
+      <div class="form-group">
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> Address</label>
+<input type="text"  class="form-control" name="saddress" id="saddress"></div>
+      
+      <div class="form-group">
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> Email</label>
+<input type="email"  class="form-control" name="semail" id="semail"></div>
+      
+      <div class="form-group">
+<label class="control-label" ><i class="fa fa-birthday-cake"></i> Contact no</label>
+<input type="text"  class="form-control" name="scontactno" id="scontactno"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -239,10 +254,18 @@ $(document).ready(function(){
           var data1=currrow.find('td:eq(1)').text();
 		  var data2=currrow.find('td:eq(2)').text();
 		  var data3=currrow.find('td:eq(3)').text();
+		  var data4=currrow.find('td:eq(4)').text();
+		  var data5=currrow.find('td:eq(5)').text();
+		  var data6=currrow.find('td:eq(6)').text();
+		  var data7=currrow.find('td:eq(7)').text();
 		   
 		 $('#srollno').val(data1);
 		  $('#sname').val(data2);
 		   $('#spass').val(data3);
+		   $('#sdob').val(data4);
+		   $('#saddress').val(data5);
+		   $('#semail').val(data6);
+		   $('#scontactno').val(data7);
 		  console.log(data1);
 		   console.log(data2);
 		    console.log(data3);
