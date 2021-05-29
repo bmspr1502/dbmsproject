@@ -48,7 +48,7 @@ require  '../dbconfig/config.php';
             <a href="anotifications.php"><span class="fa fa-paper-plane"></span>SEND NOTIFICATIONS</a>
           </li>
           <li>
-            <a href="logout.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
+            <a href="log_out.php"><span class="fa fa-sign-out"></span>LOG OUT</a>
           </li>
         </ul>
     	</nav>
@@ -63,10 +63,7 @@ require  '../dbconfig/config.php';
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
-            <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa fa-bars"></i>
-            </button>
-		</div>
+		      </div>
         </nav>
 
 
@@ -141,24 +138,24 @@ require  '../dbconfig/config.php';
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Edit Details</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close close" datasmiss="modal" aria-label="Close">X</button>
       </div>
       <div class="modal-body">
         <form action="student_details.php" method="POST" >
-<div class="form-group align-items-center">
-<input type="hidden" id="sno"></input>
-<label class="control-label" ><i class="fas fa-lock fa-1.5x"></i> rollno</label>
-<input type="text"  class="form-control" name="srollno"  id="srollno"></div>
-<div class="form-group">
-<label class="control-label" ><i class="fa fa-address-card" ></i>  Name</label>
-<input type="text"  class="form-control" name="sname" id="sname"></div>
-<div class="form-group">
-<label class="control-label" ><i class="fa fa-birthday-cake"></i>  password</label>
-<input type="text"  class="form-control" name="spass" id="spass"></div>
-<input type="hidden" id="noofcourses"></input>
+        <div class="form-group align-items-center">
+          <input type="hidden" id="sno"></input>
+          <label class="control-label" ><i class="fa fa-lock fa-1.5x"></i> rollno</label>
+          <input type="text"  class="form-control" name="srollno"  id="srollno"></div>
+          <div class="form-group">
+          <label class="control-label" ><i class="fa fa-address-card" ></i>  Name</label>
+          <input type="text"  class="form-control" name="sname" id="sname"></div>
+          <div class="form-group">
+          <label class="control-label" ><i class="fa fa-birthday-cake"></i>  password</label>
+          <input type="text"  class="form-control" name="spass" id="spass"></div>
+          <input type="hidden" id="noofcourses"></input>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" name="update">Update</button>
       </div></form>
     </div>
@@ -169,7 +166,7 @@ require  '../dbconfig/config.php';
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Delete Confirmation</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close close" data-dismiss="modal" aria-label="Close">X</button>
       </div><form action="student_details.php" method="POST">
       <div class="modal-body">
 	  
@@ -178,7 +175,7 @@ require  '../dbconfig/config.php';
       </div>
       <div class="modal-footer" >
         
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="close">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
 		<button type="submit" class="btn btn-danger" name="delete" >Delete</button>
       </div></form>
     </div>
@@ -195,7 +192,7 @@ if(isset($_POST['delete']))
 	$query_run=mysqli_query($con,$query);
 	
 	if($query_run){
-		echo "<script type='text/javascript'> alert('data deleted');</script>";
+		echo "<script type='text/javascript'> alert('dataleted');</script>";
 		
 	}
 	else{
@@ -219,7 +216,7 @@ if(isset($_POST['update']))
 	$query_run=mysqli_query($con,$query);
 	
 	if($query_run){
-		echo "<script type='text/javascript'> alert('data updated');</script>";
+		echo "<script type='text/javascript'> alert('datadated');</script>";
 		
 	}
 	else{

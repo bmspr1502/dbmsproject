@@ -215,6 +215,7 @@ if(!isset($_SESSION['p_course'])){
                     $('#addData')[0].reset();
                     change_add_group('link');
                     show_course_materials();
+                    $('#addlink').val('');
                         //location.reload();
                 });
             });
