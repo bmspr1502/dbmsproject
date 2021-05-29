@@ -33,7 +33,7 @@ if(!isset($_SESSION['s_course'])){
             <a href="student_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
           </li>
           <li>
-            <a href="student_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
+            <a href="student_update_details.php"><span class="fa fa-user-plus"></span>SEND REQUEST </a>
           </li>
           <li>
             <a href="view_all_course.php"><span class="fa fa-sticky-note"></span>VIEW ALL COURSES</a>
@@ -59,6 +59,9 @@ if(!isset($_SESSION['s_course'])){
               <i class="fa fa-bars"></i>
               <span class="sr-only">Toggle Menu</span>
             </button>
+            <div class='mx-auto text-center'>
+              <h4>Course: <?php echo $_SESSION['s_course_name'];?></h4>
+            </div>
             <a href='stddash.php' class='btn btn-success'>Go back to dashboard</a>
 
             </div>

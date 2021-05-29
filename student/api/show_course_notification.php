@@ -4,7 +4,7 @@ include '../../dbconfig/config.php';
 
 if(isset($_POST['courseid'])){
 
-    $qry = $con->prepare("SELECT * from course_notifications WHERE courseid = ?");
+    $qry = $con->prepare("SELECT * from course_notifications WHERE courseid = ? ORDER BY time DESC");
     $qry->bind_param("s", $_POST['courseid']);
 
     $qry->execute();

@@ -2,6 +2,47 @@
 session_start();
 require '..\dbconfig\config.php';
 
+if(isset($_POST['sendnot']))
+{
+	$targetpeople =$_POST['targetpeople'];
+	$title        =$con->real_escape_string($_POST['title']);
+	$message      =$_POST['message'];
+
+	$target_dir   ="../uploads/admin_notif/";
+  $filename     = basename($_FILES['efile']['name']);
+
+	$target_file  =$target_dir.$filename;
+
+	if(move_uploaded_file($_FILES['efile']['tmp_name'],$target_file)){
+
+		$query="INSERT into admin_notifications 
+            (target, title, message, upload)
+            values(?,?,?,?)";
+    $query_run = $con->prepare($query);
+    if(!$query_run)
+        echo $con->error;
+    else{    
+      $query_run->bind_param('ssss', $targetpeople, $title, $message, $filename);
+    
+      if($query_run->execute()){
+        echo "<script type='text/javascript'> alert('data updated');</script>";	
+      }
+      else{
+        echo "<script type='text/javascript'> alert('unsuccessfull updation ". $con->error ."');</script>";
+      }
+    }
+	}
+	else {
+		echo "<script type='text/javascript'> alert('Error in book upload');</script>";
+		
+	}
+	
+	
+	
+	
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -70,25 +111,24 @@ require '..\dbconfig\config.php';
 <div class="container" >
 <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
 <div class="form-group">
-<label >Target people:</label>
-<select id="targetpeople" name="targetpeople" required>
-  <option value="student">student</option>
-  <option value="professor">professor</option>
-  <option value="both">both</option>
-  
-</select>
+  <label >Target people:</label>
+  <select class='form-control' id="targetpeople" name="targetpeople" required>
+    <option value="student">student</option>
+    <option value="professor">professor</option>
+    <option value="both">both</option>
+  </select>
 </div>
 <div class="form-group">
-<label>Title</label></br>
-<input type="text" style="width:50%" name="title" required></input>
+  <label>Title</label></br>
+  <input type="text" class='form-control' placeholder='Enter title' name="title" required></input>
 </div>
-<div >
-<label>Message</label></br>
-<textarea rows="5" cols="90" style="width:700px" name="message" required ></textarea>
+<div class="form-group">
+  <label>Message</label></br>
+  <textarea rows="5" class='form-control' placeholder='Enter Message' name="message" required ></textarea>
 </div>
-<div >
+<div class="form-group">
 <label>Upload</label></br>
-<input type="file" name="efile"></input>
+<input class='form-control' type="file" name="efile"></input>
 </div>
 <div class="form-group mt-5" >
 <button type="submit" name="sendnot"class="btn btn-primary">Send Message</button>
@@ -96,40 +136,7 @@ require '..\dbconfig\config.php';
 </form>
 </div>
 </div></div>
-<?php
-if(isset($_POST['sendnot']))
-{
-	$targetpeople=$_POST['targetpeople'];
-	$title       =$_POST['title'];
-	$message     =$_POST['message'];
-	$target_dir="Upload/";
-	$target_file=$target_dir.basename($_FILES['efile']['name']);
-	if(move_uploaded_file($_FILES['efile']['tmp_name'],$target_file)){
-		$query="insert into admin_notifications values('','$targetpeople','$title','$message',now(),'$target_file')";
-	$query_run=mysqli_query($con,$query);
-	
-	if($query_run){
-		echo "<script type='text/javascript'> alert('data updated');</script>";
-		
-	}
-	else{
-		echo "<script type='text/javascript'> alert('unsuccessfull updation');</script>";
-		
-	}
-		
-	}
-	else {
-		echo "<script type='text/javascript'> alert('Error in book upload');</script>";
-		
-	}
-	
-	
-	
-	
-}
 
-
-?>
 <script src="../dash_style/main.js"></script>
 </body>
 </html>

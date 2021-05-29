@@ -2,6 +2,14 @@
 session_start();
 require '../dbconfig/config.php';
 
+if(isset($_POST['submit'])){
+  $id = $_POST['notifid'];
+  if($con->query("UPDATE `student_update` SET status =  status ^ 1 WHERE id = $id;")){
+    echo "<script>alert('Updated');</script>";
+  }else{
+    echo $con->error;
+  }
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -78,12 +86,12 @@ require '../dbconfig/config.php';
         <th>Title</th>
         <th>Request</th>
 		    <th>logs</th>
-
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
 	<?php
-	   $sql="select * from student_update";
+	   $sql="SELECT * from student_update";
 	   $res=$con->query($sql);
 	   if($res->num_rows >0)
 	   {      $i=0;
@@ -95,11 +103,24 @@ require '../dbconfig/config.php';
 					   <td>{$row['rollno']}</td>
 			           <td>{$row['title']}</td>
 					   <td>{$row['request']}</td>
-					   <td>{$row['logs']}</td>
+					   <td>{$row['logs']}</td>";
+?>
+        <form action='<?php echo $_SERVER['PHP_SELF']; ?>' method='post'>
+        <input type='hidden' name='notifid' value='<?php echo $row['id'];?>'>
+					   <td><input type='submit' name='submit' 
+                              class='btn btn-<?php if($row['status'])
+                                                            echo "success";
+                                                            else
+                                                            echo "danger";?>'
+                                                            
+                                      value='<?php if($row['status'])
+                                                            echo "Taken Care of";
+                                                            else
+                                                            echo "Not Responded";?>' /></td>
+        </form>
+					   </tr>
 					   
-					   </tr>";
-					   
-					   
+<?php					   
 			  }
 	   }
 	   else{

@@ -42,10 +42,13 @@ if(!isset($_SESSION['sroll_no']))
             <a href="student_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
           </li>
           <li>
-            <a href="student_update_details.php"><span class="fa fa-user-plus"></span>UPDATE PROFILE DETAILS</a>
+            <a href="student_update_details.php"><span class="fa fa-user-plus"></span>SEND REQUEST </a>
           </li>
           <li>
             <a href="view_all_course.php"><span class="fa fa-sticky-note"></span>VIEW ALL COURSES</a>
+          </li>
+          <li>
+            <a href="course_details.php"><span class="fa fa-book"></span>VIEW COURSE DETAILS</a>
           </li>
           <li>
             <a href="student_notification.php"><span class="fa fa-bell"></span>NOTIFICATION</a>
@@ -97,9 +100,10 @@ function load_enrolled_courses(){
     })
   }
 
-  function open_course(courseid){
+  function open_course(courseid, coursename){
     $.post('api/set_course.php', {
-      course_id: courseid
+      course_id: courseid,
+      coursename: coursename
     }, function(data){
       $('#enrolledCourses').html(data);
     })
