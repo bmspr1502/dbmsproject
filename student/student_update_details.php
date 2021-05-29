@@ -75,12 +75,12 @@ require '../dbconfig/config.php';
 <form class="update_form" action="student_update_details.php" method="POST">
 <div class="form-group">
 <input type="hidden" class="form-control" name="rollno" value="<?php echo $_SESSION['sroll_no'];?>">
-<label class="control-label"><i class="fa fa-lock fa-1.5x"></i>Title</label>
+<label class="control-label"><i class="fa fa-envelope "></i> Title</label>
 <input type="text" placeholder="Title" class="form-control" name="title"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-address-card" ></i>Request</label>
+<label class="control-label"><span class="fa fa-comment " ></span> Request</label>
 
-<textarea rows="4" cols="70" name="request" class="form-control" style="margin-left:10px"></textarea>
+<textarea rows="4" cols="70" name="request" class="form-control" placeholder="Message" ></textarea><br>
 <button  name="send" class="btn btn-success" id="sendbtn" type="submit">SEND REQUEST TO ADMIN</button></div>
 </form>
 </div>
