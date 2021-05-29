@@ -20,7 +20,7 @@ if(isset($_POST['courseid'])){
 </form>
 
 <?php
-    $qry = $con->prepare("SELECT * from course_notifications WHERE courseid = ?");
+    $qry = $con->prepare("SELECT * from course_notifications WHERE courseid = ? ORDER BY time DESC");
     $qry->bind_param("s", $_POST['courseid']);
 
     $qry->execute();

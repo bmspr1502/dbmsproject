@@ -72,7 +72,8 @@ require "../dbconfig/config.php";
 <div class="container">
 
     <?php
-    $qry = "SELECT * from admin_notifications WHERE  target='student' OR target='both'";
+    $qry = "SELECT * from admin_notifications WHERE  target='student' OR target='both'
+            ORDER BY logs DESC";
     
 
     
