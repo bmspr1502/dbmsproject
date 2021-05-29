@@ -11,7 +11,9 @@ if(isset($_POST['SROLLNO'])){
     $result = $query->get_result();
 	if($result->num_rows>0)
 	{
+		$row = $result->fetch_assoc();
 		$_SESSION['sroll_no']= $srollno;
+		$_SESSION['student_name'] = $row['name'];
 		echo "<script>window.location.href='student/stddash.php'</script>";
 	
 	}

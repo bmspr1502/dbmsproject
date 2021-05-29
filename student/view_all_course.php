@@ -27,7 +27,7 @@ session_start();
 				<h1><a href="../index.php" class="logo">CMS</a></h1>
         <ul class="list-unstyled components mb-5">
           <li class="active">
-            <a href="stddash.php"><span class="fa fa-home"></span>DASHBOARD</a>
+            <a href="stddash.php"><span class="fa fa-home"></span><?php echo $_SESSION['student_name'];?>'s DASHBOARD</a>
           </li>
 		  <li>
             <a href="student_profile_details.php"><span class="fa fa-user"></span>PROFILE DETAILS</a>
