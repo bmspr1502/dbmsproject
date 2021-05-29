@@ -8,14 +8,19 @@ if(isset($_POST['sendnot']))
 	$title        =$con->real_escape_string($_POST['title']);
 	$message      =$_POST['message'];
 
-	$target_dir   ="../uploads/admin_notif/";
-  $filename     = basename($_FILES['efile']['name']);
+  if($_FILES['efile']['error']!=4){
+    $target_dir   ="../uploads/admin_notif/";
+    $filename     = basename($_FILES['efile']['name']);
 
-	$target_file  =$target_dir.$filename;
+    $target_file  =$target_dir.$filename;
 
-	if(move_uploaded_file($_FILES['efile']['tmp_name'],$target_file)){
+    if(!move_uploaded_file($_FILES['efile']['tmp_name'],$target_file)) {
+      echo "<script type='text/javascript'> alert('Error in book upload');</script>";
+      
+    }
+  }
 
-		$query="INSERT into admin_notifications 
+  $query="INSERT into admin_notifications 
             (target, title, message, upload)
             values(?,?,?,?)";
     $query_run = $con->prepare($query);
@@ -31,11 +36,6 @@ if(isset($_POST['sendnot']))
         echo "<script type='text/javascript'> alert('unsuccessfull updation ". $con->error ."');</script>";
       }
     }
-	}
-	else {
-		echo "<script type='text/javascript'> alert('Error in book upload');</script>";
-		
-	}
 	
 	
 	
