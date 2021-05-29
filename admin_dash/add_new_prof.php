@@ -107,7 +107,7 @@ if(isset($_POST['create']))
 		echo "<script type='text/javascript'> alert('sucessfully created');</script>";
 	}
 	else{
-		echo "<script type='text/javascript'> alert('unsuccess');</script>";
+		echo "<script type='text/javascript'> alert('unsuccess ". $con->error ."');</script>";
 		
 	}
 }
