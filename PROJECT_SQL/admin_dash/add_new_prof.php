@@ -73,7 +73,7 @@ require '../dbconfig/config.php';
 
 
 <div class="container align-items-center" id="newcourse">
-<h4> CREATE A NEW COURSE </h4>
+<h4> ADD NEW PROFESSOR </h4>
 
 
 <form action="add_new_prof.php" method="POST" >

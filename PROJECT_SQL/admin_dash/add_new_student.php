@@ -18,7 +18,7 @@ require '../dbconfig/config.php';
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href="style.css">
 
-<title>ADD NEW COURSE</title>
+<title>ADD NEW STUDENT</title>
 </head>
 <body>
 		<div class="wrapper d-flex align-items-stretch">
@@ -70,18 +70,18 @@ require '../dbconfig/config.php';
 
 
 <div class="container align-items-center" id="newcourse">
-<h4> CREATE A NEW COURSE </h4>
+<h4> ADD NEW STUDENT </h4>
 <form action="add_new_student.php" method="POST" >
 <div class="form-group align-items-center">
 
 <label class="control-label"><i class="fas fa-lock fa-1.5x"></i> Roll-no</label>
-<input type="text" placeholder="Enter Course ID" class="form-control" name="sid" ></div>
+<input type="text" placeholder="Enter Student rollno" class="form-control" name="sid" ></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-address-card" ></i> student Name</label>
-<input type="text" placeholder="Enter Course Name" class="form-control" name="sname"></div>
+<label class="control-label"><i class="fa fa-address-card" ></i> Student Name</label>
+<input type="text" placeholder="Enter Student Name" class="form-control" name="sname"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> student password </label>
-<input type="text" placeholder="Enter Professor ID" class="form-control" name="spassword"></div>
+<label class="control-label"><i class="fa fa-birthday-cake"></i> Student Password </label>
+<input type="text" placeholder="Enter Student password" class="form-control" name="spassword"></div>
 
 <button class="btn btn-primary" id="sendbtn" type="submit" name="create">CREATE NEW STUDENT</button>
 </form>
