@@ -73,11 +73,14 @@ require  '../dbconfig/config.php';
 <h4><center>All Students Details</center></h4>
 <div class="container" >
 <div class="row">
+<div class="container">
+<form>
+<input type="text" name="Search" placeholder="Search..." id="myinput" style="width:100%" class="form-control"/>
+<br>
+<br>
 
-<input type="text" name="Search" placeholder="Search..." id="myinput" style="width:200%" class="form-control"/>
-<hr>
-
-
+</form>
+</div>
 
 <table class="table table-bordered table-dark table-striped">
     <thead>
