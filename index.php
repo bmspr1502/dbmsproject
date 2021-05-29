@@ -250,6 +250,10 @@ img.avatar {
 
 </head>
 <body id="HOME">
+ <div class="headerr";">
+    <h1 class="headerr_text glow"><b>𝓒𝓔𝓖 𝓒𝓜𝓢</b></h1>
+</div>
+
   <div class="bs-example">
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">	
        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
@@ -267,10 +271,6 @@ img.avatar {
        </div>
      </nav>
  </div>
- <div class="headerr";">
-    <h1 class="headerr_text glow"><b>𝓒𝓔𝓖 𝓒𝓜𝓢</b></h1>
-</div>
-
 
 <div class="a" > 
 <div class="grid-container">
