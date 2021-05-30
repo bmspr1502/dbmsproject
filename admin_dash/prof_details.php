@@ -224,10 +224,11 @@ require  '../dbconfig/config.php';
             $profpass = $_POST['profpass'];
             $profemail = $_POST['profemail'];
             $profcontactno = $_POST['profcontactno'];
-            $query = "update prof_details set name='$profname',password='$profpass', where profno='$id'";
-            $query_run = mysqli_query($con, $query);
+            $query = $con->prepare("update prof_details set name=?,password=?,email=?,contactno=? where profno='$id'");
+           $query->bind_param("ssss",$profname,$profpass,$profemail,$profcontactno);
+           
 
-            if ($query_run) {
+            if ($query->execute()) {
               echo "<script type='text/javascript'> alert('data updated');</script>";
             } else {
               echo "<script type='text/javascript'> alert('unsuccessfull updation');</script>";

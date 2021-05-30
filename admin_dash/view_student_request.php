@@ -107,8 +107,7 @@ if(isset($_POST['submit'])){
 ?>
         <form action='<?php echo $_SERVER['PHP_SELF']; ?>' method='post'>
         <input type='hidden' name='notifid' value='<?php echo $row['id'];?>'>
-					   <td><input type='submit' name='submit' 
-                              class='btn btn-<?php if($row['status'])
+					   <td><input type='submit' name='submit'  class='btn btn-<?php if($row['status'])
                                                             echo "success";
                                                             else
                                                             echo "danger";?>'
