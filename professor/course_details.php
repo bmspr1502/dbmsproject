@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['pid']))
+{
+	header("location:../index.php");
+}
 if(!isset($_SESSION['p_course'])){
     echo '<script>window.location.href="profdash.php"</script>';
   }
