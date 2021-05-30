@@ -2,6 +2,11 @@
 session_start();
 require '../dbconfig/config.php';
 
+if(!isset($_SESSION['aid']))
+{
+	header("location:../index.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html>

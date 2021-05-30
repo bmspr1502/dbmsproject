@@ -2,6 +2,10 @@
 session_start();
 require '../dbconfig/config.php';
 
+if(!isset($_SESSION['aid']))
+{
+	header("location:../index.php");
+}
 if(isset($_POST['submit'])){
   $id = $_POST['notifid'];
   if($con->query("UPDATE `student_update` SET status =  status ^ 1 WHERE id = $id;")){
