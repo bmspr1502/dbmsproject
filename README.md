@@ -6,6 +6,14 @@
 - <a target='_blank' href='https://github.com/DHEEPAKRAAJ123/'>Dheepak Raaj R</a> - `2019103516`
 - <a target='_blank' href='https://github.com/Sugavanesh10/'>Sugavaneshwaran K</a> - `2019103585`
 
+# AIM:
+
+We all have faced the problem where we would have missed some information that was sent in the official groups,
+sometimes lost track of the information sent. Also the study materials that are sent can get lost in the chats.
+So we have thought of designing a course management system where for each course the professor can directly send the details 
+and any other announcements to the students. Also the student will be able to see all the available courses and 
+enroll in any new course they would want to feature in. 
+
 # How to use the app
 
 - Install XAMPP and start Apache and MySQL server from XAMPP Control Panel
