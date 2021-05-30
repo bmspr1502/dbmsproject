@@ -2,9 +2,9 @@
 ## _DBMS - CS6106 - PROJECT_
 
 ### Developed by-
-- <a target='_blank' href='https://github.com/bmspr1502/'>Pranava Raman B M S</a>
-- <a target='_blank' href='https://github.com/DHEEPAKRAAJ123/'>Dheepak Raaj</a>
-- <a target='_blank' href='https://github.com/Sugavanesh10/'>Sugavaneshwaran K</a>
+- <a target='_blank' href='https://github.com/bmspr1502/'>Pranava Raman B M S</a> - `2019103555`
+- <a target='_blank' href='https://github.com/DHEEPAKRAAJ123/'>Dheepak Raaj</a> - `2019103516`
+- <a target='_blank' href='https://github.com/Sugavanesh10/'>Sugavaneshwaran K</a> - `2019103585`
 
 # How to use the app
 
