@@ -39,7 +39,7 @@ if(isset($_POST['courseid'])){
             <div class='row'>
             <footer class="blockquote-footer col-md-9"><?php
             $date = date_create($qn['time']);
-            echo date_format($date, 'H:i - d F, Y') ;?>.<br>Posted by-- <?php echo $qn['usertype']." : ". $qn['posted_by'];?>
+            echo date_format($date, 'H:i - d F, Y') ;?>.<br>Posted by-- <a href='#' data-toggle="modal" data-target="#viewProfile" onclick='show_information_of_person("<?php echo $qn["usertype"]?>","<?php echo $qn["posted_by"]?>")'><?php echo $qn['usertype']." : ". $qn['posted_by'];?></a>
             </footer>
             <button class="btn btn-primary col-md-3 float-right" type="button" data-toggle="collapse" data-target="#answerforqn<?php echo $qn['qnid'] ?>" aria-expanded="false" aria-controls="answerforqn<?php echo $qn['qnid'] ?>">
                 View Answers
@@ -73,7 +73,7 @@ if(isset($_POST['courseid'])){
                 
             <div class='row container'>
                     <div class='col-md-3 bg-dark text-white'>
-                        <p><b><?php echo $answers['usertype'] . " : " . $answers['userid'];?></b>
+                        <p><a href='#' data-toggle="modal" data-target="#viewProfile" onclick='show_information_of_person("<?php echo $answers["usertype"]?>","<?php echo $answers["userid"]?>")'><b><?php echo $answers['usertype'] . " : " . $answers['userid'];?></b></a>
                         <br><?php
             $date = date_create($answers['time']);
             echo date_format($date, 'H:i - d F, Y') ;?></p>
