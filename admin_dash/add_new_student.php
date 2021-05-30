@@ -111,9 +111,10 @@ if(isset($_POST['create']))
 	
 	
 	
-	$query="insert into student_details values ('$sid','$sname','$spassword','$sdob','$saddress','$semail','$scontactno')";
-	$query_run=mysqli_query($con,$query);
-	if($query_run){
+	$query=$con->prepare("insert into student_details values (?,?,?,?,?,?,?)");
+  $query->bind_param("sssssss",$sid,$sname,$spassword,$sdob,$saddress,$semail,$scontactno);
+	
+	if($query->execute()){
 		echo "<script type='text/javascript'> alert('sucessfully added ');</script>";
 	}
 	else{

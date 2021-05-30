@@ -108,10 +108,10 @@ if(isset($_POST['create']))
 	$pcontactno=$_POST['pcontactno'];
 	
 	
-	$query="insert into prof_details values ('$profid','$profname','$ppass','$pemail','$pcontactno')";
-	$query_run=mysqli_query($con,$query);
+	$query=$con->prepare("insert into prof_details values (?,?,?,?,?)");
+	$query->bind_param("sssss",$profid,$profname,$ppass,$pemail,$pcontactno);
 	
-	if($query_run){
+	if($query->execute()){
 		echo "<script type='text/javascript'> alert('sucessfully created');</script>";
 	}
 	else{
