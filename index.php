@@ -9,7 +9,7 @@ require 'dbconfig/config.php'
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -73,6 +73,7 @@ a {
       padding: 20px;
       font-size: 23px;
       width: 60px;
+	  
       text-align: center;
       text-decoration: none;
       margin: 5px 2px;
@@ -90,10 +91,13 @@ a {
       margin-top: 30px;
     }
 
-    .fa-whatsapp {
-      background: #25d366;
-      color: white;
-    }
+
+	.fa-linkedin{
+  height: 60px;
+  width: 60px;
+  color:white;
+  background-color:#0077b5;
+}
 
     .fa-twitter {
       background: #55ACEE;
@@ -101,8 +105,12 @@ a {
     }
 
     .fa-instagram {
-      background: #125688;
-      color: white;
+    background: #f09433; 
+	background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+	background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+	background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+	color: white;
     }
 
     p {
@@ -444,29 +452,57 @@ window.onclick = function(event){
 	<div class="col-sm-12"  style="color:#ffffff"  id="ABOUT US">
 	<div style="font-family:verdana">
 	<p> ABOUT US</p><br>
-<p style="color:ghostwhite">We all have faced the problem where we would have missed some information that was sent in the official groups,sometimes lost track of the information sent.  Some have thought of designing a course management system where for each course the professor can directly send the details and any other announcements to the students.</p>
+<p style="color:ghostwhite">We all have faced the problem where we would have missed some information that was sent in the official groups,sometimes lost track of the information sent.</p>
      </div>
 	</div>
+	 </div>
 	</div>
-	</div>
-
-	  
+		  
+ 
 <div class="container">
+<p style="color:white"><b>DONE BY</b></p>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-sm-4">
         <div style="color:#ffffff" class="wow fadeInUp footer-copyright" id="CONTACT US">
-		 <p >CONTACT US</p>
-   <p>	 
-    <a href="https://www.facebook.com/AnnaUniversityImpUpdates/" target='_blank' class="fa fa-facebook"></a>
-    <a href="https://www.instagram.com/anna_university/" target='_blank' class="fa fa-instagram"></a>
-    <a href="https://twitter.com/annauniversity?lang=en" target='_blank' class="fa fa-twitter"></a>
+	
+   <p>
+	<p>DHEEPAK RAJ<P>   
+	<a href="https://www.facebook.com/AnnaUniversityImpUpdates/" target='_blank'  class="fa fa-linkedin"></a>
+	<a href="https://www.instagram.com/rdheepakraaj/" target='_blank' class="fa fa-instagram"></a>
+	<a href="https://github.com/Dheepakraaj123/"fa fa-github" style="font-size:35px;"></a>
   </p>
-          <p>Made in India <br>
-            Copyright &copy; 2021 </p>
         </div>
       </div>
+	   <div class="col-sm-4">
+        <div style="color:#ffffff" class="wow fadeInUp footer-copyright" id="CONTACT US">
+   <p>	 
+    	<p>PRANAVARAMAN<P>
+	<a href="https://www.linkedin.com/in/pranava-raman-bms/" target='_blank'  class="fa fa-linkedin"></a>
+	<a href="https://www.instagram.com/pranavaramanbms/" target='_blank' class="fa fa-instagram"></a>
+	<a href="https://github.com/bmspr1502/" target='_blank' class="fa fa-github" style="font-size:35px;"></a>
+</p>
+
+	
+        </div>
+      </div>
+	   <div class="col-sm-4">
+        <div style="color:#ffffff" class="wow fadeInUp footer-copyright" id="CONTACT US">
+
+   <p>	
+	<p>SUGAVANESHWARAN<P>   
+	<a href="https://www.linkedin.com/in/sugavanesh-k-46705a205/" target='_blank'  class="fa fa-linkedin"></a>
+	<a href="https://www.instagram.com/sugavanesh_k/" target='_blank' class="fa fa-instagram"></a>
+	<a href="https://github.com/Sugavanesh10/" target='_blank' class="fa fa-github" style="font-size:35px;"></a>
+  </p>
+        </div>
+      </div>
+	  
+	  
     </div>
+	 <p style="color:white">Made in India <br>
+            Copyright &copy; 2021 </p>
  </div>
+
 </footer>
 
 
