@@ -174,7 +174,7 @@ require  '../dbconfig/config.php';
                       <div class="modal-body">
 
                         <h5>Are You sure want to delete this record?</h5>
-                        <input type="text" name="delete_id" id="delete_id"></input>
+                        <input type="hidden" name="delete_id" id="delete_id" ></input>
                       </div>
                       <div class="modal-footer">
 
