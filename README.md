@@ -1,6 +1,6 @@
 # CEG-CMS
 ## _DBMS - CS6106 - PROJECT `2020-21`_
-
+- <a target='_blank' href='https://cegcmsproject.000webhostapp.com/'>The site is hosted here</a>
 ### Developed by-
 - <a target='_blank' href='https://github.com/bmspr1502/'>Pranava Raman B M S</a> - `2019103555`
 - <a target='_blank' href='https://github.com/DHEEPAKRAAJ123/'>Dheepak Raaj R</a> - `2019103516`
