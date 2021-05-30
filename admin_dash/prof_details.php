@@ -148,7 +148,7 @@ require  '../dbconfig/config.php';
                     <div class="form-group align-items-center">
                       
                       <label class="control-label"><i class="fas fa-lock fa-1.5x"></i> profno</label>
-                      <input type="text" class="form-control" name="profid" id="profid">
+                      <input type="hidden" class="form-control" name="profid" id="profid">
                     </div>
                     <div class="form-group">
                       <label class="control-label"><i class="fa fa-address-card"></i> Prof Name</label>
