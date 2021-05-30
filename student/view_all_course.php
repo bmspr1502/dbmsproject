@@ -124,9 +124,10 @@ session_start();
     })
   }
 
-  function open_course(courseid){
+  function open_course(courseid, coursename){
     $.post('api/set_course.php', {
-      course_id: courseid
+      course_id: courseid,
+      coursename: coursename
     }, function(data){
       $('#enrolledCourses').html(data);
     })

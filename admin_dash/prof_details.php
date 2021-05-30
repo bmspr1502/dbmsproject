@@ -1,6 +1,43 @@
 <?php
 require  '../dbconfig/config.php';
 
+if (isset($_POST['delete'])) {
+
+  $id = $_POST['delete_id'];
+
+  $query = "delete from prof_details WHERE profno='$id'";
+  $query_run = mysqli_query($con, $query);
+
+  if ($query_run) {
+    echo "<script type='text/javascript'> alert('data deleted');</script>";
+  } else {
+    echo "<script type='text/javascript'> alert('unsuccessfull deletion');</script>";
+  }
+}
+
+
+?>
+<?php
+
+if (isset($_POST['update'])) {
+
+  $id = $_POST['profid'];
+  $profname = $_POST['profname'];
+  $profpass = $_POST['profpass'];
+  $profemail = $_POST['profemail'];
+  $profcontactno = $_POST['profcontactno'];
+  $query = $con->prepare("update prof_details set name=?,password=?,email=?,contactno=? where profno='$id'");
+ $query->bind_param("ssss",$profname,$profpass,$profemail,$profcontactno);
+ 
+
+  if ($query->execute()) {
+    echo "<script type='text/javascript'> alert('data updated');</script>";
+  } else {
+    echo "<script type='text/javascript'> alert('unsuccessfull updation');</script>";
+  }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -196,46 +233,7 @@ require  '../dbconfig/config.php';
               </div>
             </div>
           </div>
-          <?php
-
-          if (isset($_POST['delete'])) {
-
-            $id = $_POST['delete_id'];
-
-            $query = "delete from prof_details WHERE profno='$id'";
-            $query_run = mysqli_query($con, $query);
-
-            if ($query_run) {
-              echo "<script type='text/javascript'> alert('data deleted');</script>";
-            } else {
-              echo "<script type='text/javascript'> alert('unsuccessfull deletion');</script>";
-            }
-          }
-
-
-          ?>
-          <?php
-
-          if (isset($_POST['update'])) {
-
-            $id = $_POST['profid'];
-            $profname = $_POST['profname'];
-            $profpass = $_POST['profpass'];
-            $profemail = $_POST['profemail'];
-            $profcontactno = $_POST['profcontactno'];
-            $query = $con->prepare("update prof_details set name=?,password=?,email=?,contactno=? where profno='$id'");
-           $query->bind_param("ssss",$profname,$profpass,$profemail,$profcontactno);
-           
-
-            if ($query->execute()) {
-              echo "<script type='text/javascript'> alert('data updated');</script>";
-            } else {
-              echo "<script type='text/javascript'> alert('unsuccessfull updation');</script>";
-            }
-          }
-
-
-          ?>
+         
 
           <script>
             jQuery(document).ready(function($) {
