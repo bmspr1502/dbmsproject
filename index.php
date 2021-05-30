@@ -467,16 +467,16 @@ window.onclick = function(event){
 	
    <p>
 	<p>DHEEPAK RAJ<P>   
-	<a href="https://www.facebook.com/AnnaUniversityImpUpdates/" target='_blank'  class="fa fa-linkedin"></a>
+	<a href="https://www.linkedin.com/in/dheepak-raaj-208a0020b/" target='_blank'  class="fa fa-linkedin"></a>
 	<a href="https://www.instagram.com/rdheepakraaj/" target='_blank' class="fa fa-instagram"></a>
-	<a href="https://github.com/Dheepakraaj123/"fa fa-github" style="font-size:35px;"></a>
+	<a href="https://github.com/Dheepakraaj123/" class="fa fa-github" target='_blank'  style="font-size:35px;"></a>
   </p>
         </div>
       </div>
 	   <div class="col-sm-4">
         <div style="color:#ffffff" class="wow fadeInUp footer-copyright" id="CONTACT US">
    <p>	 
-    	<p>PRANAVARAMAN<P>
+    	<p>PRANAVA RAMAN B M S<P>
 	<a href="https://www.linkedin.com/in/pranava-raman-bms/" target='_blank'  class="fa fa-linkedin"></a>
 	<a href="https://www.instagram.com/pranavaramanbms/" target='_blank' class="fa fa-instagram"></a>
 	<a href="https://github.com/bmspr1502/" target='_blank' class="fa fa-github" style="font-size:35px;"></a>
@@ -489,7 +489,7 @@ window.onclick = function(event){
         <div style="color:#ffffff" class="wow fadeInUp footer-copyright" id="CONTACT US">
 
    <p>	
-	<p>SUGAVANESHWARAN<P>   
+	<p>SUGAVANESHWARAN K<P>   
 	<a href="https://www.linkedin.com/in/sugavanesh-k-46705a205/" target='_blank'  class="fa fa-linkedin"></a>
 	<a href="https://www.instagram.com/sugavanesh_k/" target='_blank' class="fa fa-instagram"></a>
 	<a href="https://github.com/Sugavanesh10/" target='_blank' class="fa fa-github" style="font-size:35px;"></a>
@@ -499,7 +499,7 @@ window.onclick = function(event){
 	  
 	  
     </div>
-	 <p style="color:white">Made in India <br>
+	 <p style="color:white">Made with ❤ in CEG <br>
             Copyright &copy; 2021 </p>
  </div>
 

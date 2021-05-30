@@ -22,6 +22,7 @@ if($result = $con->query($sql)){
 
     if($stu_res = $con->query($stu_qry)){
         ?>
+        <div style="overflow-x:auto;">
 <table class="table table-dark table-striped">
 <thead>
     <tr>
@@ -46,6 +47,7 @@ if($result = $con->query($sql)){
         ?>
 </tbody>
 </table>
+</div>
 <?php
     }else{
         echo $con->error();

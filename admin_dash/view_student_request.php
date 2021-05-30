@@ -77,7 +77,7 @@ if(isset($_POST['submit'])){
 <div class="container" >
 <div class="row">
 
-
+<div style="overflow-x:auto;">
 <table class="table table-bordered table-dark table-striped">
     <thead>
       <tr>
@@ -130,6 +130,7 @@ if(isset($_POST['submit'])){
       
     </tbody>
   </table>
+  </div>
 </div></div>
 </div></div>
 <script src="../dash_style/main.js"></script>
