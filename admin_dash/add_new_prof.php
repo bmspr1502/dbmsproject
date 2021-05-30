@@ -88,7 +88,7 @@ require '../dbconfig/config.php';
 <label class="control-label"><i class="fa fa-lock"></i> Professor Password </label>
 <input type="text" placeholder="Enter Professor Password" class="form-control" name="ppass"></div>
 <div class="form-group">
-<label class="control-label"><i class="fa fa-birthday-cake"></i> Professor Email  </label>
+<label class="control-label"><i class="fa fa-envelope"></i> Professor Email  </label>
 <input type="email" placeholder="Enter Professor email" class="form-control" name="pemail"></div>
 <div class="form-group">
 <label class="control-label"><i class="fa fa-phone"></i> Professor Contact no </label>
