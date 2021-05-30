@@ -72,7 +72,7 @@ require '../dbconfig/config.php';
         <div class="container" >
 <div class="row">
 <div style="overflow-x:auto;">
-<table class="table table-bordered">
+<table class="table table-bordered table-striped table-dark">
     <thead>
           <tr>
             <th>S.No</th>

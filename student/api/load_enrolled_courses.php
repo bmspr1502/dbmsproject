@@ -17,7 +17,7 @@ $i=rand()%4;
 $colorArray =Array('warning','info','success','danger');
 while ($row =$query_run->fetch_assoc()) 
 { ?> 
- <div class="col-lg-4 col-md-6 col-12">
+ <div class="col-lg-6 col-md-6 col-12">
    <div class='card text-white bg-<?php echo $colorArray[$i%4]; ?> mb-3' style='margin:20px;' id='cardcourse'>
     <div class="card-header">
        <center><i class="fa fa-book-reader fa-2x"></center></i>           

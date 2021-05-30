@@ -61,7 +61,7 @@ require '../dbconfig/config.php';
               <span class="sr-only">Toggle Menu</span>
             </button>
             <div class='mx-auto text-center'>
-              <h4>CREATE A NEW STUDENT</h4>
+              <h4>ADD NEW STUDENT</h4>
             </div>
 		</div>
         </nav>
