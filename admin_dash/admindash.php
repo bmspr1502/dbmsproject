@@ -72,9 +72,7 @@ if(!isset($_SESSION['aid']))
             
 		    	</div>
         </nav>
-
-
-    
+  
     <div class="container-fluid p-0" id="enrolledcourses">
        <h3><center>OVERALL DETAILS</center></h3>
         <div class="container mt-5">

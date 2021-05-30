@@ -147,7 +147,7 @@ require  '../dbconfig/config.php';
                   <form action="prof_details.php" method="POST">
                     <div class="form-group align-items-center">
                       
-                      <label class="control-label"><i class="fas fa-lock fa-1.5x"></i> profno</label>
+                      <label class="control-label"><i class="fa fa-bookmark"></i> profno</label>
                       <input type="hidden" class="form-control" name="profid" id="profid">
                     </div>
                     <div class="form-group">
@@ -155,18 +155,17 @@ require  '../dbconfig/config.php';
                       <input type="text" class="form-control" name="profname" id="profname">
                     </div>
                     <div class="form-group">
-                      <label class="control-label"><i class="fa fa-birthday-cake"></i> Prof password</label>
+                      <label class="control-label"><i class="fa fa-lock"></i> Prof password</label>
                       <input type="text" class="form-control" name="profpass" id="profpass">
                     </div>
                     <div class="form-group">
-                      <label class="control-label"><i class="fa fa-birthday-cake"></i> Prof Email</label>
+                      <label class="control-label"><i class="fa fa-envelope"></i> Prof Email</label>
                       <input type="email" class="form-control" name="profemail" id="profemail">
                     </div>
                     <div class="form-group">
-                      <label class="control-label"><i class="fa fa-birthday-cake"></i> Prof Contact no</label>
+                      <label class="control-label"><i class="fa fa-phone"></i> Prof Contact no</label>
                       <input type="number" class="form-control" name="profcontactno" id="profcontactno">
-                    </div>
-                   
+                    </div>                  
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

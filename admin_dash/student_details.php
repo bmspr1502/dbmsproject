@@ -204,13 +204,13 @@ if(isset($_POST['update']))
       
 <div class="form-group align-items-center">
 
-<label class="control-label" ><i class="fa fa-lock "></i> rollno</label>
+<label class="control-label" ><i class="fa fa-bookmark "></i> rollno</label>
 <input type="hidden"  class="form-control" name="srollno"  id="srollno"  ></div>
 <div class="form-group">
 <label class="control-label" ><i class="fa fa-address-card" ></i>  Name</label>
 <input type="text"  class="form-control" name="sname" id="sname"></div>
 <div class="form-group">
-<label class="control-label" ><i class="fa fa-birthday-cake"></i> Password</label>
+<label class="control-label" ><i class="fa fa-lock"></i> Password</label>
 <input type="text"  class="form-control" name="spass" id="spass"></div>
     
       <div class="form-group">
@@ -218,15 +218,15 @@ if(isset($_POST['update']))
 <input type="text"  class="form-control" name="sdob" id="sdob"></div>
       
       <div class="form-group">
-<label class="control-label" ><i class="fa fa-birthday-cake"></i> Address</label>
+<label class="control-label" ><i class="fa fa-address-card"></i> Address</label>
 <input type="text"  class="form-control" name="saddress" id="saddress"></div>
       
       <div class="form-group">
-<label class="control-label" ><i class="fa fa-birthday-cake"></i> Email</label>
+<label class="control-label" ><i class="fa fa-envelope"></i> Email</label>
 <input type="email"  class="form-control" name="semail" id="semail"></div>
       
       <div class="form-group">
-<label class="control-label" ><i class="fa fa-birthday-cake"></i> Contact no</label>
+<label class="control-label" ><i class="fa fa-phone"></i> Contact no</label>
 <input type="text"  class="form-control" name="scontactno" id="scontactno"></div>
       </div>
       <div class="modal-footer">

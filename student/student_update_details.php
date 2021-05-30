@@ -101,12 +101,12 @@ if(isset($_POST['send']))
               <form class="update_form" action="student_update_details.php" method="POST">
               <div class="form-group">
                 <input type="hidden" class="form-control" name="rollno" value="<?php echo $_SESSION['sroll_no'];?>">
-                <label class="control-label"><i class="fa fa-lock fa-1.5x"></i>Title</label>
-                <input type="text" placeholder="Title" class="form-control" name="title">
+                <label class="control-label"><i class="fa fa-lock"> </i>  Title</label>
+                <input type="text" placeholder="Title" class="form-control" name="title" required>
               </div>
               <div class="form-group">
-                <label class="control-label"><i class="fa fa-address-card" ></i>Request</label>
-                <textarea rows="4" cols="70" name="request" class="form-control" style="margin-left:10px"></textarea>
+                <label class="control-label"><i class="fa fa-address-card" ></i>  Request</label>
+                <textarea rows="4" cols="70" name="request" class="form-control" placeholder="Enter the request" style="margin-left:10px" required></textarea>
               </div>
               <div class='form-group'>
                 <button  name="send" class="btn btn-success" id="sendbtn" type="submit">SEND REQUEST TO ADMIN</button>
@@ -153,8 +153,7 @@ if(isset($_POST['send']))
                               class='btn btn-<?php if($row['status'])
                                                             echo "success";
                                                             else
-                                                            echo "danger";?>'>
-                                                            
+                                                            echo "danger";?>'>                                                           
                                       <?php if($row['status'])
                                                             echo "Taken Care of";
                                                             else
