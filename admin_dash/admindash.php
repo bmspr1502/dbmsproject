@@ -1,10 +1,9 @@
-
 <?php 
-require  '../dbconfig/config.php';
 session_start();
+require  '../dbconfig/config.php';
 if(!isset($_SESSION['aid']))
 {
-	header("location:/PROJECT_SQL/index.php");
+	header("location:../index.php");
 }
 ?>
 

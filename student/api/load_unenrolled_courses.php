@@ -3,21 +3,22 @@ session_start();
 include '../../dbconfig/config.php';
 
 if(isset($_POST['rollno'])){
-$sql= $con->prepare("SELECT * FROM `view_all_courses_student` 
+  $roll = $_POST['rollno'];
+$sql= $con->query("SELECT * FROM `view_all_courses_student` 
         WHERE  courseid NOT IN 
-        (SELECT courseid from `view_all_courses_student` WHERE rollno=? GROUP BY courseid) 
+        (SELECT courseid from `view_all_courses_student` WHERE rollno= $roll GROUP BY courseid) 
         GROUP BY courseid");
-$sql->bind_param('i', $_POST['rollno']);
+/*
 $sql->execute();
 $query_run = $sql->get_result();
     
-
+*/
 
 $i=0;
 $colorArray =Array('warning','info','success','danger');
-while ($row =$query_run->fetch_assoc()) 
+while ($row =$sql->fetch_assoc()) 
 { ?> 
- <div class="col-lg-4 col-md-6 col-12">
+ <div class="col-lg-6 col-md-6 col-12">
    <div class='card text-white bg-<?php echo $colorArray[$i%4]; ?> mb-3' style='margin:20px;' id='cardcourse'>
     <div class="card-header">
        <center><i class="fa fa-book-reader fa-2x"></center></i>           

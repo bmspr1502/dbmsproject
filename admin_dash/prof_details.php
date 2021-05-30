@@ -1,4 +1,5 @@
 <?php
+session_start();
 require  '../dbconfig/config.php';
 
 if (isset($_POST['delete'])) {
@@ -14,10 +15,6 @@ if (isset($_POST['delete'])) {
     echo "<script type='text/javascript'> alert('unsuccessfull deletion');</script>";
   }
 }
-
-
-?>
-<?php
 
 if (isset($_POST['update'])) {
 

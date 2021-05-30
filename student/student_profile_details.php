@@ -1,6 +1,11 @@
 <?php
 session_start();
 require '../dbconfig/config.php';
+
+if(!isset($_SESSION['sroll_no']))
+{
+	header("location:../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html>
