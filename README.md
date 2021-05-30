@@ -9,7 +9,7 @@
 # How to use the app
 
 - Install XAMPP and start Apache and MySQL server from XAMPP Control Panel
-- Clone the repository inside your 'xampp/htdocs/' folder
+- Clone the repository inside your `xampp/htdocs/` folder
 - Create a database `cmsproj` inside the phpMyAdmin of your localhost
 - Import the latest `cmsproj.sql` file from the repository to the database
 - Goto [http://localhost/dbmsproject/](http://localhost/dbmsproject/)
