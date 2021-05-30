@@ -119,6 +119,7 @@ if(isset($_POST['send']))
 
 <div class='container'>
 <h4 class='text-center'>Previous Requests</h4>
+<div style="overflow-x:auto;">
 <table class="table table-bordered table-dark table-striped">
     <thead>
       <tr>
@@ -171,6 +172,7 @@ if(isset($_POST['send']))
       
     </tbody>
   </table>
+  </div>
     </div>
   </div>
 </div>

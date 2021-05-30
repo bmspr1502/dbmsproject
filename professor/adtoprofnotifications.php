@@ -71,6 +71,7 @@ require '../dbconfig/config.php';
         </nav>
         <div class="container" >
 <div class="row">
+<div style="overflow-x:auto;">
 <table class="table table-bordered">
     <thead>
           <tr>
@@ -111,6 +112,7 @@ require '../dbconfig/config.php';
       
     </tbody>
   </table> 
+  </div>
   </div>
   </div>
   </div>

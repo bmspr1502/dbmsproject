@@ -87,6 +87,7 @@ require '../dbconfig/config.php';
               ?>
             <div class="row justify-content-center">
           <div class="col-auto">
+          <div style="overflow-x:auto;">
       <table class="table table-responsive table-dark table-striped">
               <tr>
                 <th>DETAILS</th>
@@ -136,6 +137,7 @@ if($query_run->num_rows >0)
           <td><?php echo $query_run->num_rows; ?></td>
         </tr>
         </table>
+        </div>
       </div>
     </div>
 

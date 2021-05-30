@@ -137,7 +137,7 @@ if(isset($_POST['update']))
 
 </form>
 </div>
-
+<div style="overflow-x:auto;">
 <table class="table table-bordered table-dark table-striped">
     <thead>
       <tr>
@@ -187,6 +187,7 @@ if(isset($_POST['update']))
       
     </tbody>
   </table>
+</div>
  <!-- Button trigger modal -->
 
 
@@ -244,7 +245,7 @@ if(isset($_POST['update']))
       </div><form action="student_details.php" method="POST">
       <div class="modal-body">
 	  
-        <h5>Are You sure want to delete this record?</h5>
+        <h5>Are You sure want to delete this student? This action is not undoable.</h5>
 		<input type="hidden" name="delete_id" id="delete_id"></input>
       </div>
       <div class="modal-footer" >

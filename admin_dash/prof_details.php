@@ -82,7 +82,7 @@ require  '../dbconfig/config.php';
 
             </form>
           </div>
-
+          <div style="overflow-x:auto;">
           <table class="table table-bordered table-striped table-dark  ">
             <thead>
               <tr>
@@ -131,7 +131,7 @@ require  '../dbconfig/config.php';
 
             </tbody>
           </table>
-
+          </div>
           <!-- Button trigger modal -->
 
 
@@ -185,7 +185,7 @@ require  '../dbconfig/config.php';
                 <form action="prof_details.php" method="POST">
                   <div class="modal-body">
 
-                    <h5>Are You sure want to delete this record?</h5>
+                    <h5>Are You sure want to delete this Professor? All the courses took by the professor and the course data will also be deleted.</h5>
                     <input type="hidden" name="delete_id" id="delete_id"></input>
                   </div>
                   <div class="modal-footer">

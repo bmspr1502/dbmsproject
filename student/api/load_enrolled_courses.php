@@ -13,7 +13,7 @@ $query_run = $sql->get_result();
     
 
 
-$i=0;
+$i=rand()%4;
 $colorArray =Array('warning','info','success','danger');
 while ($row =$query_run->fetch_assoc()) 
 { ?> 
