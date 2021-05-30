@@ -19,7 +19,7 @@ require '../dbconfig/config.php';
 		<link rel="stylesheet" href="../dash_style/style.css">
 
 
-<title>ADD NEW COURSE</title>
+<title>ADD NEW PROFESSOR</title>
 </head>
 <body>
 
