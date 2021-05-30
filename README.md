@@ -10,7 +10,7 @@
 
 We all have faced the problem where we would have missed some information that was sent in the official groups,
 sometimes lost track of the information sent. Also the study materials that are sent can get lost in the chats.
-So we have thought of designing a course management system where for each course the professor can directly send the details 
+So we have designed a `Course Management System` where for each course the professor can directly send the details 
 and any other announcements to the students. Also the student will be able to see all the available courses and 
 enroll in any new course they would want to feature in. 
 
@@ -58,14 +58,14 @@ enroll in any new course they would want to feature in.
 
 ## Tables Used
 
-* STUDENT_DETAILS (ALL DETAILS OF STUDENTS)
-* STUDENT_COURSES (MAPPING BETWEEN STUDENTS AND COURSES (WHICH STUDENT ENROLLED TO WHICH COURSE))
-* PROF_DETAILS  (ALL DETAILS OF PROFESSORS)
-* COURSE_DETAILS (ALL COURSE NAMES AND ASSIGNED PROFESSOR)
-* COURSE_DATA (ALL STUDY MATERIALS OF EACH COURSES)
-* COURSE_NOTIFICATIONS (ALL NOTIFICATIONS OF EACH COURSE)
-* COURSE_FORUM_QN (QUESTIONS ASKED IN COURSE DISCUSSION PAGE)
-* COURSE_FORUM_ANS (ANSWER OF EACH QUESTION ANSWERED IN THE COURSE DISCUSSION PAGE)
-* ADMIN_NOTIFICATION (ALL NOTIFICATIONS SENT BY ADMIN)
-* STUDENT_UPDATE  (ALL REQUEST SENT FROM STUDENT TO ADMIN)
-* ADMIN_LOGIN  (ADMIN LOGIN CREDENTIALS)S)
+* `STUDENT_DETAILS` (ALL DETAILS OF STUDENTS)
+* `STUDENT_COURSES` (MAPPING BETWEEN STUDENTS AND COURSES (WHICH STUDENT ENROLLED TO WHICH COURSE))
+* `PROF_DETAILS`  (ALL DETAILS OF PROFESSORS)
+* `COURSE_DETAILS` (ALL COURSE NAMES AND ASSIGNED PROFESSOR)
+* `COURSE_DATA` (ALL STUDY MATERIALS OF EACH COURSES)
+* `COURSE_NOTIFICATIONS` (ALL NOTIFICATIONS OF EACH COURSE)
+* `COURSE_FORUM_QN` (QUESTIONS ASKED IN COURSE DISCUSSION PAGE)
+* `COURSE_FORUM_ANS` (ANSWER OF EACH QUESTION ANSWERED IN THE COURSE DISCUSSION PAGE)
+* `ADMIN_NOTIFICATION` (ALL NOTIFICATIONS SENT BY ADMIN)
+* `STUDENT_UPDATE`  (ALL REQUEST SENT FROM STUDENT TO ADMIN)
+* `ADMIN_LOGIN` (ADMIN LOGIN CREDENTIALS)S)
