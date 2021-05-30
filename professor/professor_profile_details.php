@@ -108,7 +108,7 @@ require '../dbconfig/config.php';
             </tr>
             <tr>
               <td>Contact No</td>  
-              <td><?php echo $row['contact no']; ?></td> 
+              <td><?php echo $row['contactno']; ?></td> 
             </tr>
                   
             
