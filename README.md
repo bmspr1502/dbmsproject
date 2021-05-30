@@ -1,5 +1,5 @@
 # CEG-CMS
-## _DBMS - CS6106 - PROJECT_
+## _DBMS - CS6106 - PROJECT `2020-21`_
 
 ### Developed by-
 - <a target='_blank' href='https://github.com/bmspr1502/'>Pranava Raman B M S</a> - `2019103555`
