@@ -141,9 +141,9 @@ require  '../dbconfig/config.php';
                     <div class="modal-body">
                       <form action="acourse_details.php" method="POST">
                         <div class="form-group align-items-center">
-                          <input type="hidden" id="sno"></input>
+                          
                           <label class="control-label"><i class="fas fa-lock fa-1.5x"></i> Courseid</label>
-                          <input type="text" class="form-control" name="cid" id="cid">
+                          <input type="hidden" class="form-control" name="cid" id="cid">
                         </div>
                         <div class="form-group">
                           <label class="control-label"><i class="fa fa-address-card"></i> Course Name</label>
@@ -210,10 +210,10 @@ require  '../dbconfig/config.php';
                 $id = $_POST['cid'];
                 $cname = $_POST['cname'];
                 $pid = $_POST['pid'];
-                $query = "update course_details set name='$cname',profno='$pid' where courseid='$id'";
-                $query_run = mysqli_query($con, $query);
+                $query = $con->prepare("update course_details set name=?,profno=? where courseid='$id'");
+                $query->bind_param("ss",$cname,$pid);
 
-                if ($query_run) {
+                if ($query->execute()) {
                   echo "<script type='text/javascript'> alert('data updated');</script>";
                 } else {
                   echo "<script type='text/javascript'> alert('unsuccessfull updation');</script>";
